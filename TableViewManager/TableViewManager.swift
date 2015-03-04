@@ -146,8 +146,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     */
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let item = self.itemAtIndexPath(indexPath)
-        return CGFloat(TableViewCell.heightWithItem(item, tableView: tableView, indexPath: indexPath))
+        return CGFloat(TableViewCell.heightWithItem(self.itemAtIndexPath(indexPath), tableView: tableView, indexPath: indexPath))
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -232,9 +231,12 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     optional func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
     
     // Indentation
+    */
+    func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
+        return self.itemAtIndexPath(indexPath).indentationLevel
+    }
     
-    optional func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int // return 'depth' of row for hierarchies
-    
+    /*
     // Copy/Paste.  All three methods must be implemented by the delegate.
     
     @availability(iOS, introduced=5.0)

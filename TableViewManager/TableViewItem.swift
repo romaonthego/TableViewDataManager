@@ -26,6 +26,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var editingStyle: TableViewItemEditingStyle = .None
     var height: Float = 44
     var accessibilityIdentifier: String?
+    var indentationLevel: Int = 0
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
     var selectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var insertionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
