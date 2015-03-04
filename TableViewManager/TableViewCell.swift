@@ -23,6 +23,6 @@ class TableViewCell: UITableViewCell {
     }
     
     static func estimatedHeightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
-        return item.height
+        return heightWithItem(item, tableView: tableView, indexPath: indexPath)
     }
 }
