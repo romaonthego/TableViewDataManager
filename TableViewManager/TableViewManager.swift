@@ -148,16 +148,21 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     
-    /*
-    // Use the estimatedHeight methods to quickly calcuate guessed values which will allow for fast load times of the table.
-    // If these methods are implemented, the above -tableView:heightForXXX calls will be deferred until views are ready to be displayed, so more expensive logic can be placed there.
-    @availability(iOS, introduced=7.0)
-    optional func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    @availability(iOS, introduced=7.0)
-    optional func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
-    @availability(iOS, introduced=7.0)
-    optional func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let section = self.dataSource?.sections[indexPath.section] as TableViewSection!
+        let item = section?.items[indexPath.row] as TableViewItem!
+        return CGFloat(TableViewCell.heightWithItem(item, tableView: tableView, indexPath: indexPath))
+    }
+
+    func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+
+    func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
     
+    /*
     // Section header & footer information. Views are preferred over title should you decide to provide both
     
     optional func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? // custom view for header. will be adjusted to default or specified header height
