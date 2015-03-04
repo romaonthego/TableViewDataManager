@@ -22,7 +22,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var image: UIImage?
     var highlightedImage: UIImage?
     var editingStyle: TableViewItemEditingStyle = .None
-    var cellHeight: Float = 44
+    var height: Float = 44
     var accessibilityIdentifier: String?
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
     var selectionHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
