@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewDataSource: NSObject {
+class TableViewDataSource {
     
     var sections: [TableViewSection] = []
     

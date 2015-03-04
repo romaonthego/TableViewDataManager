@@ -42,9 +42,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Public methods
     //
-    func registerCellClass(cellClass: AnyClass, forItemClass: AnyClass) {
-        let identifier = NSStringFromClass(forItemClass)
-        self.tableView?.registerClass(cellClass, forCellReuseIdentifier: NSStringFromClass(forItemClass))
+    func registerCellClass(cellClass: AnyClass, forItemClass itemClass: AnyClass) {
+        let identifier = NSStringFromClass(itemClass)
+        self.tableView?.registerClass(cellClass, forCellReuseIdentifier: NSStringFromClass(itemClass))
     }
     
     func registerNib(nib: UINib, forItemClass: AnyClass) {

@@ -21,6 +21,7 @@
 		488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06CC1AA78AAC003000C3 /* IBTableViewItem.swift */; };
 		488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06CE1AA78AC0003000C3 /* IBTableViewCell.swift */; };
 		488C06D11AA78AC0003000C3 /* IBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488C06CF1AA78AC0003000C3 /* IBTableViewCell.xib */; };
+		488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D21AA7A2F9003000C3 /* TableViewCellStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		488C06CC1AA78AAC003000C3 /* IBTableViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBTableViewItem.swift; sourceTree = "<group>"; };
 		488C06CE1AA78AC0003000C3 /* IBTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBTableViewCell.swift; sourceTree = "<group>"; };
 		488C06CF1AA78AC0003000C3 /* IBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBTableViewCell.xib; sourceTree = "<group>"; };
+		488C06D21AA7A2F9003000C3 /* TableViewCellStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				488C06C41AA66B3E003000C3 /* TableViewCell.swift */,
+				488C06D21AA7A2F9003000C3 /* TableViewCellStyle.swift */,
 				488C06B81AA65CEB003000C3 /* TableViewManager.swift */,
 				488C06BA1AA65D04003000C3 /* TableViewDataSource.swift */,
 				488C06BC1AA65D91003000C3 /* TableViewSection.swift */,
@@ -283,6 +286,7 @@
 				488C06BD1AA65D91003000C3 /* TableViewSection.swift in Sources */,
 				488C06BF1AA65D9D003000C3 /* TableViewItem.swift in Sources */,
 				488C06CB1AA78A83003000C3 /* RootViewController.swift in Sources */,
+				488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */,
 				488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */,
 				488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */,
 				488C06C51AA66B3E003000C3 /* TableViewCell.swift in Sources */,
