@@ -12,10 +12,7 @@ class RootViewController: UITableViewController {
 
     // Lazy initialize the table view manager
     //
-    lazy var manager: TableViewManager = {
-        let manager = TableViewManager(tableView: self.tableView)
-        return manager
-    }()
+    lazy var manager: TableViewManager = TableViewManager(tableView: self.tableView)
     
     // MARK: View life cycle
     //
