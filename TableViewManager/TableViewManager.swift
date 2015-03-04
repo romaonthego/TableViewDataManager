@@ -97,10 +97,16 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     
-    /*
-    optional func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? // fixed font style. use custom view (UILabel) if you want something different
-    optional func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).headerTitle
+    }
+    
+    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).footerTitle
+    }
+    
+    /*
     // Editing
     
     // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
@@ -150,32 +156,33 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        if let headerView = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).headerView {
+            return headerView.frame.height
+        }
+        return UITableViewAutomaticDimension
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        if let footerView = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).footerView {
+            return footerView.frame.height
+        }
+        return UITableViewAutomaticDimension
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let item = self.itemAtIndexPath(indexPath)
         return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
     }
-
-    func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).headerView
     }
-
-    func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 0
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).footerView
     }
     
     /*
-    // Section header & footer information. Views are preferred over title should you decide to provide both
-    
-    optional func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? // custom view for header. will be adjusted to default or specified header height
-    optional func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? // custom view for footer. will be adjusted to default or specified footer height
-    
     // Accessories (disclosures).
     
     optional func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath)
