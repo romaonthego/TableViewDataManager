@@ -86,6 +86,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         cell.item = item
         cell.section = section
         cell.indexPath = indexPath
+        cell.separatorInset = tableView.separatorInset
         cell.accessibilityIdentifier = item.accessibilityIdentifier
         cell.cellDidLoad()
         cell.cellWillAppear()
