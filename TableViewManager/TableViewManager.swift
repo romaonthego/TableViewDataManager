@@ -47,7 +47,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
     }
     
-    // MARK: <UITableViewDelegate> methods
+    // MARK: <UITableViewDataSource> methods
     //
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let dataSource = self.dataSource {
@@ -78,4 +78,41 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if let dataSource = self.dataSource {
+            return dataSource.sections.count
+        }
+        return 0
+    }
+    
+    /*
+    optional func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? // fixed font style. use custom view (UILabel) if you want something different
+    optional func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
+    
+    // Editing
+    
+    // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
+    optional func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    
+    // Moving/reordering
+    
+    // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
+    optional func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    
+    // Index
+    
+    optional func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! // return list of section titles to display in section index view (e.g. "ABCD...Z#")
+    optional func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int // tell table which section corresponds to section title/index (e.g. "B",1))
+    
+    // Data manipulation - insert and delete support
+    
+    // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
+    // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
+    optional func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    
+    // Data manipulation - reorder / moving support
+    
+    optional func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+*/
 }

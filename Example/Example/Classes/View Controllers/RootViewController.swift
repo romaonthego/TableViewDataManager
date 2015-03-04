@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class RootViewController: UITableViewController {
     
     // Lazy initialize the table view manager
     //

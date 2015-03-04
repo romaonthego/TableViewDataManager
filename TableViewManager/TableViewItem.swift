@@ -16,6 +16,8 @@ enum TableViewItemEditingStyle {
 
 class TableViewItem: NSObject, UIAccessibilityIdentification {
     
+    // MARK: Variables
+    //
     var text: String?
     var detailText: String?
     var section: TableViewSection?
@@ -35,6 +37,8 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var copyHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
     var pasteHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
     
+    // MARK: Lifecycle
+    //
     convenience init(text: String) {
         self.init()
         self.text = text
