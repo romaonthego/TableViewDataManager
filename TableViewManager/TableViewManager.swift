@@ -19,7 +19,6 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
             tableView?.dataSource = self
         }
     }
-    private var registeredClasses: [String : AnyClass] = [:]
 
     // MARK: Lifecycle
     //
@@ -40,11 +39,12 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     //
     func registerCellClass(cellClass: AnyClass, forItemClass: AnyClass) {
         let identifier = NSStringFromClass(forItemClass)
-        
-        self.registeredClasses[identifier] = cellClass
         self.tableView?.registerClass(cellClass, forCellReuseIdentifier: NSStringFromClass(forItemClass))
-        //self.tableView?.registerNib(<#nib: UINib#>, forCellReuseIdentifier: <#String#>)
-        //self.registeredClasses[]
+    }
+    
+    func registerNib(nib: UINib, forItemClass: AnyClass) {
+        let identifier = NSStringFromClass(forItemClass)
+        self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
     }
     
     // MARK: <UITableViewDelegate> methods

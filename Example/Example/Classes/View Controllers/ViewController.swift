@@ -13,7 +13,9 @@ class ViewController: UITableViewController {
     // Lazy initialize the table view manager
     //
     lazy var manager: TableViewManager = {
-        return TableViewManager(tableView: self.tableView)
+        let manager = TableViewManager(tableView: self.tableView)
+        manager.registerNib(UINib(nibName: "IBTableViewCell", bundle: NSBundle.mainBundle()), forItemClass: IBTableViewItem.self)
+        return manager
     }()
     
     // MARK: View life cycle
@@ -28,8 +30,11 @@ class ViewController: UITableViewController {
             
             // Add items
             //
-            section.items = [TableViewItem(text: "First item"), {
-                let item = TableViewItem(text: "Second item")
+            section.items = [{
+                let item = TableViewItem(text: "First item")
+                return item
+            }(), {
+                let item = IBTableViewItem(text: "Second item")
                 return item
             }()]
             
