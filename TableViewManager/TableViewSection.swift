@@ -21,8 +21,9 @@ import UIKit
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
 
     // MARK: Lifecycle
-    //
-    init(headerTitle: String) {
+    //    
+    convenience init(headerTitle: String) {
+        self.init()
         self.headerTitle = headerTitle
     }
     
@@ -31,7 +32,8 @@ import UIKit
         self.footerTitle = footerTitle
     }
     
-    init(headerView: UIView) {
+    convenience init(headerView: UIView) {
+        self.init()
         self.headerView = headerView
     }
     

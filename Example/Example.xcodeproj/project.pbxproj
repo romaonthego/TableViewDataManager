@@ -22,6 +22,7 @@
 		488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06CE1AA78AC0003000C3 /* IBTableViewCell.swift */; };
 		488C06D11AA78AC0003000C3 /* IBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488C06CF1AA78AC0003000C3 /* IBTableViewCell.xib */; };
 		488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D21AA7A2F9003000C3 /* TableViewCellStyle.swift */; };
+		488C06D51AA7C0D3003000C3 /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D41AA7C0D3003000C3 /* StyleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		488C06CE1AA78AC0003000C3 /* IBTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBTableViewCell.swift; sourceTree = "<group>"; };
 		488C06CF1AA78AC0003000C3 /* IBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBTableViewCell.xib; sourceTree = "<group>"; };
 		488C06D21AA7A2F9003000C3 /* TableViewCellStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellStyle.swift; sourceTree = "<group>"; };
+		488C06D41AA7C0D3003000C3 /* StyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				488C06CA1AA78A83003000C3 /* RootViewController.swift */,
+				488C06D41AA7C0D3003000C3 /* StyleViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */,
 				488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */,
 				488C06C51AA66B3E003000C3 /* TableViewCell.swift in Sources */,
+				488C06D51AA7C0D3003000C3 /* StyleViewController.swift in Sources */,
 				488C06981AA65656003000C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
