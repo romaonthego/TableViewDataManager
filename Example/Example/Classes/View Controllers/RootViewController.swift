@@ -31,7 +31,11 @@ class RootViewController: UITableViewController {
             // Add items
             //
             section.items = [{
-                let item = TableViewItem(text: "First item")
+                let item = TableViewItem(text: "First item", configurationHandler:{ (tableViewCell: TableViewCell) in
+                    tableViewCell.textLabel?.font = UIFont.boldSystemFontOfSize(20)
+                }, selectionHandler: { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
+                    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                })
                 return item
             }(), {
                 let item = IBTableViewItem(text: "Second item")

@@ -27,15 +27,15 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var height: Float = 44
     var accessibilityIdentifier: String?
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
-    var selectionHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
-    var insertionHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
-    var deletionHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
-    var deletionHandlerWithCompletion: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath, (Void) -> (Void)) -> (Void))?
-    var moveHandler: ((tableView: UITableView, item: TableViewItem, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Bool))?
-    var moveCompletionHandler: ((tableView: UITableView, item: TableViewItem, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Void))?
-    var cutHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
-    var copyHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
-    var pasteHandler: ((tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void))?
+    var selectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var insertionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var deletionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var deletionHandlerWithCompletion: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, (Void) -> (Void)) -> (Void))?
+    var moveHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Bool))?
+    var moveCompletionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Void))?
+    var cutHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var copyHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var pasteHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     
     // MARK: Lifecycle
     //
@@ -49,12 +49,12 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
         self.configurationHandler = configurationHandler
     }
     
-    convenience init(text: String, selectionHandler: (tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String, selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.selectionHandler = selectionHandler
     }
     
-    convenience init(text: String, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.configurationHandler = configurationHandler
         self.selectionHandler = selectionHandler
@@ -71,13 +71,13 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
         self.configurationHandler = configurationHandler
     }
     
-    convenience init(text: String, image: UIImage, selectionHandler: (tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String, image: UIImage, selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.selectionHandler = selectionHandler
         self.image = image
     }
     
-    convenience init(text: String, image: UIImage, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (tableView: UITableView, item: TableViewItem, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String, image: UIImage, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.image = image
         self.configurationHandler = configurationHandler

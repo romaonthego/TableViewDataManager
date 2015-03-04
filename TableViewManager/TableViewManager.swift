@@ -47,6 +47,17 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
     }
     
+    // MARK: Private methods
+    //
+    private func sectionAtIndexPath(indexPath: NSIndexPath) -> TableViewSection {
+        return self.dataSource?.sections[indexPath.section] as TableViewSection!
+    }
+    
+    private func itemAtIndexPath(indexPath: NSIndexPath) -> TableViewItem {
+        let section = self.sectionAtIndexPath(indexPath)
+        return section.items[indexPath.row] as TableViewItem!
+    }
+    
     // MARK: <UITableViewDataSource> methods
     //
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,9 +68,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let section = self.dataSource?.sections[indexPath.section] as TableViewSection!
-        let item = section?.items[indexPath.row] as TableViewItem!
-        let identifier = NSStringFromClass(item?.dynamicType)
+        let section = self.sectionAtIndexPath(indexPath)
+        let item = self.itemAtIndexPath(indexPath)
+        let identifier = NSStringFromClass(item.dynamicType)
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TableViewCell
         
         cell.item = item
@@ -135,8 +146,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     */
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let section = self.dataSource?.sections[indexPath.section] as TableViewSection!
-        let item = section?.items[indexPath.row] as TableViewItem!
+        let item = self.itemAtIndexPath(indexPath)
         return CGFloat(TableViewCell.heightWithItem(item, tableView: tableView, indexPath: indexPath))
     }
     
@@ -149,8 +159,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let section = self.dataSource?.sections[indexPath.section] as TableViewSection!
-        let item = section?.items[indexPath.row] as TableViewItem!
+        let item = self.itemAtIndexPath(indexPath)
         return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
     }
 
@@ -188,7 +197,16 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     @availability(iOS, introduced=3.0)
     optional func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
     // Called after the user changes the selection.
-    optional func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    */
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = self.itemAtIndexPath(indexPath)
+        let section = self.sectionAtIndexPath(indexPath)
+        if let selectionHandler = item.selectionHandler {
+            selectionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+    }
+    
+    /*
     @availability(iOS, introduced=3.0)
     optional func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
     
