@@ -63,6 +63,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TableViewCell
         
         cell.item = item
+        cell.section = section
+        cell.indexPath = indexPath
+        cell.accessibilityIdentifier = item.accessibilityIdentifier
         cell.cellWillAppear()
         
         if let configurationHandler = section.configurationHandler {

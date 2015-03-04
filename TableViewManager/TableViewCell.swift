@@ -11,6 +11,8 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     var item: TableViewItem!
+    var section: TableViewSection!
+    var indexPath: NSIndexPath?
     
     func cellWillAppear() {
         self.textLabel?.text = item.text

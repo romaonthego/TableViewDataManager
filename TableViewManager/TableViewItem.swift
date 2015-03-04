@@ -8,13 +8,12 @@
 
 import UIKit
 
-class TableViewItem {
+class TableViewItem: NSObject, UIAccessibilityIdentification {
     
     var text: String?
     var detailText: String?
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
-    
-    init() {}
+    var accessibilityIdentifier: String?
     
     init(text: String) {
         self.text = text
