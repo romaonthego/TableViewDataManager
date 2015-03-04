@@ -21,11 +21,32 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="Mvr-Yv-qhB" kind="show" identifier="Root → Show Style" id="z1Z-jI-4ts"/>
+                        <segue destination="9J9-Br-ZfV" kind="show" identifier="Root → Show Interface Builder Support" id="5kA-S5-iYb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gc-11-qA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="614" y="724"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="V9F-y7-4E0">
+            <objects>
+                <tableViewController id="9J9-Br-ZfV" customClass="TestViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="qiN-Pr-c7V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="9J9-Br-ZfV" id="PQb-wd-vdK"/>
+                            <outlet property="delegate" destination="9J9-Br-ZfV" id="Mm3-t0-s6N"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9nh-dd-vwQ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAs-4r-Rzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="614" y="1605"/>
         </scene>
         <!--Style-->
         <scene sceneID="Ze4-TA-OqD">
