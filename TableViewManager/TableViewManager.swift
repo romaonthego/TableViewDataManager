@@ -29,7 +29,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
         self.dataSource = dataSource
-        self.registerCellClass(TableViewCell.self, itemClass: TableViewItem.self)
+        self.registerCellClass(TableViewCell.self, forItemClass: TableViewItem.self)
     }
     
     convenience init(tableView: UITableView) {
@@ -38,11 +38,11 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Public methods
     //
-    func registerCellClass(cellClass: AnyClass, itemClass: AnyClass) {
-        let identifier = NSStringFromClass(itemClass)
+    func registerCellClass(cellClass: AnyClass, forItemClass: AnyClass) {
+        let identifier = NSStringFromClass(forItemClass)
         
         self.registeredClasses[identifier] = cellClass
-        self.tableView?.registerClass(cellClass, forCellReuseIdentifier: NSStringFromClass(itemClass))
+        self.tableView?.registerClass(cellClass, forCellReuseIdentifier: NSStringFromClass(forItemClass))
         //self.tableView?.registerNib(<#nib: UINib#>, forCellReuseIdentifier: <#String#>)
         //self.registeredClasses[]
     }
