@@ -19,14 +19,14 @@ class RetractableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var collapsedItems: [TableViewItem] = []
+        var expandedItems: [TableViewItem] = []
         var simpleConfigurationHandler: ((tableViewCell: TableViewCell) -> (Void)) = { (tableViewCell: TableViewCell) in
             tableViewCell.accessoryType = .None
         }
         var accessoryConfigurationHandler: ((tableViewCell: TableViewCell) -> (Void)) = { (tableViewCell: TableViewCell) in
             tableViewCell.accessoryType = .DisclosureIndicator
         }
-        var collapsedItems: [TableViewItem] = []
-        var expandedItems: [TableViewItem] = []
         
         collapsedItems = [
             TableViewItem(text: "Test Item 1", configurationHandler: simpleConfigurationHandler),
