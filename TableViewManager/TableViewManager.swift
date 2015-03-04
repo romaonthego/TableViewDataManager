@@ -151,7 +151,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let section = self.dataSource?.sections[indexPath.section] as TableViewSection!
         let item = section?.items[indexPath.row] as TableViewItem!
-        return CGFloat(TableViewCell.heightWithItem(item, tableView: tableView, indexPath: indexPath))
+        return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
     }
 
     func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {

@@ -21,4 +21,8 @@ class TableViewCell: UITableViewCell {
     static func heightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
         return item.height
     }
+    
+    static func estimatedHeightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
+        return item.height
+    }
 }
