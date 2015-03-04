@@ -13,6 +13,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // MARK: Variables
     //
     var dataSource: TableViewDataSource?
+    var style: TableViewCellStyle?
     var tableView: UITableView? {
         didSet {
             tableView?.delegate = self
@@ -78,10 +79,15 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         let identifier = NSStringFromClass(item.dynamicType)
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TableViewCell
         
+        cell.style = self.style
+        if let sectionStyle = section.style {
+            cell.style = sectionStyle
+        }
         cell.item = item
         cell.section = section
         cell.indexPath = indexPath
         cell.accessibilityIdentifier = item.accessibilityIdentifier
+        cell.cellDidLoad()
         cell.cellWillAppear()
         
         if let configurationHandler = section.configurationHandler {
