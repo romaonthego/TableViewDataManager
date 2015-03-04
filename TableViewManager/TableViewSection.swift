@@ -20,6 +20,8 @@ import UIKit
     var hidden: Bool = false
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
 
+    // MARK: Lifecycle
+    //
     init(headerTitle: String) {
         self.headerTitle = headerTitle
     }
