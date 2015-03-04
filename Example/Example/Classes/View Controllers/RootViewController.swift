@@ -35,6 +35,7 @@ class RootViewController: UITableViewController {
                 return item
             }(), {
                 let item = IBTableViewItem(text: "Second item")
+                item.height = 100
                 return item
             }()]
             

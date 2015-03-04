@@ -18,7 +18,7 @@ class TableViewCell: UITableViewCell {
         self.textLabel?.text = item.text
     }
     
-    func heightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
+    static func heightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
         return item.height
     }
 }
