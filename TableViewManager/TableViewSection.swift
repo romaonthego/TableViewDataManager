@@ -17,7 +17,6 @@ import UIKit
     var footerTitle: String?
     var headerView: UIView?
     var footerView: UIView?
-    var hidden: Bool = false
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
 
     // MARK: Lifecycle

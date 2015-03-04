@@ -31,6 +31,11 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.registerCellClass(TableViewCell.self, forItemClass: TableViewItem.self)
     }
     
+    deinit {
+        self.tableView?.delegate = nil
+        self.tableView?.dataSource = nil
+    }
+    
     convenience init(tableView: UITableView) {
         self.init(tableView: tableView, dataSource: TableViewDataSource())
     }
