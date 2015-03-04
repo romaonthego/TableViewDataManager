@@ -25,6 +25,7 @@
 		488C06D51AA7C0D3003000C3 /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D41AA7C0D3003000C3 /* StyleViewController.swift */; };
 		488C06D71AA7C4F5003000C3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D61AA7C4F5003000C3 /* RootViewController.swift */; };
 		488C06D91AA7CA29003000C3 /* RetractableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D81AA7CA29003000C3 /* RetractableViewController.swift */; };
+		488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06DA1AA7D082003000C3 /* IBViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		488C06D41AA7C0D3003000C3 /* StyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
 		488C06D61AA7C4F5003000C3 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		488C06D81AA7CA29003000C3 /* RetractableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetractableViewController.swift; sourceTree = "<group>"; };
+		488C06DA1AA7D082003000C3 /* IBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				488C06CA1AA78A83003000C3 /* TestViewController.swift */,
 				488C06D41AA7C0D3003000C3 /* StyleViewController.swift */,
 				488C06D81AA7CA29003000C3 /* RetractableViewController.swift */,
+				488C06DA1AA7D082003000C3 /* IBViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				488C06BD1AA65D91003000C3 /* TableViewSection.swift in Sources */,
 				488C06BF1AA65D9D003000C3 /* TableViewItem.swift in Sources */,
 				488C06CB1AA78A83003000C3 /* TestViewController.swift in Sources */,
+				488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */,
 				488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */,
 				488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */,
 				488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */,

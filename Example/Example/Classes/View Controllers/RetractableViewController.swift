@@ -16,10 +16,10 @@ class RetractableViewController: UITableViewController {
     
     // Static configuration handlers
     //
-    static var simpleConfigurationHandler: ((tableViewCell: TableViewCell) -> (Void)) = { (tableViewCell: TableViewCell) in
+    static var simpleConfigurationHandler: (tableViewCell: TableViewCell) -> (Void) = { (tableViewCell: TableViewCell) in
         tableViewCell.accessoryType = .None
     }
-    static var accessoryConfigurationHandler: ((tableViewCell: TableViewCell) -> (Void)) = { (tableViewCell: TableViewCell) in
+    static var accessoryConfigurationHandler: (tableViewCell: TableViewCell) -> (Void) = { (tableViewCell: TableViewCell) in
         tableViewCell.accessoryType = .DisclosureIndicator
     }
     

@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="614" y="724"/>
         </scene>
-        <!--Test View Controller-->
+        <!--Interface Builder Support-->
         <scene sceneID="V9F-y7-4E0">
             <objects>
-                <tableViewController id="9J9-Br-ZfV" customClass="TestViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="9J9-Br-ZfV" customClass="IBViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="qiN-Pr-c7V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                             <outlet property="delegate" destination="9J9-Br-ZfV" id="Mm3-t0-s6N"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9nh-dd-vwQ"/>
+                    <navigationItem key="navigationItem" title="Interface Builder Support" id="9nh-dd-vwQ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAs-4r-Rzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
