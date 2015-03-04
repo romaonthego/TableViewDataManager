@@ -19,13 +19,7 @@ import UIKit
     var footerView: UIView?
     var hidden: Bool = false
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
-    
-    // MARK: Lifecycle
-    //
-    init() {
-        
-    }
-    
+
     init(headerTitle: String) {
         self.headerTitle = headerTitle
     }
