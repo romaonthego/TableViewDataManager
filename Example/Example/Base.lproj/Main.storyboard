@@ -22,6 +22,7 @@
                     <connections>
                         <segue destination="Mvr-Yv-qhB" kind="show" identifier="Root → Show Style" id="z1Z-jI-4ts"/>
                         <segue destination="9J9-Br-ZfV" kind="show" identifier="Root → Show Interface Builder Support" id="5kA-S5-iYb"/>
+                        <segue destination="esr-IR-zXK" kind="show" identifier="Root → Show Retractable" id="B3b-n8-IXp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gc-11-qA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,6 +48,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAs-4r-Rzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="614" y="1605"/>
+        </scene>
+        <!--Retractable-->
+        <scene sceneID="OS7-hD-BHu">
+            <objects>
+                <tableViewController id="esr-IR-zXK" customClass="RetractableViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Nc1-bN-CM1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="esr-IR-zXK" id="oA0-5J-ZHp"/>
+                            <outlet property="delegate" destination="esr-IR-zXK" id="VMo-wq-xUt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Retractable" id="BsL-2D-zFv"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YcP-6f-2HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="1363"/>
         </scene>
         <!--Style-->
         <scene sceneID="Ze4-TA-OqD">
