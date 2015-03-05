@@ -30,7 +30,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var image: UIImage?
     var highlightedImage: UIImage?
     var editingStyle: TableViewItemEditingStyle = .None
-    var height: Float = 44
+    var height: Float = Float(UITableViewAutomaticDimension)
     var accessibilityIdentifier: String?
     var indentationLevel: Int = 0
     var selectable = true

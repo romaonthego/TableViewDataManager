@@ -33,7 +33,6 @@ class IBViewController: UITableViewController {
                 }
                 let item = IBTableViewItem(text: "\n".join(lines))
                 item.selectable = false
-                item.height = Float(UITableViewAutomaticDimension)
                 section.items.append(item)
             }
             return section

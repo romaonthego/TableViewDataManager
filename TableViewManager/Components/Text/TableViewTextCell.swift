@@ -10,9 +10,16 @@ import UIKit
 
 class TableViewTextCell: TableViewCell {
 
+    @IBOutlet weak var labelCenterYConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        self.labelCenterYConstraint.constant = 0.5
     }
     
 }
