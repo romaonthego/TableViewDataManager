@@ -8,7 +8,12 @@
 
 import UIKit
 
- class TableViewSection {
+enum TableViewSectionDisplayStatus {
+    case WillDisplay
+    case DidEndDisplaying
+}
+
+class TableViewSection {
     
     // MARK: Variables
     //
@@ -20,6 +25,8 @@ import UIKit
     var style: TableViewCellStyle?
     var indexTitle: String?
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
+    var headerDisplayHandler: ((section: TableViewSection, tableView: UITableView, indexPath: NSIndexPath, view: UIView, status: TableViewSectionDisplayStatus) -> (Void))?
+    var footerDisplayHandler: ((section: TableViewSection, tableView: UITableView, indexPath: NSIndexPath, view: UIView, status: TableViewSectionDisplayStatus) -> (Void))?
 
     // MARK: Lifecycle
     //    

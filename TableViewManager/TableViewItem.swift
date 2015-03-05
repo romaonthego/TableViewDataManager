@@ -17,7 +17,7 @@ enum TableViewEditingStatus {
 
 enum TableViewCellDisplayStatus {
     case WillDisplay
-    case DidEndDisplay
+    case DidEndDisplaying
 }
 
 class TableViewItem: NSObject, UIAccessibilityIdentification {

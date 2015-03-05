@@ -234,21 +234,40 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    /*
-    optional func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
-    optional func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
-    */
     
-    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler {
-            displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .DidEndDisplay)
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection index: Int) {
+        let indexPath = NSIndexPath(forRow: 0, inSection: index)
+        if let section = self.sectionAtIndexPath(indexPath), let headerDisplayHandler = section.headerDisplayHandler {
+            headerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .WillDisplay)
         }
     }
     
-    /*
-    optional func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
-    optional func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
-    */
+    func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection index: Int) {
+        let indexPath = NSIndexPath(forRow: 0, inSection: index)
+        if let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler {
+            footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .WillDisplay)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler {
+            displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .DidEndDisplaying)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection index: Int) {
+        let indexPath = NSIndexPath(forRow: 0, inSection: index)
+        if let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler {
+            footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .DidEndDisplaying)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection index: Int) {
+        let indexPath = NSIndexPath(forRow: 0, inSection: index)
+        if let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler {
+            footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .DidEndDisplaying)
+        }
+    }
     
     // Variable height support
     
