@@ -279,11 +279,16 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section))?.footerView
     }
     
-    /*
+    
     // Accessories (disclosures).
     
-    optional func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath)
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), accessoryButtonTapHandler = item.accessoryButtonTapHandler {
+            accessoryButtonTapHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+    }
     
+    /*
     // Selection
     
     // -tableView:shouldHighlightRowAtIndexPath: is called when a touch comes down on a row.

@@ -26,6 +26,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var indentationLevel: Int = 0
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
     var selectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var accessoryButtonTapHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var insertionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var deletionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var deletionHandlerWithCompletion: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, completionHandler: ((Void) -> (Void))) -> (Void))?
