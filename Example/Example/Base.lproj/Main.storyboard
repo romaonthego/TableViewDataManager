@@ -24,6 +24,7 @@
                         <segue destination="9J9-Br-ZfV" kind="show" identifier="Root → Show Interface Builder Support" id="5kA-S5-iYb"/>
                         <segue destination="esr-IR-zXK" kind="show" identifier="Root → Show Retractable" id="B3b-n8-IXp"/>
                         <segue destination="Ke6-YT-zFS" kind="show" identifier="Root → Show Indexed List" id="bkl-ar-EGR"/>
+                        <segue destination="uYK-cU-yJf" kind="show" identifier="Root → Show Editing" id="DKW-xu-xMy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gc-11-qA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,6 +70,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcP-6f-2HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="1363"/>
+        </scene>
+        <!--Editing-->
+        <scene sceneID="hs9-ui-tuc">
+            <objects>
+                <tableViewController id="uYK-cU-yJf" customClass="EditingViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HmW-LT-OGN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="uYK-cU-yJf" id="hSN-rU-21i"/>
+                            <outlet property="delegate" destination="uYK-cU-yJf" id="gJB-yO-SvD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Editing" id="FYJ-d3-69d"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9UQ-x7-0hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1104" y="138"/>
         </scene>
         <!--Indexed List-->
         <scene sceneID="jsr-dT-wsb">

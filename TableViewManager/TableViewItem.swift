@@ -8,11 +8,8 @@
 
 import UIKit
 
-enum TableViewItemEditingStyle {
-    case None
-    case Delete
-    case Insert
-}
+
+typealias TableViewItemEditingStyle = UITableViewCellEditingStyle
 
 class TableViewItem: NSObject, UIAccessibilityIdentification {
     

@@ -33,7 +33,7 @@ class RootViewController: UITableViewController {
                     self.performSegueWithIdentifier("Root → Show Style", sender: nil)
                 }),
                 TableViewItem(text: "Editing", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                    self.performSegueWithIdentifier("Root → Show Style", sender: nil)
+                    self.performSegueWithIdentifier("Root → Show Editing", sender: nil)
                 }),
                 TableViewItem(text: "Retractable", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Retractable", sender: nil)

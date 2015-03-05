@@ -119,17 +119,23 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).footerTitle
     }
     
-    /*
-    // Editing
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        if let dataSource = self.dataSource {
+            if indexPath.section < dataSource.sections.count {
+                let section = self.sectionAtIndexPath(indexPath)
+                if (indexPath.row < section.items.count) {
+                    let item = self.itemAtIndexPath(indexPath)
+                    return item.editingStyle != .None || item.moveHandler != nil
+                }
+            }
+        }
+        return false
+    }
     
-    // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
-    optional func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    
-    // Moving/reordering
-    
-    // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
-    optional func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    */
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return self.itemAtIndexPath(indexPath).moveHandler != nil
+    }
     
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
         if !self.showsIndexList {
@@ -149,17 +155,39 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return indexTitles
     }
     
-    /*
-    // Data manipulation - insert and delete support
-    
-    // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
-    // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
-    optional func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let section = self.sectionAtIndexPath(indexPath)
+            let item = self.itemAtIndexPath(indexPath)
+            if let deletionHandlerWithCompletion = item.deletionHandlerWithCompletion {
+                deletionHandlerWithCompletion(section: section, item: item, tableView: tableView, indexPath: indexPath, completionHandler: { (Void) -> (Void) in
+                    section.items.removeAtIndex(indexPath.row)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                })
+            } else {
+                if let deletionHandler = item.deletionHandler {
+                    deletionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+                }
+                section.items.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+        }
+        
+        if editingStyle == .Insert {
+            let section = self.sectionAtIndexPath(indexPath)
+            let item = self.itemAtIndexPath(indexPath)
+            if let insertionHandler = item.insertionHandler {
+                insertionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+            }
+        }
+    }
     
     // Data manipulation - reorder / moving support
     
-    optional func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
-*/
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        
+    }
+
     
     // MARK: <UITableViewDelegate> methods
     //
@@ -247,8 +275,13 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Editing
     
     // Allows customization of the editingStyle for a particular cell located at 'indexPath'. If not implemented, all editable cells will have UITableViewCellEditingStyleDelete set for them when the table has editing property set to YES.
-    optional func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
-    @availability(iOS, introduced=3.0)
+    */
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return self.itemAtIndexPath(indexPath).editingStyle
+    }
+    
+    
+    /*@availability(iOS, introduced=3.0)
     optional func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
     @availability(iOS, introduced=8.0)
     optional func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? // supercedes -tableView:titleForDeleteConfirmationButtonForRowAtIndexPath: if return value is non-nil
