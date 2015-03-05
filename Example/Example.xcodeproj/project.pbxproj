@@ -26,6 +26,7 @@
 		488C06D71AA7C4F5003000C3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D61AA7C4F5003000C3 /* RootViewController.swift */; };
 		488C06D91AA7CA29003000C3 /* RetractableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06D81AA7CA29003000C3 /* RetractableViewController.swift */; };
 		488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06DA1AA7D082003000C3 /* IBViewController.swift */; };
+		488C06DD1AA7D22D003000C3 /* IndexedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06DC1AA7D22D003000C3 /* IndexedListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		488C06D61AA7C4F5003000C3 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		488C06D81AA7CA29003000C3 /* RetractableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetractableViewController.swift; sourceTree = "<group>"; };
 		488C06DA1AA7D082003000C3 /* IBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBViewController.swift; sourceTree = "<group>"; };
+		488C06DC1AA7D22D003000C3 /* IndexedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexedListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				488C06D41AA7C0D3003000C3 /* StyleViewController.swift */,
 				488C06D81AA7CA29003000C3 /* RetractableViewController.swift */,
 				488C06DA1AA7D082003000C3 /* IBViewController.swift */,
+				488C06DC1AA7D22D003000C3 /* IndexedListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				488C06BB1AA65D04003000C3 /* TableViewDataSource.swift in Sources */,
 				488C06D71AA7C4F5003000C3 /* RootViewController.swift in Sources */,
 				488C06D91AA7CA29003000C3 /* RetractableViewController.swift in Sources */,
+				488C06DD1AA7D22D003000C3 /* IndexedListViewController.swift in Sources */,
 				488C06BD1AA65D91003000C3 /* TableViewSection.swift in Sources */,
 				488C06BF1AA65D9D003000C3 /* TableViewItem.swift in Sources */,
 				488C06CB1AA78A83003000C3 /* TestViewController.swift in Sources */,

@@ -45,7 +45,7 @@ class RootViewController: UITableViewController {
                     self.performSegueWithIdentifier("Root → Show Interface Builder Support", sender: nil)
                 }),
                 TableViewItem(text: "Indexed List", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                    self.performSegueWithIdentifier("Root → Show Style", sender: nil)
+                    self.performSegueWithIdentifier("Root → Show Indexed List", sender: nil)
                 }),
                 TableViewItem(text: "Validations", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Style", sender: nil)

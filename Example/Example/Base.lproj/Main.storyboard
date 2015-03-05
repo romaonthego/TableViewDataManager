@@ -23,6 +23,7 @@
                         <segue destination="Mvr-Yv-qhB" kind="show" identifier="Root → Show Style" id="z1Z-jI-4ts"/>
                         <segue destination="9J9-Br-ZfV" kind="show" identifier="Root → Show Interface Builder Support" id="5kA-S5-iYb"/>
                         <segue destination="esr-IR-zXK" kind="show" identifier="Root → Show Retractable" id="B3b-n8-IXp"/>
+                        <segue destination="Ke6-YT-zFS" kind="show" identifier="Root → Show Indexed List" id="bkl-ar-EGR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gc-11-qA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,7 +48,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAs-4r-Rzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614" y="1605"/>
+            <point key="canvasLocation" x="798" y="1540"/>
         </scene>
         <!--Retractable-->
         <scene sceneID="OS7-hD-BHu">
@@ -68,6 +69,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcP-6f-2HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="1363"/>
+        </scene>
+        <!--Indexed List-->
+        <scene sceneID="jsr-dT-wsb">
+            <objects>
+                <tableViewController id="Ke6-YT-zFS" customClass="IndexedListViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wPJ-kh-fMY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Ke6-YT-zFS" id="P7J-OB-bxy"/>
+                            <outlet property="delegate" destination="Ke6-YT-zFS" id="Sq6-Bl-DaQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Indexed List" id="g3b-Ju-fnz"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yrM-6I-fBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="410" y="1515"/>
         </scene>
         <!--Style-->
         <scene sceneID="Ze4-TA-OqD">

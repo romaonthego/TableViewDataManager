@@ -18,6 +18,7 @@ import UIKit
     var headerView: UIView?
     var footerView: UIView?
     var style: TableViewCellStyle?
+    var indexTitle: String?
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
 
     // MARK: Lifecycle
