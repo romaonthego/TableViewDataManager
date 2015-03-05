@@ -225,13 +225,27 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: <UITableViewDelegate> methods
     //
-    /*
+    
     // Display customization
     
-    optional func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler {
+            displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .WillDisplay)
+        }
+    }
+    
+    /*
     optional func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     optional func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
-    optional func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+    */
+    
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler {
+            displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .DidEndDisplay)
+        }
+    }
+    
+    /*
     optional func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
     optional func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
     */

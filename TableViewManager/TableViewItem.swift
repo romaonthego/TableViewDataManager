@@ -15,6 +15,11 @@ enum TableViewEditingStatus {
     case DidEndEditing
 }
 
+enum TableViewCellDisplayStatus {
+    case WillDisplay
+    case DidEndDisplay
+}
+
 class TableViewItem: NSObject, UIAccessibilityIdentification {
     
     // MARK: Variables
@@ -31,6 +36,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var selectable = true
     var shouldIndentWhileEditing = true
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
+    var displayHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, tableViewCell: TableViewCell, status: TableViewCellDisplayStatus) -> (Void))?
     var selectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var deselectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var accessoryButtonTapHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
