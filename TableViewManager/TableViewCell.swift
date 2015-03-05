@@ -11,7 +11,7 @@ import UIKit
 let kYTMTableViewCellPadding: Float = 15
 
 class TableViewCell: UITableViewCell {
-
+    
     // MARK: Public variables
     //
     var item: TableViewItem!
@@ -60,16 +60,22 @@ class TableViewCell: UITableViewCell {
         self.imageView?.highlightedImage = self.item.highlightedImage
     }
     
-    // MARK: Determining cell height
+    // MARK: Public methods
     //
-    static func heightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
+    class func heightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
         return item.height
     }
     
-    static func estimatedHeightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
+    class func estimatedHeightWithItem(item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> Float {
         return heightWithItem(item, tableView: tableView, indexPath: indexPath)
     }
     
+    class func canBecomeFirstResponder() -> Bool {
+        return false
+    }
+    
+    // MARK: Overrides
+    //
     override func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = self.imageView, image = imageView.image {

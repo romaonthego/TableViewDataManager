@@ -12,6 +12,10 @@ class TableViewTextCell: TableViewCell {
 
     @IBOutlet weak var labelCenterYConstraint: NSLayoutConstraint!
     
+    override class func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
