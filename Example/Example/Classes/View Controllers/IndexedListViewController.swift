@@ -12,8 +12,15 @@ class IndexedListViewController: UITableViewController {
 
     // Lazy initialize the table view manager
     //
-    lazy var manager: TableViewManager = TableViewManager(tableView: self.tableView)
-       
+    lazy var manager: TableViewManager = {
+        let manager = TableViewManager(tableView: self.tableView)
+        
+        // Enable the index list
+        //
+        manager.showsIndexList = true
+        return manager
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -14,6 +14,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     //
     var dataSource: TableViewDataSource?
     var style: TableViewCellStyle?
+    var showsIndexList = false
     var tableView: UITableView? {
         didSet {
             tableView?.delegate = self
@@ -128,12 +129,26 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
     optional func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    */
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+        if !self.showsIndexList {
+            return nil
+        }
+        
+        var indexTitles: [String] = []
+        if let dataSource = self.dataSource {
+            for section in dataSource.sections {
+                if let indexTitle = section.indexTitle {
+                    indexTitles.append(indexTitle)
+                } else {
+                    indexTitles.append("")
+                }
+            }
+        }
+        return indexTitles
+    }
     
-    // Index
-    
-    optional func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! // return list of section titles to display in section index view (e.g. "ABCD...Z#")
-    optional func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int // tell table which section corresponds to section title/index (e.g. "B",1))
-    
+    /*
     // Data manipulation - insert and delete support
     
     // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
