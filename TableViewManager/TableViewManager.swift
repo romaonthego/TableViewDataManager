@@ -59,7 +59,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     private func sectionAtIndexPath(indexPath: NSIndexPath) -> TableViewSection? {
         if let dataSource = self.dataSource {
             if indexPath.section < dataSource.sections.count {
-                return dataSource.sections[indexPath.section] as TableViewSection!
+                return dataSource.sections[indexPath.section]
             }
         }
         return nil
@@ -68,7 +68,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     private func itemAtIndexPath(indexPath: NSIndexPath) -> TableViewItem? {
         if let section = self.sectionAtIndexPath(indexPath) {
             if (indexPath.row < section.items.count) {
-                return section.items[indexPath.row] as TableViewItem!
+                return section.items[indexPath.row]
             }
         }
         return nil
@@ -78,7 +78,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     //
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let dataSource = self.dataSource {
-            return dataSource.sections[section].items.count
+            if section < dataSource.sections.count {
+                return dataSource.sections[section].items.count
+            }
         }
         return 0
     }
