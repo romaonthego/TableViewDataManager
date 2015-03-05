@@ -8,8 +8,12 @@
 
 import UIKit
 
-
 typealias TableViewItemEditingStyle = UITableViewCellEditingStyle
+
+enum TableViewEditingStatus {
+    case WillBeginEditing
+    case DidEndEditing
+}
 
 class TableViewItem: NSObject, UIAccessibilityIdentification {
     
@@ -38,6 +42,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var cutHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var copyHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var pasteHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var editingHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, status: TableViewEditingStatus) -> (Void))?
     
     // MARK: Lifecycle
     //

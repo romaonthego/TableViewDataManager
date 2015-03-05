@@ -348,12 +348,19 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    /*
     // The willBegin/didEnd methods are called whenever the 'editing' property is automatically changed by the table (allowing insert/delete/move). This is done by a swipe activating a single row
     //
-    optional func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath)
-    optional func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath)
-    */
+    func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let editingHandler = item.editingHandler {
+            return editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .WillBeginEditing)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let editingHandler = item.editingHandler {
+            return editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .DidEndEditing)
+        }
+    }
 
     // Moving/reordering
     
