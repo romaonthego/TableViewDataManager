@@ -288,13 +288,19 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    /*
     // Selection
     
     // -tableView:shouldHighlightRowAtIndexPath: is called when a touch comes down on a row.
     // Returning NO to that message halts the selection process and does not cause the currently selected row to lose its selected look while the touch is down.
     //
-    optional func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if let item = self.itemAtIndexPath(indexPath) {
+            return item.selectable
+        }
+        return true
+    }
+    
+    /*
     optional func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
     optional func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath)
     
