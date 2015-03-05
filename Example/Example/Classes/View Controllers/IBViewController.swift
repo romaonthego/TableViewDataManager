@@ -26,10 +26,15 @@ class IBViewController: UITableViewController {
 
         self.manager.dataSource!.sections.append({
             let section = TableViewSection()
-            for (var i = 1; i <= 100; i++) {
-                section.items.append(IBTableViewItem(text: "\(i)", configurationHandler: { (tableViewCell: TableViewCell) in
-                    tableViewCell.selectionStyle = .None
-                }))
+            for (var i = 1; i <= 10; i++) {
+                var lines : [String] = []
+                for index in 1...i {
+                    lines.append("Line \(index)")
+                }
+                let item = IBTableViewItem(text: "\n".join(lines))
+                item.selectable = false
+                item.height = Float(UITableViewAutomaticDimension)
+                section.items.append(item)
             }
             return section
         }())
