@@ -56,13 +56,22 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Private methods
     //
-    private func sectionAtIndexPath(indexPath: NSIndexPath) -> TableViewSection {
-        return self.dataSource?.sections[indexPath.section] as TableViewSection!
+    private func sectionAtIndexPath(indexPath: NSIndexPath) -> TableViewSection? {
+        if let dataSource = self.dataSource {
+            if indexPath.section < dataSource.sections.count {
+                return dataSource.sections[indexPath.section] as TableViewSection!
+            }
+        }
+        return nil
     }
     
-    private func itemAtIndexPath(indexPath: NSIndexPath) -> TableViewItem {
-        let section = self.sectionAtIndexPath(indexPath)
-        return section.items[indexPath.row] as TableViewItem!
+    private func itemAtIndexPath(indexPath: NSIndexPath) -> TableViewItem? {
+        if let section = self.sectionAtIndexPath(indexPath) {
+            if (indexPath.row < section.items.count) {
+                return section.items[indexPath.row] as TableViewItem!
+            }
+        }
+        return nil
     }
     
     // MARK: <UITableViewDataSource> methods
@@ -75,32 +84,34 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let section = self.sectionAtIndexPath(indexPath)
-        let item = self.itemAtIndexPath(indexPath)
-        let identifier = NSStringFromClass(item.dynamicType)
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TableViewCell
-        
-        cell.style = self.style
-        if let sectionStyle = section.style {
-            cell.style = sectionStyle
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath) {
+            let identifier = NSStringFromClass(item.dynamicType)
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TableViewCell
+            
+            cell.style = self.style
+            if let sectionStyle = section.style {
+                cell.style = sectionStyle
+            }
+            cell.item = item
+            cell.section = section
+            cell.indexPath = indexPath
+            cell.separatorInset = tableView.separatorInset
+            cell.accessibilityIdentifier = item.accessibilityIdentifier
+            cell.cellDidLoad()
+            cell.cellWillAppear()
+            
+            if let configurationHandler = section.configurationHandler {
+                configurationHandler(tableViewCell: cell)
+            }
+            
+            if let configurationHandler = item.configurationHandler {
+                configurationHandler(tableViewCell: cell)
+            }
+            
+            return cell
         }
-        cell.item = item
-        cell.section = section
-        cell.indexPath = indexPath
-        cell.separatorInset = tableView.separatorInset
-        cell.accessibilityIdentifier = item.accessibilityIdentifier
-        cell.cellDidLoad()
-        cell.cellWillAppear()
         
-        if let configurationHandler = section.configurationHandler {
-            configurationHandler(tableViewCell: cell)
-        }
-        
-        if let configurationHandler = item.configurationHandler {
-            configurationHandler(tableViewCell: cell)
-        }
-        
-        return cell
+        return TableViewCell()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -112,29 +123,31 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).headerTitle
+        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)) {
+            return section.headerTitle
+        }
+        return nil
     }
     
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).footerTitle
+        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)) {
+            return section.footerTitle
+        }
+        return nil
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        
-        if let dataSource = self.dataSource {
-            if indexPath.section < dataSource.sections.count {
-                let section = self.sectionAtIndexPath(indexPath)
-                if (indexPath.row < section.items.count) {
-                    let item = self.itemAtIndexPath(indexPath)
-                    return item.editingStyle != .None || item.moveHandler != nil
-                }
-            }
+        if let item = self.itemAtIndexPath(indexPath) {
+            return item.editingStyle != .None || item.moveHandler != nil
         }
         return false
     }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return self.itemAtIndexPath(indexPath).moveHandler != nil
+        if let item = self.itemAtIndexPath(indexPath) {
+            return item.moveHandler != nil
+        }
+        return false
     }
     
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
@@ -156,28 +169,26 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let section = self.sectionAtIndexPath(indexPath)
-            let item = self.itemAtIndexPath(indexPath)
-            if let deletionHandlerWithCompletion = item.deletionHandlerWithCompletion {
-                deletionHandlerWithCompletion(section: section, item: item, tableView: tableView, indexPath: indexPath, completionHandler: { (Void) -> (Void) in
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath) {
+            if editingStyle == .Delete {
+                if let deletionHandlerWithCompletion = item.deletionHandlerWithCompletion {
+                    deletionHandlerWithCompletion(section: section, item: item, tableView: tableView, indexPath: indexPath, completionHandler: { (Void) -> (Void) in
+                        section.items.removeAtIndex(indexPath.row)
+                        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    })
+                } else {
+                    if let deletionHandler = item.deletionHandler {
+                        deletionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+                    }
                     section.items.removeAtIndex(indexPath.row)
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                })
-            } else {
-                if let deletionHandler = item.deletionHandler {
-                    deletionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
                 }
-                section.items.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             }
-        }
-        
-        if editingStyle == .Insert {
-            let section = self.sectionAtIndexPath(indexPath)
-            let item = self.itemAtIndexPath(indexPath)
-            if let insertionHandler = item.insertionHandler {
-                insertionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+            
+            if editingStyle == .Insert {
+                if let insertionHandler = item.insertionHandler {
+                    insertionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+                }
             }
         }
     }
@@ -185,15 +196,13 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Data manipulation - reorder / moving support
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let sourceSection = self.sectionAtIndexPath(sourceIndexPath)
-        let item = self.itemAtIndexPath(sourceIndexPath)
-        sourceSection.items.removeAtIndex(sourceIndexPath.row)
-        
-        let destinationSection = self.sectionAtIndexPath(destinationIndexPath)
-        destinationSection.items.insert(item, atIndex: destinationIndexPath.row)
-        
-        if let moveCompletionHandler = item.moveCompletionHandler {
-            moveCompletionHandler(section: destinationSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+        if let sourceSection = self.sectionAtIndexPath(sourceIndexPath), let item = self.itemAtIndexPath(sourceIndexPath), let destinationSection = self.sectionAtIndexPath(destinationIndexPath) {
+            sourceSection.items.removeAtIndex(sourceIndexPath.row)
+            destinationSection.items.insert(item, atIndex: destinationIndexPath.row)
+            
+            if let moveCompletionHandler = item.moveCompletionHandler {
+                moveCompletionHandler(section: destinationSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+            }
         }
     }
 
@@ -217,34 +226,39 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     */
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGFloat(TableViewCell.heightWithItem(self.itemAtIndexPath(indexPath), tableView: tableView, indexPath: indexPath))
+        if let item = self.itemAtIndexPath(indexPath) {
+            return CGFloat(TableViewCell.heightWithItem(item, tableView: tableView, indexPath: indexPath))
+        }
+        return UITableViewAutomaticDimension
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if let headerView = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).headerView {
+    func tableView(tableView: UITableView, heightForHeaderInSection index: Int) -> CGFloat {
+        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: index)), let headerView = section.headerView {
             return headerView.frame.height
         }
         return UITableViewAutomaticDimension
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if let footerView = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).footerView {
+    func tableView(tableView: UITableView, heightForFooterInSection index: Int) -> CGFloat {
+        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: index)), let footerView = section.footerView {
             return footerView.frame.height
         }
         return UITableViewAutomaticDimension
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let item = self.itemAtIndexPath(indexPath)
-        return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
+        if let item = self.itemAtIndexPath(indexPath) {
+            return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
+        }
+        return UITableViewAutomaticDimension
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).headerView
+        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section))?.headerView
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)).footerView
+        return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section))?.footerView
     }
     
     /*
@@ -270,9 +284,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Called after the user changes the selection.
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = self.itemAtIndexPath(indexPath)
-        let section = self.sectionAtIndexPath(indexPath)
-        if let selectionHandler = item.selectionHandler {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let selectionHandler = item.selectionHandler {
             selectionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
         }
     }
@@ -286,7 +298,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Allows customization of the editingStyle for a particular cell located at 'indexPath'. If not implemented, all editable cells will have UITableViewCellEditingStyleDelete set for them when the table has editing property set to YES.
     */
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return self.itemAtIndexPath(indexPath).editingStyle
+        if let item = self.itemAtIndexPath(indexPath) {
+            return item.editingStyle
+        }
+        return .None
     }
     
     
@@ -304,57 +319,55 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     */
 
     func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
-        let sourceSection = self.sectionAtIndexPath(sourceIndexPath)
-        let item = self.itemAtIndexPath(sourceIndexPath)
-        if let moveHandler = item.moveHandler {
+        if let sourceSection = self.sectionAtIndexPath(sourceIndexPath), let item = self.itemAtIndexPath(sourceIndexPath), let moveHandler = item.moveHandler {
             let allowed = moveHandler(section: sourceSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: proposedDestinationIndexPath)
             if !allowed {
                 return sourceIndexPath
             }
         }
-        
         return proposedDestinationIndexPath
     }
 
     func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
-        return self.itemAtIndexPath(indexPath).indentationLevel
+        if let item = self.itemAtIndexPath(indexPath) {
+            return item.indentationLevel
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        let item = self.itemAtIndexPath(indexPath)
-        return item.copyHandler != nil || item.pasteHandler != nil || item.cutHandler != nil
-        
+        if let item = self.itemAtIndexPath(indexPath) {
+            return item.copyHandler != nil || item.pasteHandler != nil || item.cutHandler != nil
+        }
+        return false
     }
     
     func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
-        let item = self.itemAtIndexPath(indexPath)
-        
-        if item.copyHandler != nil && action == Selector("copy:") {
-            return true
+        if let item = self.itemAtIndexPath(indexPath) {
+            if item.copyHandler != nil && action == Selector("copy:") {
+                return true
+            }
+            if item.pasteHandler != nil && action == Selector("paste:") {
+                return true
+            }
+            if item.cutHandler != nil && action == Selector("cut:") {
+                return true
+            }
         }
-        
-        if item.pasteHandler != nil && action == Selector("paste:") {
-            return true
-        }
-        
-        if item.cutHandler != nil && action == Selector("cut:") {
-            return true
-        }
-        
         return false
     }
     
     func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
-        let item = self.itemAtIndexPath(indexPath)
-        let section = self.sectionAtIndexPath(indexPath)
-        if let copyHandler = item.copyHandler where action == Selector("copy:") {
-            copyHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
-        }
-        if let pasteHandler = item.pasteHandler where action == Selector("paste:") {
-            pasteHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
-        }
-        if let cutHandler = item.cutHandler where action == Selector("cut:") {
-            cutHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        if let item = self.itemAtIndexPath(indexPath), let section = self.sectionAtIndexPath(indexPath) {
+            if let copyHandler = item.copyHandler where action == Selector("copy:") {
+                copyHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+            }
+            if let pasteHandler = item.pasteHandler where action == Selector("paste:") {
+                pasteHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+            }
+            if let cutHandler = item.cutHandler where action == Selector("cut:") {
+                cutHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+            }
         }
     }
 }
