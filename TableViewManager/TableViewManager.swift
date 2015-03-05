@@ -293,7 +293,6 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section))?.footerView
     }
     
-    
     // Accessories (disclosures).
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
