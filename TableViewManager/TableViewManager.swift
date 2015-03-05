@@ -301,14 +301,21 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // The willBegin/didEnd methods are called whenever the 'editing' property is automatically changed by the table (allowing insert/delete/move). This is done by a swipe activating a single row
     optional func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath)
     optional func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath)
-    
-    // Moving/reordering
-    
-    // Allows customization of the target row for a particular row as it is being moved/reordered
-    optional func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
-    
-    // Indentation
     */
+
+    func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+        let sourceSection = self.sectionAtIndexPath(sourceIndexPath)
+        let item = self.itemAtIndexPath(sourceIndexPath)
+        if let moveHandler = item.moveHandler {
+            let allowed = moveHandler(section: sourceSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: proposedDestinationIndexPath)
+            if !allowed {
+                return sourceIndexPath
+            }
+        }
+        
+        return proposedDestinationIndexPath
+    }
+
     func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
         return self.itemAtIndexPath(indexPath).indentationLevel
     }
