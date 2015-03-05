@@ -29,8 +29,8 @@ class RootViewController: UITableViewController {
                 TableViewItem(text: "! Forms", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Style", sender: nil)
                 }),
-                TableViewItem(text: "! List", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                    self.performSegueWithIdentifier("Root → Show Style", sender: nil)
+                TableViewItem(text: "Interface Builder Support", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
+                    self.performSegueWithIdentifier("Root → Show Interface Builder Support", sender: nil)
                 }),
                 TableViewItem(text: "Editing", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Editing", sender: nil)
@@ -40,9 +40,6 @@ class RootViewController: UITableViewController {
                 }),
                 TableViewItem(text: "Styling", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Style", sender: nil)
-                }),
-                TableViewItem(text: "Interface Builder Support", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                    self.performSegueWithIdentifier("Root → Show Interface Builder Support", sender: nil)
                 }),
                 TableViewItem(text: "Indexed List", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Indexed List", sender: nil)
