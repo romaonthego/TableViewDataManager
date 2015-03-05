@@ -99,7 +99,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
             cell.indexPath = indexPath
             cell.separatorInset = tableView.separatorInset
             cell.accessibilityIdentifier = item.accessibilityIdentifier
-            cell.cellDidLoad()
+            if !cell.cellLoaded {
+                cell.cellDidLoad()
+                cell.cellLoaded = true
+            }
             cell.cellWillAppear()
             
             if let configurationHandler = section.configurationHandler {
@@ -222,7 +225,6 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    
     // MARK: <UITableViewDelegate> methods
     //
     
@@ -331,16 +333,6 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
         return true
     }
-    
-    /*
-    optional func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
-    optional func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath)
-    
-    // Called before the user changes the selection. Return a new indexPath, or nil, to change the proposed selection.
-    //
-    optional func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
-    optional func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
-    */
     
     // Called after the user changes the selection.
     //
