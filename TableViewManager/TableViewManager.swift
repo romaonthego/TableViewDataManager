@@ -320,14 +320,41 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return self.itemAtIndexPath(indexPath).indentationLevel
     }
     
-    /*
-    // Copy/Paste.  All three methods must be implemented by the delegate.
+    func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let item = self.itemAtIndexPath(indexPath)
+        return item.copyHandler != nil || item.pasteHandler != nil || item.cutHandler != nil
+        
+    }
     
-    @availability(iOS, introduced=5.0)
-    optional func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    @availability(iOS, introduced=5.0)
-    optional func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool
-    @availability(iOS, introduced=5.0)
-    optional func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!)
-    */
+    func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+        let item = self.itemAtIndexPath(indexPath)
+        
+        if item.copyHandler != nil && action == Selector("copy:") {
+            return true
+        }
+        
+        if item.pasteHandler != nil && action == Selector("paste:") {
+            return true
+        }
+        
+        if item.cutHandler != nil && action == Selector("cut:") {
+            return true
+        }
+        
+        return false
+    }
+    
+    func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+        let item = self.itemAtIndexPath(indexPath)
+        let section = self.sectionAtIndexPath(indexPath)
+        if let copyHandler = item.copyHandler where action == Selector("copy:") {
+            copyHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+        if let pasteHandler = item.pasteHandler where action == Selector("paste:") {
+            pasteHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+        if let cutHandler = item.cutHandler where action == Selector("cut:") {
+            cutHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+    }
 }
