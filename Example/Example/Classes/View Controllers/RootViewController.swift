@@ -26,8 +26,8 @@ class RootViewController: UITableViewController {
             // Add items
             //
             section.items = [
-                TableViewItem(text: "! Forms", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                    self.performSegueWithIdentifier("Root → Show Style", sender: nil)
+                TableViewItem(text: "Forms", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
+                    self.performSegueWithIdentifier("Root → Show Forms", sender: nil)
                 }),
                 TableViewItem(text: "Interface Builder Support", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Interface Builder Support", sender: nil)
