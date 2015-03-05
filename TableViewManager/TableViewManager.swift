@@ -318,9 +318,11 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    /*
-    optional func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
-    */
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let deselectionHandler = item.deselectionHandler {
+            deselectionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+    }
     
     // Editing
     
