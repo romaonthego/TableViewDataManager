@@ -185,7 +185,16 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Data manipulation - reorder / moving support
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let sourceSection = self.sectionAtIndexPath(sourceIndexPath)
+        let item = self.itemAtIndexPath(sourceIndexPath)
+        sourceSection.items.removeAtIndex(sourceIndexPath.row)
         
+        let destinationSection = self.sectionAtIndexPath(destinationIndexPath)
+        destinationSection.items.insert(item, atIndex: destinationIndexPath.row)
+        
+        if let moveCompletionHandler = item.moveCompletionHandler {
+            moveCompletionHandler(section: destinationSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+        }
     }
 
     
