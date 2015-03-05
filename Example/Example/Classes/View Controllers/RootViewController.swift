@@ -26,10 +26,10 @@ class RootViewController: UITableViewController {
             // Add items
             //
             section.items = [
-                TableViewItem(text: "Forms", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
+                TableViewItem(text: "! Forms", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Style", sender: nil)
                 }),
-                TableViewItem(text: "List", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
+                TableViewItem(text: "! List", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Style", sender: nil)
                 }),
                 TableViewItem(text: "Editing", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
@@ -46,10 +46,7 @@ class RootViewController: UITableViewController {
                 }),
                 TableViewItem(text: "Indexed List", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     self.performSegueWithIdentifier("Root → Show Indexed List", sender: nil)
-                }),
-                TableViewItem(text: "Validations", selectionHandler: { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                    self.performSegueWithIdentifier("Root → Show Style", sender: nil)
-                }),
+                })
             ]
             
             return section
