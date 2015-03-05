@@ -25,6 +25,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var accessibilityIdentifier: String?
     var indentationLevel: Int = 0
     var selectable = true
+    var shouldIndentWhileEditing = true
     var configurationHandler: ((tableViewCell: TableViewCell) -> (Void))?
     var selectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var deselectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
