@@ -31,7 +31,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var selectionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var insertionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var deletionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
-    var deletionHandlerWithCompletion: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, (Void) -> (Void)) -> (Void))?
+    var deletionHandlerWithCompletion: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, completionHandler: ((Void) -> (Void))) -> (Void))?
     var moveHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Bool))?
     var moveCompletionHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Void))?
     var cutHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?

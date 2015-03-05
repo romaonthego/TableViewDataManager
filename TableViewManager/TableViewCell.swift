@@ -55,6 +55,9 @@ class TableViewCell: UITableViewCell {
     
     func cellWillAppear() {
         self.textLabel?.text = item.text
+        self.detailTextLabel?.text = item.detailText
+        self.imageView?.image = self.item.image
+        self.imageView?.highlightedImage = self.item.highlightedImage
     }
     
     // MARK: Determining cell height
