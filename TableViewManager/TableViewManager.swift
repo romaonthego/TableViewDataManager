@@ -112,7 +112,6 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-        
         return TableViewCell()
     }
     
@@ -138,6 +137,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return nil
     }
     
+    // Editing
+    
+    // Individual rows can opt out of having the -editing property set for them.
+    //
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if let item = self.itemAtIndexPath(indexPath) {
             return item.editingStyle != .None || item.moveHandler != nil
@@ -145,12 +148,18 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return false
     }
     
+    // Moving/reordering
+    
+    // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
+    //
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if let item = self.itemAtIndexPath(indexPath) {
             return item.moveHandler != nil
         }
         return false
     }
+    
+    // Index
     
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
         if !self.showsIndexList {
@@ -170,6 +179,11 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return indexTitles
     }
     
+    // Data manipulation - insert and delete support
+    
+    // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
+    // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
+    //
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath) {
             if editingStyle == .Delete {
@@ -215,17 +229,14 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Display customization
     
     optional func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
-    @availability(iOS, introduced=6.0)
     optional func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
-    @availability(iOS, introduced=6.0)
     optional func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
-    @availability(iOS, introduced=6.0)
     optional func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
-    @availability(iOS, introduced=6.0)
     optional func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
-    @availability(iOS, introduced=6.0)
     optional func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
     */
+    
+    // Variable height support
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let item = self.itemAtIndexPath(indexPath) {
@@ -248,6 +259,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return UITableViewAutomaticDimension
     }
     
+    // Use the estimatedHeight methods to quickly calcuate guessed values which will allow for fast load times of the table.
+    // If these methods are implemented, the above -tableView:heightForXXX calls will be deferred until views are ready to be displayed, so more expensive logic can be placed there.
+    //
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let item = self.itemAtIndexPath(indexPath) {
             return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
@@ -255,6 +269,8 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return UITableViewAutomaticDimension
     }
     
+    // Section header & footer information. Views are preferred over title should you decide to provide both
+    //
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section))?.headerView
     }
@@ -272,19 +288,19 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // -tableView:shouldHighlightRowAtIndexPath: is called when a touch comes down on a row.
     // Returning NO to that message halts the selection process and does not cause the currently selected row to lose its selected look while the touch is down.
-    @availability(iOS, introduced=6.0)
+    //
     optional func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    @availability(iOS, introduced=6.0)
     optional func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
-    @availability(iOS, introduced=6.0)
     optional func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath)
     
     // Called before the user changes the selection. Return a new indexPath, or nil, to change the proposed selection.
+    //
     optional func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
-    @availability(iOS, introduced=3.0)
     optional func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
-    // Called after the user changes the selection.
     */
+    
+    // Called after the user changes the selection.
+    //
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let selectionHandler = item.selectionHandler {
             selectionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
@@ -292,13 +308,13 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     /*
-    @availability(iOS, introduced=3.0)
     optional func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
+    */
     
     // Editing
     
     // Allows customization of the editingStyle for a particular cell located at 'indexPath'. If not implemented, all editable cells will have UITableViewCellEditingStyleDelete set for them when the table has editing property set to YES.
-    */
+    //
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         if let item = self.itemAtIndexPath(indexPath) {
             return item.editingStyle
@@ -306,20 +322,24 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return .None
     }
     
-    
-    /*@availability(iOS, introduced=3.0)
+    /*
     optional func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String!
-    @availability(iOS, introduced=8.0)
     optional func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? // supercedes -tableView:titleForDeleteConfirmationButtonForRowAtIndexPath: if return value is non-nil
     
     // Controls whether the background is indented while editing.  If not implemented, the default is YES.  This is unrelated to the indentation level below.  This method only applies to grouped style table views.
+    //
     optional func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool
     
     // The willBegin/didEnd methods are called whenever the 'editing' property is automatically changed by the table (allowing insert/delete/move). This is done by a swipe activating a single row
+    //
     optional func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath)
     optional func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath)
     */
 
+    // Moving/reordering
+    
+    // Allows customization of the target row for a particular row as it is being moved/reordered
+    //
     func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
         if let sourceSection = self.sectionAtIndexPath(sourceIndexPath), let item = self.itemAtIndexPath(sourceIndexPath), let moveHandler = item.moveHandler {
             let allowed = moveHandler(section: sourceSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: proposedDestinationIndexPath)
@@ -329,6 +349,8 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
         return proposedDestinationIndexPath
     }
+    
+    // Indentation
 
     func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
         if let item = self.itemAtIndexPath(indexPath) {
@@ -336,6 +358,8 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
         return 0
     }
+    
+    // Cut / Copy / Paste.  All three methods must be implemented by the delegate.
     
     func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if let item = self.itemAtIndexPath(indexPath) {
