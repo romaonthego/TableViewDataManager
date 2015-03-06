@@ -10,7 +10,7 @@ import UIKit
 
 let kYTMTableViewCellPadding: Float = 15
 
-class TableViewCell: UITableViewCell, TableViewActionBarDelegate {
+class TableViewCell: UITableViewCell {
     
     // MARK: Public variables
     //
@@ -54,10 +54,12 @@ class TableViewCell: UITableViewCell, TableViewActionBarDelegate {
             self.addSelectedBackgroundImage()
         }
         
-        self.actionBar = TableViewActionBar()
-        if let actionBar = self.actionBar {
-            actionBar.actionBarDelegate = self
-        }
+        self.actionBar = TableViewActionBar(navigationHandler: { (index) -> (Void) in
+            
+        }, doneHandler: { (Void) -> (Void) in
+            
+        })
+        
     }
     
     func cellWillAppear() {

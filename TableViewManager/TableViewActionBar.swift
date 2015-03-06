@@ -8,14 +8,11 @@
 
 import UIKit
 
-protocol TableViewActionBarDelegate:class {
-    func actionBar(actionBar: TableViewActionBar, doneButtonPressed: UIBarButtonItem)
-}
-
 class TableViewActionBar: UIToolbar {
 
     var navigationControl: UISegmentedControl!
-    var actionBarDelegate: TableViewActionBarDelegate?
+    var navigationHandler: ((index: Int) -> (Void))?
+    var doneHandler: ((Void) -> (Void))?
     
     override init() {
         super.init()
@@ -30,6 +27,12 @@ class TableViewActionBar: UIToolbar {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
+    }
+    
+    required init(navigationHandler: ((index: Int) -> (Void)), doneHandler: ((Void) -> (Void))) {
+        super.init()
+        self.navigationHandler = navigationHandler
+        self.doneHandler = doneHandler
     }
     
     // MARK: Private methods
@@ -59,11 +62,18 @@ class TableViewActionBar: UIToolbar {
     // MARK: Action handlers
     //
     func previousNextPressed(segmentedControl: UISegmentedControl) {
-        
+        if let navigationHandler = self.navigationHandler {
+            navigationHandler(index: segmentedControl.selectedSegmentIndex)
+        }
     }
     
-    func doneButtonPressed(sender: UIBarButtonItem) {
-        self.actionBarDelegate?.actionBar(self, doneButtonPressed: sender)
+    func doneButtonPressed(sender: AnyObject) {
+        var closure: ((Void) -> (Void)) = {
+            if let doneHandler = self.doneHandler {
+                
+            }
+        }
+        closure()
     }
     
     /*
