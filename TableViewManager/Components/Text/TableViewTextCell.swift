@@ -21,6 +21,9 @@ class TableViewTextCell: TableViewCell {
     
     override func updateConstraints() {
         super.updateConstraints()
+        
+        // Fix label center Y
+        //
         self.labelCenterYConstraint.constant = 0.5
     }
     
