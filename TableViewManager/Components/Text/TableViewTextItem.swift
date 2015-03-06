@@ -12,6 +12,9 @@ class TableViewTextItem: TableViewItem {
    
     var value: String?
     var returnKeyType: UIReturnKeyType = .Default
+    var changeHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var changeCharacterInRangeHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var returnKeyHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, range: NSRange, replacementString: String) -> (Bool))?
     
     override class func focusable() -> Bool {
         return true

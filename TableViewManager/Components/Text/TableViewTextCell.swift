@@ -51,20 +51,11 @@ class TableViewTextCell: TableViewCell, UITextFieldDelegate {
         }
         self.updateActionBarNavigationControl()
         
-        return true
-        /*
-        NSIndexPath *indexPath = [self indexPathForNextResponder];
-        if (indexPath) {
-            textField.returnKeyType = UIReturnKeyNext;
-        } else {
-            textField.returnKeyType = self.item.returnKeyType;
+        if let editingHandler = self.item.editingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+            editingHandler(section: self.section, item: self.item, tableView: tableView, indexPath: indexPath, status: .WillBeginEditing)
         }
-        [self updateActionBarNavigationControl];
-        [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.rowIndex inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        if (self.item.onBeginEditing)
-        self.item.onBeginEditing(self.item);
-        return YES;
-        */
+        
+        return true
     }
     
 }
