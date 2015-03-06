@@ -22,10 +22,11 @@ class FormViewController: UITableViewController {
             section.items = [
                 {
                     let textItem = TableViewTextItem()
+                    textItem.placeholder = "Full length text field"
                     return textItem
                 }(),
                 {
-                    let textItem = TableViewTextItem()
+                    let textItem = TableViewTextItem(text: "Text item")
                     textItem.returnKeyType = .Done
                     return textItem
                 }()]
