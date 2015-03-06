@@ -27,6 +27,19 @@ class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
         self.textField.inputAccessoryView = self.actionBar
         self.textField.addTarget(self, action: Selector("textFieldDidChange:"), forControlEvents: .EditingChanged)
     }
+    
+    override func cellWillAppear() {
+        super.cellWillAppear()
+        self.textField.placeholder = self.textItem.placeholder
+        self.textField.secureTextEntry = self.textItem.secureTextEntry
+        self.textField.autocapitalizationType = self.textItem.autocapitalizationType
+        self.textField.autocorrectionType = self.textItem.autocorrectionType
+        self.textField.spellCheckingType = self.textItem.spellCheckingType
+        self.textField.keyboardType = self.textItem.keyboardType
+        self.textField.keyboardAppearance = self.textItem.keyboardAppearance
+        self.textField.returnKeyType = self.textItem.returnKeyType
+        self.textField.enablesReturnKeyAutomatically = self.textItem.enablesReturnKeyAutomatically
+    }
        
     override func responder() -> UIResponder? {
         return self.textField
