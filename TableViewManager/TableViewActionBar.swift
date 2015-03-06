@@ -33,6 +33,7 @@ class TableViewActionBar: UIToolbar {
         super.init()
         self.navigationHandler = navigationHandler
         self.doneHandler = doneHandler
+        self.commonInit()
     }
     
     // MARK: Private methods

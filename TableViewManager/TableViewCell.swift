@@ -59,7 +59,6 @@ class TableViewCell: UITableViewCell {
         }, doneHandler: { (Void) -> (Void) in
             
         })
-        
     }
     
     func cellWillAppear() {

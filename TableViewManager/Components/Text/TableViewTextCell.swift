@@ -14,9 +14,9 @@ class TableViewTextCell: TableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.textField.inputAccessoryView = TableViewActionBar()
+    override func cellDidLoad() {
+        super.cellDidLoad()
+        self.textField.inputAccessoryView = self.actionBar
     }
     
     override func updateConstraints() {
