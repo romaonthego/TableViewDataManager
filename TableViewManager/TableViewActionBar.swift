@@ -75,38 +75,5 @@ class TableViewActionBar: UIToolbar {
         }
         closure()
     }
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
-    
-    /*
-    [self sizeToFit];
-    
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleActionBarDone:)];
-    
-    self.navigationControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
-    self.navigationControl.momentary = YES;
-    [self.navigationControl addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
-    
-    [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowLeft"] forSegmentAtIndex:0];
-    [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowRight"] forSegmentAtIndex:1];
-    
-    
-    [self.navigationControl setBackgroundImage:[UIImage imageNamed:@"RETableViewManager.bundle/Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [self.navigationControl setWidth:40.0f forSegmentAtIndex:0];
-    [self.navigationControl setWidth:40.0f forSegmentAtIndex:1];
-    [self.navigationControl setContentOffset:CGSizeMake(-4, 0) forSegmentAtIndex:0];
-    
-    UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:self.navigationControl];
-    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [self setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
-    self.actionBarDelegate = delegate;
-    */
 
 }
