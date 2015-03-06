@@ -27,10 +27,12 @@ class FormViewController: UITableViewController {
                 }(),
                 {
                     let textItem = TableViewTextItem(text: "Text item")
+                    textItem.placeholder = "Placeholder text"
                     return textItem
                 }(),
                 {
                     let textItem = TableViewTextItem(text: "Phone")
+                    textItem.placeholder = "(123) 456-7890"
                     return textItem
                 }()]
             return section
