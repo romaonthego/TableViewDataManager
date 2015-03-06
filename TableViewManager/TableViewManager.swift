@@ -55,6 +55,35 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
     }
     
+    func indexPathForPreviousResponderInSectionIndex(sectionIndex: Int, currentSection: TableViewSection, currentItem: TableViewItem) -> NSIndexPath? {
+        if let dataSource = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
+            var items = section.items as NSArray
+            var indexInSection = section === currentSection ? items.indexOfObject(currentItem) : section.items.count
+            for (var i = indexInSection - 1; i >= 0; i--) {
+                let item = section.items[i]
+                if item.dynamicType.focusable() {
+                    return NSIndexPath(forRow: i, inSection: sectionIndex)
+                }
+            }
+        }
+        return nil
+    }
+    
+    func indexPathForNextResponderInSectionIndex(sectionIndex: Int, currentSection: TableViewSection, currentItem: TableViewItem) -> NSIndexPath? {
+        if let dataSource = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
+            var items = section.items as NSArray
+            var indexInSection = section === currentSection ? items.indexOfObject(currentItem) : -1
+            for (var i = indexInSection + 1; i < section.items.count; i++) {
+                let item = section.items[i]
+                if item.dynamicType.focusable() {
+                    return NSIndexPath(forRow: i, inSection: sectionIndex)
+                }
+            }
+        }
+        return nil
+    }
+
+    
     // MARK: Private methods
     //
     private func sectionAtIndexPath(indexPath: NSIndexPath) -> TableViewSection? {
@@ -100,6 +129,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
             cell.indexPath = indexPath
             cell.separatorInset = tableView.separatorInset
             cell.accessibilityIdentifier = item.accessibilityIdentifier
+            cell.tableViewManager = self
             if !cell.cellLoaded {
                 cell.cellDidLoad()
                 cell.cellLoaded = true

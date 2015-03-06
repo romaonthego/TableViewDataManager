@@ -11,14 +11,12 @@ import UIKit
 class TableViewTextCell: TableViewCell {
 
     @IBOutlet weak var labelCenterYConstraint: NSLayoutConstraint!
-    
-    override class func canBecomeFirstResponder() -> Bool {
-        return true
-    }
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.textField.inputAccessoryView = TableViewActionBar()
     }
     
     override func updateConstraints() {

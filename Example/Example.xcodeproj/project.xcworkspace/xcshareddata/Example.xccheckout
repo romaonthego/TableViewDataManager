@@ -10,6 +10,8 @@
 	<string>Example</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>2EFCB301C5C7352B2318A948816226A06981E201</key>
+		<string>github.com:romaonthego/RETableViewManager.git</string>
 		<key>92E2C81B87A37C58973057F0A652B957A4F6E18C</key>
 		<string>bitbucket.org:romaonthego/tableviewmanager.swift.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Example/Example.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>2EFCB301C5C7352B2318A948816226A06981E201</key>
+		<string>../../../../RETableViewManager</string>
 		<key>92E2C81B87A37C58973057F0A652B957A4F6E18C</key>
 		<string>../../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>92E2C81B87A37C58973057F0A652B957A4F6E18C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2EFCB301C5C7352B2318A948816226A06981E201</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RETableViewManager</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -50,6 +50,10 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var pasteHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var editingHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, status: TableViewEditingStatus) -> (Void))?
     
+    class func focusable() -> Bool {
+        return false
+    }
+    
     // MARK: Lifecycle
     //
     convenience init(text: String) {

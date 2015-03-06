@@ -12,4 +12,8 @@ class TableViewTextItem: TableViewItem {
    
     var value: String?
     
+    override class func focusable() -> Bool {
+        return true
+    }
+    
 }

@@ -19,10 +19,15 @@ class FormViewController: UITableViewController {
 
         self.manager.dataSource?.sections = [{
             let section = TableViewSection()
-            section.items = [{
-                let textItem = TableViewTextItem()
-                return textItem
-            }()]
+            section.items = [
+                {
+                    let textItem = TableViewTextItem()
+                    return textItem
+                }(),
+                {
+                    let textItem = TableViewTextItem()
+                    return textItem
+                }()]
             return section
         }()]
     }

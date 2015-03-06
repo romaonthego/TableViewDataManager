@@ -10,7 +10,7 @@ import UIKit
 
 let kYTMTableViewCellPadding: Float = 15
 
-class TableViewCell: UITableViewCell {
+class TableViewCell: UITableViewCell, TableViewActionBarDelegate {
     
     // MARK: Public variables
     //
@@ -21,6 +21,8 @@ class TableViewCell: UITableViewCell {
     var style: TableViewCellStyle?
     var backgroundImageView: UIImageView?
     var selectedBackgroundImageView: UIImageView?
+    var actionBar: TableViewActionBar?
+    var tableViewManager: TableViewManager!
     var type: TableViewCellType {
         get {
             if let indexPath = self.indexPath, section = self.section {
@@ -51,9 +53,15 @@ class TableViewCell: UITableViewCell {
         if (self.style?.hasCustomSelectedBackgroundImage() != nil || self.style?.hasCustomSelectedBackgroundImage() != nil) {
             self.addSelectedBackgroundImage()
         }
+        
+        self.actionBar = TableViewActionBar()
+        if let actionBar = self.actionBar {
+            actionBar.actionBarDelegate = self
+        }
     }
     
     func cellWillAppear() {
+        updateActionBarNavigationControl()
         self.textLabel?.text = item.text
         self.detailTextLabel?.text = item.detailText
         self.imageView?.image = self.item.image
@@ -70,10 +78,41 @@ class TableViewCell: UITableViewCell {
         return heightWithItem(item, tableView: tableView, indexPath: indexPath)
     }
     
-    class func canBecomeFirstResponder() -> Bool {
-        return false
+    func updateActionBarNavigationControl() {
+        if let actionBar = self.actionBar {
+            actionBar.navigationControl.setEnabled(self.indexPathForPreviousResponder() != nil, forSegmentAtIndex: 0)
+            actionBar.navigationControl.setEnabled(self.indexPathForNextResponder() != nil, forSegmentAtIndex: 1)
+        }
     }
     
+    func responder() -> UIResponder? {
+        return nil
+    }
+    
+    func indexPathForPreviousResponder() -> NSIndexPath? {
+        if let indexPath = self.indexPath {
+            for (var i = indexPath.section; i >= 0; i--) {
+                var indexPath = self.tableViewManager.indexPathForPreviousResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
+                if (indexPath != nil) {
+                    return indexPath;
+                }
+            }
+        }
+        return nil
+    }
+    
+    func indexPathForNextResponder() -> NSIndexPath? {
+        if let indexPath = self.indexPath, let datasource = self.tableViewManager.dataSource {
+            for (var i = indexPath.section; i < datasource.sections.count; i++) {
+                var indexPath = self.tableViewManager.indexPathForNextResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
+                if (indexPath != nil) {
+                    return indexPath;
+                }
+            }
+        }
+        return nil
+    }
+
     // MARK: Overrides
     //
     override func layoutSubviews() {
@@ -147,5 +186,9 @@ class TableViewCell: UITableViewCell {
             }
             return view
         }();
+    }
+    
+    func actionBar(actionBar: TableViewActionBar, doneButtonPressed: UIBarButtonItem) {
+        
     }
 }
