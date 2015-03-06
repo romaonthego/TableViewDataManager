@@ -63,45 +63,45 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     
     // MARK: Lifecycle
     //
-    convenience init(text: String) {
+    convenience init(text: String?) {
         self.init()
         self.text = text
     }
     
-    convenience init(text: String, configurationHandler: (tableViewCell: TableViewCell) -> (Void)) {
+    convenience init(text: String?, configurationHandler: (tableViewCell: TableViewCell) -> (Void)) {
         self.init(text: text)
         self.configurationHandler = configurationHandler
     }
     
-    convenience init(text: String, selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String?, selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.selectionHandler = selectionHandler
     }
     
-    convenience init(text: String, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String?, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.configurationHandler = configurationHandler
         self.selectionHandler = selectionHandler
     }
     
-    convenience init(text: String, image: UIImage) {
+    convenience init(text: String?, image: UIImage) {
         self.init(text: text)
         self.image = image
     }
     
-    convenience init(text: String, image: UIImage, configurationHandler: (tableViewCell: TableViewCell) -> (Void)) {
+    convenience init(text: String?, image: UIImage, configurationHandler: (tableViewCell: TableViewCell) -> (Void)) {
         self.init(text: text)
         self.image = image
         self.configurationHandler = configurationHandler
     }
     
-    convenience init(text: String, image: UIImage, selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String?, image: UIImage, selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.selectionHandler = selectionHandler
         self.image = image
     }
     
-    convenience init(text: String, image: UIImage, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
+    convenience init(text: String?, image: UIImage, configurationHandler: (tableViewCell: TableViewCell) -> (Void), selectionHandler: (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void)) {
         self.init(text: text)
         self.image = image
         self.configurationHandler = configurationHandler
