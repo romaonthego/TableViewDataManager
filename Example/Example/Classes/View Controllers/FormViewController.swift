@@ -27,7 +27,10 @@ class FormViewController: UITableViewController {
                 }(),
                 {
                     let textItem = TableViewTextItem(text: "Text item")
-                    textItem.returnKeyType = .Done
+                    return textItem
+                }(),
+                {
+                    let textItem = TableViewTextItem(text: "Phone")
                     return textItem
                 }()]
             return section
