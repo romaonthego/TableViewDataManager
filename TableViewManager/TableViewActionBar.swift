@@ -69,12 +69,9 @@ class TableViewActionBar: UIToolbar {
     }
     
     func doneButtonPressed(sender: AnyObject) {
-        var closure: ((Void) -> (Void)) = {
-            if let doneHandler = self.doneHandler {
-                
-            }
+        if let doneHandler = self.doneHandler {
+            doneHandler()
         }
-        closure()
     }
 
 }

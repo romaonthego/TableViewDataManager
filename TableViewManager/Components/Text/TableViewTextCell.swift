@@ -24,4 +24,8 @@ class TableViewTextCell: TableViewCell {
         self.labelCenterYConstraint.constant = 0.5
     }
     
+    override func responder() -> UIResponder? {
+        return self.textField
+    }
+    
 }

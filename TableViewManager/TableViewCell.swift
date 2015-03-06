@@ -54,10 +54,36 @@ class TableViewCell: UITableViewCell {
             self.addSelectedBackgroundImage()
         }
         
-        self.actionBar = TableViewActionBar(navigationHandler: { (index) -> (Void) in
+        self.actionBar = TableViewActionBar(navigationHandler: { [weak self] (index: Int) -> (Void) in
+            if let strongSelf = self, let tableView = strongSelf.tableViewManager.tableView {
+                if let indexPath = index == 0 ? strongSelf.indexPathForPreviousResponder() : strongSelf.indexPathForNextResponder() {
+                    var cell = tableView.cellForRowAtIndexPath(indexPath) as? TableViewCell
+                    if cell == nil {
+                        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+                    }
+                    cell = tableView.cellForRowAtIndexPath(indexPath) as? TableViewCell
+                    if let cell = cell, let responder = cell.responder() {
+                        responder.becomeFirstResponder()
+                    }
+                }
+            }
+            /*
+            NSIndexPath *indexPath = navigationControl.selectedSegmentIndex == 0 ? [self indexPathForPreviousResponder] : [self indexPathForNextResponder];
+            if (indexPath) {
+                RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+                if (!cell)
+                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+                cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+                [cell.responder becomeFirstResponder];
+            }
+            if (self.item.actionBarNavButtonTapHandler)
+            self.item.actionBarNavButtonTapHandler(self.item);
             
-        }, doneHandler: { (Void) -> (Void) in
-            
+            */
+        }, doneHandler: { [weak self] in
+            if let strongSelf = self {
+                strongSelf.endEditing(true)
+            }
         })
     }
     
