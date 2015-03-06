@@ -55,7 +55,7 @@ class TableViewCell: UITableViewCell {
         }
         
         self.actionBar = TableViewActionBar(navigationHandler: { [weak self] (index: Int) -> (Void) in
-            if let strongSelf = self, let tableView = strongSelf.tableViewManager.tableView {
+            if let strongSelf = self, let tableView = strongSelf.tableViewManager.tableView, let indexPath = strongSelf.indexPath {
                 if let indexPath = index == 0 ? strongSelf.indexPathForPreviousResponder() : strongSelf.indexPathForNextResponder() {
                     var cell = tableView.cellForRowAtIndexPath(indexPath) as? TableViewCell
                     if cell == nil {
@@ -66,23 +66,22 @@ class TableViewCell: UITableViewCell {
                         responder.becomeFirstResponder()
                     }
                 }
+                
+                if let actionBarButtonTapHandler = strongSelf.item.actionBarButtonTapHandler {
+                    actionBarButtonTapHandler(section: strongSelf.section, item: strongSelf.item, tableView: tableView, indexPath: indexPath, button: index == 0 ? .Previous : .Next)
+                }
             }
             /*
-            NSIndexPath *indexPath = navigationControl.selectedSegmentIndex == 0 ? [self indexPathForPreviousResponder] : [self indexPathForNextResponder];
-            if (indexPath) {
-                RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-                if (!cell)
-                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-                cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-                [cell.responder becomeFirstResponder];
-            }
             if (self.item.actionBarNavButtonTapHandler)
             self.item.actionBarNavButtonTapHandler(self.item);
             
             */
         }, doneHandler: { [weak self] in
-            if let strongSelf = self {
+            if let strongSelf = self, let tableView = strongSelf.tableViewManager.tableView, let indexPath = strongSelf.indexPath {
                 strongSelf.endEditing(true)
+                if let actionBarButtonTapHandler = strongSelf.item.actionBarButtonTapHandler {
+                    actionBarButtonTapHandler(section: strongSelf.section, item: strongSelf.item, tableView: tableView, indexPath: indexPath, button: .Done)
+                }
             }
         })
     }
@@ -213,9 +212,5 @@ class TableViewCell: UITableViewCell {
             }
             return view
         }();
-    }
-    
-    func actionBar(actionBar: TableViewActionBar, doneButtonPressed: UIBarButtonItem) {
-        
     }
 }

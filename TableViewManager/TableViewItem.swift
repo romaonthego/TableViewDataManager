@@ -20,6 +20,12 @@ enum TableViewCellDisplayStatus {
     case DidEndDisplaying
 }
 
+enum TableViewActionBarButton {
+    case Previous
+    case Next
+    case Done
+}
+
 class TableViewItem: NSObject, UIAccessibilityIdentification {
     
     // MARK: Variables
@@ -49,6 +55,7 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var copyHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var pasteHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var editingHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, status: TableViewEditingStatus) -> (Void))?
+    var actionBarButtonTapHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, button: TableViewActionBarButton) -> (Void))?
     
     class func focusable() -> Bool {
         return false
