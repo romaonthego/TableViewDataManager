@@ -21,6 +21,9 @@
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="KAT-0e-v4U"/>
+                        </connections>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUJ-43-izZ">
                         <rect key="frame" x="8" y="12" width="40" height="20"/>

@@ -11,6 +11,7 @@ import UIKit
 class TableViewTextItem: TableViewItem {
    
     var value: String?
+    var returnKeyType: UIReturnKeyType = .Default
     
     override class func focusable() -> Bool {
         return true

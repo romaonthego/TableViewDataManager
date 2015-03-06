@@ -26,6 +26,7 @@ class FormViewController: UITableViewController {
                 }(),
                 {
                     let textItem = TableViewTextItem()
+                    textItem.returnKeyType = .Done
                     return textItem
                 }()]
             return section
