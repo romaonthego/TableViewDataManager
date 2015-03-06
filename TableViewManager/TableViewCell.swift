@@ -71,11 +71,6 @@ class TableViewCell: UITableViewCell {
                     actionBarButtonTapHandler(section: strongSelf.section, item: strongSelf.item, tableView: tableView, indexPath: indexPath, button: index == 0 ? .Previous : .Next)
                 }
             }
-            /*
-            if (self.item.actionBarNavButtonTapHandler)
-            self.item.actionBarNavButtonTapHandler(self.item);
-            
-            */
         }, doneHandler: { [weak self] in
             if let strongSelf = self, let tableView = strongSelf.tableViewManager.tableView, let indexPath = strongSelf.indexPath {
                 strongSelf.endEditing(true)
