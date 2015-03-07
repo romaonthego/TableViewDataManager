@@ -12,10 +12,12 @@ class TableViewFormCell: TableViewCell {
 
     @IBOutlet weak var labelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var labelRightMarginConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func cellWillAppear() {
         super.cellWillAppear()
+        self.selectionStyle = .None
         self.titleLabel.text = self.item.text
         if let text = self.item.text where count(text) > 0 {
             self.labelRightMarginConstraint.constant = 5
@@ -24,8 +26,31 @@ class TableViewFormCell: TableViewCell {
         }
     }
     
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if let responder = self.responder() where selected {
+            responder.becomeFirstResponder()
+        }
+    }
+    
     override func updateConstraints() {
         super.updateConstraints()
+        
+        if self.item.text != nil {
+            var minWidth: Float = 0
+            for item in self.section.items {
+                if let text = item.text {
+                    let width = Float(NSString(string: text).boundingRectWithSize(CGSize(width: self.frame.size.width, height: CGFloat(DBL_MAX)),
+                        options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+                        attributes: [NSFontAttributeName: self.titleLabel.font],
+                        context: nil).size.width)
+                    minWidth = max(width, minWidth)
+                }
+            }
+            self.labelWidthConstraint.constant = CGFloat(minWidth)
+        } else {
+            self.labelWidthConstraint.constant = 0
+        }
         
         // Fix label center Y
         //
