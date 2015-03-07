@@ -38,6 +38,7 @@
 		488C06FC1AA920EC003000C3 /* UIButtonBarArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F81AA920EC003000C3 /* UIButtonBarArrowRight.png */; };
 		488C06FD1AA920EC003000C3 /* UIButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F91AA920EC003000C3 /* UIButtonBarArrowRight@2x.png */; };
 		488C06FF1AA920FC003000C3 /* Transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06FE1AA920FC003000C3 /* Transparent@2x.png */; };
+		48A57E9B1AAA77D4005CDD2F /* TableViewFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A57E9A1AAA77D4005CDD2F /* TableViewFormItem.swift */; };
 		48D6799A1AAA5B6500DA3960 /* TableViewFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D679991AAA5B6500DA3960 /* TableViewFormCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		488C06F81AA920EC003000C3 /* UIButtonBarArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIButtonBarArrowRight.png; path = ../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowRight.png; sourceTree = "<group>"; };
 		488C06F91AA920EC003000C3 /* UIButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UIButtonBarArrowRight@2x.png"; path = "../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
 		488C06FE1AA920FC003000C3 /* Transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Transparent@2x.png"; path = "../../../RETableViewManager/RETableViewManager/Resources/Transparent@2x.png"; sourceTree = "<group>"; };
+		48A57E9A1AAA77D4005CDD2F /* TableViewFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewFormItem.swift; sourceTree = "<group>"; };
 		48D679991AAA5B6500DA3960 /* TableViewFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewFormCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +235,7 @@
 			children = (
 				488C06ED1AA90F73003000C3 /* Text */,
 				48D679991AAA5B6500DA3960 /* TableViewFormCell.swift */,
+				48A57E9A1AAA77D4005CDD2F /* TableViewFormItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				488C06BD1AA65D91003000C3 /* TableViewSection.swift in Sources */,
 				48D6799A1AAA5B6500DA3960 /* TableViewFormCell.swift in Sources */,
 				488C06BF1AA65D9D003000C3 /* TableViewItem.swift in Sources */,
+				48A57E9B1AAA77D4005CDD2F /* TableViewFormItem.swift in Sources */,
 				488C06CB1AA78A83003000C3 /* TestViewController.swift in Sources */,
 				488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */,
 				488C06DF1AA7D8E6003000C3 /* EditingViewController.swift in Sources */,

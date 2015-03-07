@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewTextItem: TableViewItem {
+class TableViewTextItem: TableViewFormItem {
    
     var value: String?
     var placeholder: String?
@@ -27,12 +27,6 @@ class TableViewTextItem: TableViewItem {
 
     // Handlers
     //
-    var changeHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var changeCharacterInRangeHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, range: NSRange, replacementString: String) -> (Bool))?
     var returnKeyHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
-    
-    override class func focusable() -> Bool {
-        return true
-    }
-    
 }
