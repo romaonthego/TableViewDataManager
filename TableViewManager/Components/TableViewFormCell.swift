@@ -16,7 +16,7 @@ class TableViewFormCell: TableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     override func cellWillAppear() {
-        super.cellWillAppear()
+        updateActionBarNavigationControl()
         self.selectionStyle = .None
         self.titleLabel.text = self.item.text
         if let text = self.item.text where count(text) > 0 {
