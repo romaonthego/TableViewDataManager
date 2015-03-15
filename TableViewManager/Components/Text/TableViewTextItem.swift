@@ -15,7 +15,7 @@ class TableViewTextItem: TableViewFormItem {
     var charactersLimit: Int?
     var secureTextEntry = false
     
-    // Keyboard
+    // MARK: Keyboard
     //
     var autocapitalizationType = UITextAutocapitalizationType.Sentences // default is UITextAutocapitalizationTypeSentences
     var autocorrectionType = UITextAutocorrectionType.Default // default is UITextAutocorrectionTypeDefault
@@ -25,8 +25,16 @@ class TableViewTextItem: TableViewFormItem {
     var returnKeyType = UIReturnKeyType.Default // default is UIReturnKeyDefault (See note under UIReturnKeyType enum)
     var enablesReturnKeyAutomatically = false // default is NO (when YES, will automatically disable return key when text widget has zero-length contents, and will automatically enable when text widget has non-zero-length contents)
 
-    // Handlers
+    // MARK: Handlers
     //
     var changeCharacterInRangeHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, range: NSRange, replacementString: String) -> (Bool))?
     var returnKeyHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+
+    // MARK: Instance Lifecycle
+    //
+    convenience init(text: String?, placeholder: String?, value: String?) {
+        self.init(text: text)
+        self.placeholder = placeholder
+        self.value = value
+    }
 }
