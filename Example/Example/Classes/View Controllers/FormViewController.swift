@@ -14,28 +14,44 @@ class FormViewController: UITableViewController {
     //
     lazy var manager: TableViewManager = TableViewManager(tableView: self.tableView)
     
+    // Lazy initialize form fields
+    //
+    lazy var fullLengthTextField: TableViewTextItem = {
+        let textItem = TableViewTextItem()
+        textItem.placeholder = "Full length text field"
+        return textItem
+    }()
+    lazy var textItem: TableViewTextItem = {
+        let textItem = TableViewTextItem(text: "Text item")
+        textItem.placeholder = "Placeholder text"
+        return textItem
+    }()
+    lazy var numberItem: TableViewTextItem = {
+        let numberItem = TableViewTextItem(text: "Phone")
+        numberItem.placeholder = "(123) 456-7890"
+        return numberItem
+    }()
+    lazy var passwordItem: TableViewTextItem = {
+        let passwordItem = TableViewTextItem(text: "Password")
+        passwordItem.secureTextEntry = true
+        passwordItem.placeholder = "Password item"
+        return passwordItem
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.manager.dataSource?.sections = [{
             let section = TableViewSection()
-            section.items = [
-                {
-                    let textItem = TableViewTextItem()
-                    textItem.placeholder = "Full length text field"
-                    return textItem
-                }(),
-                {
-                    let textItem = TableViewTextItem(text: "Text item")
-                    textItem.placeholder = "Placeholder text"
-                    return textItem
-                }(),
-                {
-                    let textItem = TableViewTextItem(text: "Phone")
-                    textItem.placeholder = "(123) 456-7890"
-                    return textItem
-                }()]
+            section.items = [self.fullLengthTextField, self.textItem, self.numberItem, self.passwordItem]
             return section
         }()]
+    }
+    
+    // MARK: Read values
+    //
+    
+    @IBAction func valuesButtonPressed(sender: AnyObject) {
+        println("Full length text field value: \(self.fullLengthTextField.value)")
     }
 }

@@ -48,6 +48,7 @@ class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
     // MARK: Text field delegate
     //
     func textFieldDidChange(textField: UITextField) {
+        self.textItem.value = textField.text
         if let changeHandler = self.textItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
             changeHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath)
         }
