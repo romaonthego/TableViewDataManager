@@ -30,6 +30,7 @@ class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
     
     override func cellWillAppear() {
         super.cellWillAppear()
+        self.textField.text = self.textItem.value
         self.textField.placeholder = self.textItem.placeholder
         self.textField.secureTextEntry = self.textItem.secureTextEntry
         self.textField.autocapitalizationType = self.textItem.autocapitalizationType
