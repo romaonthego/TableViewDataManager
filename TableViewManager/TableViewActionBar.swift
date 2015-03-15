@@ -13,12 +13,7 @@ class TableViewActionBar: UIToolbar {
     var navigationControl: UISegmentedControl!
     var navigationHandler: ((index: Int) -> (Void))?
     var doneHandler: ((Void) -> (Void))?
-    
-    override init() {
-        super.init()
-        self.commonInit()
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
@@ -30,7 +25,7 @@ class TableViewActionBar: UIToolbar {
     }
     
     required init(navigationHandler: ((index: Int) -> (Void)), doneHandler: ((Void) -> (Void))) {
-        super.init()
+        super.init(frame: CGRectNull)
         self.navigationHandler = navigationHandler
         self.doneHandler = doneHandler
         self.commonInit()
