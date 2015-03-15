@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */; };
+		30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */; };
+		30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */; };
 		488C06981AA65656003000C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06971AA65656003000C3 /* AppDelegate.swift */; };
 		488C069D1AA65656003000C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488C069B1AA65656003000C3 /* Main.storyboard */; };
 		488C069F1AA65656003000C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488C069E1AA65656003000C3 /* Images.xcassets */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchItem.swift; sourceTree = "<group>"; };
+		30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchCell.swift; sourceTree = "<group>"; };
+		30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSwitchCell.xib; sourceTree = "<group>"; };
 		488C06921AA65656003000C3 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488C06961AA65656003000C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488C06971AA65656003000C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +116,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30CB4CD41AB624C1008F22EF /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */,
+				30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */,
+				30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */,
+			);
+			path = Switch;
+			sourceTree = "<group>";
+		};
 		488C06891AA65656003000C3 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +249,7 @@
 		488C06E41AA90F12003000C3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				30CB4CD41AB624C1008F22EF /* Switch */,
 				488C06ED1AA90F73003000C3 /* Text */,
 				48D679991AAA5B6500DA3960 /* TableViewFormCell.swift */,
 				48A57E9A1AAA77D4005CDD2F /* TableViewFormItem.swift */,
@@ -332,6 +349,7 @@
 			files = (
 				488C06FA1AA920EC003000C3 /* UIButtonBarArrowLeft.png in Resources */,
 				488C069D1AA65656003000C3 /* Main.storyboard in Resources */,
+				30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */,
 				488C06A21AA65656003000C3 /* LaunchScreen.xib in Resources */,
 				488C06F21AA90F73003000C3 /* TableViewTextCell.xib in Resources */,
 				488C06FC1AA920EC003000C3 /* UIButtonBarArrowRight.png in Resources */,
@@ -361,6 +379,7 @@
 				488C06F51AA91B00003000C3 /* TableViewActionBar.swift in Sources */,
 				488C06BB1AA65D04003000C3 /* TableViewDataSource.swift in Sources */,
 				488C06D71AA7C4F5003000C3 /* RootViewController.swift in Sources */,
+				30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */,
 				488C06D91AA7CA29003000C3 /* RetractableViewController.swift in Sources */,
 				488C06F11AA90F73003000C3 /* TableViewTextCell.swift in Sources */,
 				488C06DD1AA7D22D003000C3 /* IndexedListViewController.swift in Sources */,
@@ -373,6 +392,7 @@
 				488C06DF1AA7D8E6003000C3 /* EditingViewController.swift in Sources */,
 				488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */,
 				488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */,
+				30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */,
 				488C06F31AA90F73003000C3 /* TableViewTextItem.swift in Sources */,
 				488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */,
 				488C06C51AA66B3E003000C3 /* TableViewCell.swift in Sources */,

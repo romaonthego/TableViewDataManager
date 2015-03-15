@@ -32,6 +32,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.dataSource = dataSource
         self.registerCellClass(TableViewCell.self, forItemClass: TableViewItem.self)
         self.registerNib(UINib(nibName: "TableViewTextCell", bundle: nil), forItemClass: TableViewTextItem.self)
+        self.registerNib(UINib(nibName: "TableViewSwitchCell", bundle: nil), forItemClass: TableViewSwitchItem.self)
     }
     
     deinit {

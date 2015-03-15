@@ -11,7 +11,7 @@ import UIKit
 class TableViewFormCell: TableViewCell {
 
     @IBOutlet weak var labelCenterYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var labelRightMarginConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelRightMarginConstraint: NSLayoutConstraint?
     @IBOutlet weak var labelWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -19,10 +19,12 @@ class TableViewFormCell: TableViewCell {
         updateActionBarNavigationControl()
         self.selectionStyle = .None
         self.titleLabel.text = self.item.text
-        if let text = self.item.text where count(text) > 0 {
-            self.labelRightMarginConstraint.constant = 5
-        } else {
-            self.labelRightMarginConstraint.constant = 0
+        if let labelRightMarginConstraint = self.labelRightMarginConstraint {
+            if let text = self.item.text where count(text) > 0 {
+                labelRightMarginConstraint.constant = 5
+            } else {
+                labelRightMarginConstraint.constant = 0
+            }
         }
     }
     
