@@ -9,10 +9,6 @@
 import UIKit
 
 class TableViewFormItem: TableViewItem {
-   
-    // Handlers
-    //
-    var changeHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     
     override class func focusable() -> Bool {
         return true

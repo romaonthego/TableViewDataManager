@@ -100,7 +100,7 @@ class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
             shouldChange = newLength <= charactersLimit
         }
         if let changeCharacterInRangeHandler = self.textItem.changeCharacterInRangeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
-            shouldChange = changeCharacterInRangeHandler(section: self.section, item: self.item, tableView: tableView, indexPath: indexPath, range: range, replacementString: string)
+            shouldChange = changeCharacterInRangeHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath, range: range, replacementString: string)
         }
         return shouldChange
     }

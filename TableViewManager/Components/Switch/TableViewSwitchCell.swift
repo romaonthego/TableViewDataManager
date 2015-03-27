@@ -33,6 +33,9 @@ class TableViewSwitchCell: TableViewFormCell {
     
     @IBAction func switchValueChanged(sender: UISwitch!) {
         self.switchItem.value = sender.on
+        if let changeHandler = self.switchItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+            changeHandler(section: self.section, item: self.switchItem, tableView: tableView, indexPath: indexPath)
+        }
     }
     
 }

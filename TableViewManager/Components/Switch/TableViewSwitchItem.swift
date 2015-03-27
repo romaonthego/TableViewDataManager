@@ -12,6 +12,10 @@ class TableViewSwitchItem: TableViewFormItem {
     
     var value: Bool = true
     
+    // MARK: Handlers
+    //
+    var changeHandler: ((section: TableViewSection, item: TableViewSwitchItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    
     // MARK: Instance Lifecycle
     //
     convenience init(text: String?, value: Bool) {

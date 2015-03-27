@@ -24,7 +24,13 @@ class FormViewController: UITableViewController {
         item.secureTextEntry = true
         return item
     }()
-    lazy var switchItem = TableViewSwitchItem(text: "Switch", value: true)
+    lazy var switchItem: TableViewSwitchItem = {
+        let item = TableViewSwitchItem(text: "Switch", value: true)
+        item.changeHandler = { (section: TableViewSection, item: TableViewSwitchItem, tableView: UITableView, indexPath: NSIndexPath) in
+            println("Switch value: \(item.value)")
+        }
+        return item
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
