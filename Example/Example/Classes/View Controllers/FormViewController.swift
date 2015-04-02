@@ -82,6 +82,45 @@ class FormViewController: UITableViewController {
             ]
             return section
         }())
+        
+        // Copy / Cut / Paste section
+        //
+        self.manager.dataSource?.sections.append({
+            let section = TableViewSection(headerTitle: "Copy / Cut / Paste", footerTitle: "his section holds items that support copy and pasting. You can tap on an item to copy it, while you can tap on another one to paste it.")
+            section.items = [
+                {
+                    let item = TableViewItem(text: "Long tap to copy this item", selectionHandler: { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+                        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                    })
+                    item.copyHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+                        UIPasteboard.generalPasteboard().string = "Copied item #1"
+                    }
+                    return item
+                }(),
+                {
+                    let item = TableViewItem(text: "Long tap to paste into this item", selectionHandler: { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+                        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                    })
+                    item.pasteHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+                        item.text = UIPasteboard.generalPasteboard().string
+                        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    }
+                    return item
+                }(),
+                {
+                    let item = TableViewItem(text: "Long tap to cut text from this item", selectionHandler: { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+                        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                    })
+                    item.cutHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+                        item.text = "(Empty)"
+                        UIPasteboard.generalPasteboard().string = "Copied item #3"
+                        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    }
+                    return item
+                }()
+            ]
+            return section
+        }())
     }
     
     // MARK: Read values
