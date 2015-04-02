@@ -10,11 +10,11 @@ import UIKit
 
 class FormViewController: UITableViewController {
 
-    // Lazy initialize the table view manager
+    // MARK: Lazy initialize the table view manager
     //
     lazy var manager: TableViewManager = TableViewManager(tableView: self.tableView)
     
-    // Lazy initialize form fields
+    // MARK: Lazy initialize form fields
     //
     lazy var fullLengthTextField = TableViewTextItem(text: nil, placeholder: "Full length text field", value: nil)
     lazy var textItem = TableViewTextItem(text: "Text item", placeholder: "Placeholder text", value: nil)
@@ -39,11 +39,15 @@ class FormViewController: UITableViewController {
         return item
     }()
     
+    // MARK: View Lifecycle
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.manager.dataSource?.sections = [{
-            let section = TableViewSection()
+        // Form items section
+        //
+        self.manager.dataSource?.sections.append({
+            let section = TableViewSection(headerTitle: "Form items")
             section.items = [
                 self.fullLengthTextField,
                 self.textItem,
@@ -53,12 +57,35 @@ class FormViewController: UITableViewController {
                 self.sliderItem
             ]
             return section
-        }()]
+        }())
+        
+        // Accessories section
+        //
+        self.manager.dataSource?.sections.append({
+            let section = TableViewSection(headerTitle: "Accessories", footerTitle: "This section holds cells with accessories.")
+            section.items = [
+                TableViewItem(text: "Accessory 1", configurationHandler: { (tableViewCell: TableViewCell) -> (Void) in
+                    tableViewCell.accessoryType = .DisclosureIndicator
+                }),
+                {
+                    let item = TableViewItem(text: "Accessory 2", configurationHandler: { (tableViewCell: TableViewCell) -> (Void) in
+                        tableViewCell.accessoryType = .DetailDisclosureButton
+                    })
+                    item.accessoryButtonTapHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+                        println("Accessory button tapped")
+                    }
+                    return item
+                }(),
+                TableViewItem(text: "Accessory 3", configurationHandler: { (tableViewCell: TableViewCell) -> (Void) in
+                    tableViewCell.accessoryType = .Checkmark
+                })
+            ]
+            return section
+        }())
     }
     
     // MARK: Read values
     //
-    
     @IBAction func valuesButtonPressed(sender: AnyObject) {
         println("Full length text field value: \(self.fullLengthTextField.value)")
     }
