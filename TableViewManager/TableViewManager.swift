@@ -33,6 +33,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.registerCellClass(TableViewCell.self, forItemClass: TableViewItem.self)
         self.registerNib(UINib(nibName: "TableViewTextCell", bundle: nil), forItemClass: TableViewTextItem.self)
         self.registerNib(UINib(nibName: "TableViewSwitchCell", bundle: nil), forItemClass: TableViewSwitchItem.self)
+        self.registerNib(UINib(nibName: "TableViewSliderCell", bundle: nil), forItemClass: TableViewSliderItem.self)
     }
     
     deinit {
@@ -83,7 +84,6 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
         return nil
     }
-
     
     // MARK: Private methods
     //

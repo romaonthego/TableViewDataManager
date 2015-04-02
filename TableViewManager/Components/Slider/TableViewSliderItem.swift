@@ -10,4 +10,16 @@ import UIKit
 
 class TableViewSliderItem: TableViewFormItem {
    
+    var value: Float = 0
+    
+    // MARK: Handlers
+    //
+    var changeHandler: ((section: TableViewSection, item: TableViewSliderItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    
+    // MARK: Instance Lifecycle
+    //
+    convenience init(text: String?, value: Float) {
+        self.init(text: text)
+        self.value = value
+    }
 }

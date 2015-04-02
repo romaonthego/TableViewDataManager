@@ -31,13 +31,27 @@ class FormViewController: UITableViewController {
         }
         return item
     }()
+    lazy var sliderItem: TableViewSliderItem = {
+        let item = TableViewSliderItem(text: "Slider", value: 0.2)
+        item.changeHandler = { (section: TableViewSection, item: TableViewSliderItem, tableView: UITableView, indexPath: NSIndexPath) in
+            println("Slider value: \(item.value)")
+        }
+        return item
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.manager.dataSource?.sections = [{
             let section = TableViewSection()
-            section.items = [self.fullLengthTextField, self.textItem, self.numberItem, self.passwordItem, self.switchItem]
+            section.items = [
+                self.fullLengthTextField,
+                self.textItem,
+                self.numberItem,
+                self.passwordItem,
+                self.switchItem,
+                self.sliderItem
+            ]
             return section
         }()]
     }
