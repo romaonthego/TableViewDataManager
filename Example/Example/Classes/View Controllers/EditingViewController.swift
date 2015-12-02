@@ -26,7 +26,7 @@ class EditingViewController: UITableViewController {
                 let item = TableViewItem(text: "Section 1, Item \(i)")
                 item.editingStyle = .Delete
                 item.deletionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                    println("Item removed: \(item.text)")
+                    print("Item removed: \(item.text)")
                 }
                 section.items.append(item)
             }
@@ -42,11 +42,11 @@ class EditingViewController: UITableViewController {
                 let item = TableViewItem(text: "Section 2, Item \(i)")
                 item.editingStyle = .Delete
                 item.deletionHandlerWithCompletion = { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, completionHandler: ((Void) -> (Void))) in
-                    var alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want to delete \(item.text)", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want to delete \(item.text)", preferredStyle: .Alert)
                     alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
                     alertController.addAction(UIAlertAction(title: "Delete", style: .Destructive, handler: { (action: UIAlertAction!) -> Void in
                         completionHandler()
-                        println("Item removed: \(item.text)")
+                        print("Item removed: \(item.text)")
                     }))
                     self.presentViewController(alertController, animated: true, completion: nil)
                 }
@@ -67,7 +67,7 @@ class EditingViewController: UITableViewController {
                     return true
                 }
                 item.moveCompletionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) in
-                    println("Moved item: \(item.text) from [\(sourceIndexPath.section),\(sourceIndexPath.row)] to [\(destinationIndexPath.section),\(destinationIndexPath.row)]");
+                    print("Moved item: \(item.text) from [\(sourceIndexPath.section),\(sourceIndexPath.row)] to [\(destinationIndexPath.section),\(destinationIndexPath.row)]");
                 }
                 section.items.append(item)
             }
@@ -86,7 +86,7 @@ class EditingViewController: UITableViewController {
                     return true
                 }
                 item.moveCompletionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) in
-                    println("Moved item: \(item.text) from [\(sourceIndexPath.section),\(sourceIndexPath.row)] to [\(destinationIndexPath.section),\(destinationIndexPath.row)]");
+                    print("Moved item: \(item.text) from [\(sourceIndexPath.section),\(sourceIndexPath.row)] to [\(destinationIndexPath.section),\(destinationIndexPath.row)]");
                 }
                 section.items.append(item)
             }
@@ -116,7 +116,7 @@ class EditingViewController: UITableViewController {
             let item = TableViewItem(text: "Section 6, Item 1")
             item.editingStyle = .Insert
             item.insertionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
-                println("Insertion handler callback")
+                print("Insertion handler callback")
             }
             section.items.append(item)
             return section

@@ -20,7 +20,7 @@ class TableViewFormCell: TableViewCell {
         self.selectionStyle = .None
         self.titleLabel.text = self.item.text
         if let labelRightMarginConstraint = self.labelRightMarginConstraint {
-            if let text = self.item.text where count(text) > 0 {
+            if let text = self.item.text where text.characters.count > 0 {
                 labelRightMarginConstraint.constant = 5
             } else {
                 labelRightMarginConstraint.constant = 0

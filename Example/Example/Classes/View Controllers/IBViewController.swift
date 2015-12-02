@@ -31,7 +31,7 @@ class IBViewController: UITableViewController {
                 for index in 1...i {
                     lines.append("Line \(index)")
                 }
-                let item = IBTableViewItem(text: "\n".join(lines))
+                let item = IBTableViewItem(text: lines.joinWithSeparator("\n"))
                 item.selectable = false
                 section.items.append(item)
             }

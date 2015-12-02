@@ -48,7 +48,6 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // MARK: Public methods
     //
     func registerCellClass(cellClass: AnyClass, forItemClass itemClass: AnyClass) {
-        let identifier = NSStringFromClass(itemClass)
         self.tableView?.registerClass(cellClass, forCellReuseIdentifier: NSStringFromClass(itemClass))
     }
     
@@ -58,9 +57,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func indexPathForPreviousResponderInSectionIndex(sectionIndex: Int, currentSection: TableViewSection, currentItem: TableViewItem) -> NSIndexPath? {
-        if let dataSource = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
-            var items = section.items as NSArray
-            var indexInSection = section === currentSection ? items.indexOfObject(currentItem) : section.items.count
+        if let _ = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
+            let items = section.items as NSArray
+            let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : section.items.count
             for (var i = indexInSection - 1; i >= 0; i--) {
                 let item = section.items[i]
                 if item.dynamicType.focusable() {
@@ -72,9 +71,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func indexPathForNextResponderInSectionIndex(sectionIndex: Int, currentSection: TableViewSection, currentItem: TableViewItem) -> NSIndexPath? {
-        if let dataSource = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
-            var items = section.items as NSArray
-            var indexInSection = section === currentSection ? items.indexOfObject(currentItem) : -1
+        if let _ = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
+            let items = section.items as NSArray
+            let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : -1
             for (var i = indexInSection + 1; i < section.items.count; i++) {
                 let item = section.items[i]
                 if item.dynamicType.focusable() {
@@ -196,7 +195,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // Index
     
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
         if !self.showsIndexList {
             return nil
         }
@@ -450,7 +449,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return false
     }
     
-    func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+    func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
         if let item = self.itemAtIndexPath(indexPath) {
             if item.copyHandler != nil && action == Selector("copy:") {
                 return true
@@ -465,7 +464,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         return false
     }
     
-    func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+    func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
         if let item = self.itemAtIndexPath(indexPath), let section = self.sectionAtIndexPath(indexPath) {
             if let copyHandler = item.copyHandler where action == Selector("copy:") {
                 copyHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)

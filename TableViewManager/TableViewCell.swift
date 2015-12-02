@@ -113,7 +113,7 @@ class TableViewCell: UITableViewCell {
     func indexPathForPreviousResponder() -> NSIndexPath? {
         if let indexPath = self.indexPath {
             for (var i = indexPath.section; i >= 0; i--) {
-                var indexPath = self.tableViewManager.indexPathForPreviousResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
+                let indexPath = self.tableViewManager.indexPathForPreviousResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
                 if (indexPath != nil) {
                     return indexPath;
                 }
@@ -125,7 +125,7 @@ class TableViewCell: UITableViewCell {
     func indexPathForNextResponder() -> NSIndexPath? {
         if let indexPath = self.indexPath, let datasource = self.tableViewManager.dataSource {
             for (var i = indexPath.section; i < datasource.sections.count; i++) {
-                var indexPath = self.tableViewManager.indexPathForNextResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
+                let indexPath = self.tableViewManager.indexPathForNextResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
                 if (indexPath != nil) {
                     return indexPath;
                 }
@@ -138,7 +138,7 @@ class TableViewCell: UITableViewCell {
     //
     override func layoutSubviews() {
         super.layoutSubviews()
-        if let imageView = self.imageView, image = imageView.image {
+        if let imageView = self.imageView, _ = imageView.image {
             imageView.frame.origin.x = self.separatorInset.left
             if let textLabel = self.textLabel {
                 textLabel.frame.origin.x = CGRectGetMaxX(imageView.frame) + self.indentationWidth
@@ -180,12 +180,12 @@ class TableViewCell: UITableViewCell {
     private func addBackgroundImage() {
         self.backgroundImageView = {
             let view = UIImageView(frame: CGRectMake(0, 0, self.contentView.bounds.size.width, self.contentView.bounds.size.height + 1))
-            view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+            view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             return view
         }();
         self.backgroundView = {
             let view = UIView(frame: self.contentView.bounds)
-            view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+            view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             if let backgroundImageView = self.backgroundImageView {
                 view.addSubview(backgroundImageView)
             }
@@ -196,12 +196,12 @@ class TableViewCell: UITableViewCell {
     private func addSelectedBackgroundImage() {
         self.selectedBackgroundImageView = {
             let view = UIImageView(frame: CGRectMake(0, 0, self.contentView.bounds.size.width, self.contentView.bounds.size.height + 1))
-            view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+            view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             return view
         }();
         self.selectedBackgroundView = {
             let view = UIView(frame: self.contentView.bounds)
-            view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+            view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             if let selectedBackgroundImageView = self.selectedBackgroundImageView {
                 view.addSubview(selectedBackgroundImageView)
             }

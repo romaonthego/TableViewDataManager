@@ -56,7 +56,7 @@ class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        if let indexPath = self.indexPathForNextResponder() {
+        if let _ = self.indexPathForNextResponder() {
             textField.returnKeyType = .Next
         } else {
             textField.returnKeyType = self.textItem.returnKeyType
@@ -96,7 +96,7 @@ class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var shouldChange = true
         if let charactersLimit = self.textItem.charactersLimit {
-            let newLength = count(textField.text) + count(string) - range.length
+            let newLength = textField.text!.characters.count + string.characters.count - range.length
             shouldChange = newLength <= charactersLimit
         }
         if let changeCharacterInRangeHandler = self.textItem.changeCharacterInRangeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {

@@ -27,14 +27,14 @@ class FormViewController: UITableViewController {
     lazy var switchItem: TableViewSwitchItem = {
         let item = TableViewSwitchItem(text: "Switch", value: true)
         item.changeHandler = { (section: TableViewSection, item: TableViewSwitchItem, tableView: UITableView, indexPath: NSIndexPath) in
-            println("Switch value: \(item.value)")
+            print("Switch value: \(item.value)")
         }
         return item
     }()
     lazy var sliderItem: TableViewSliderItem = {
         let item = TableViewSliderItem(text: "Slider", value: 0.2)
         item.changeHandler = { (section: TableViewSection, item: TableViewSliderItem, tableView: UITableView, indexPath: NSIndexPath) in
-            println("Slider value: \(item.value)")
+            print("Slider value: \(item.value)")
         }
         return item
     }()
@@ -72,7 +72,7 @@ class FormViewController: UITableViewController {
                         tableViewCell.accessoryType = .DetailDisclosureButton
                     })
                     item.accessoryButtonTapHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
-                        println("Accessory button tapped")
+                        print("Accessory button tapped")
                     }
                     return item
                 }(),
@@ -126,6 +126,6 @@ class FormViewController: UITableViewController {
     // MARK: Read values
     //
     @IBAction func valuesButtonPressed(sender: AnyObject) {
-        println("Full length text field value: \(self.fullLengthTextField.value)")
+        print("Full length text field value: \(self.fullLengthTextField.value)")
     }
 }

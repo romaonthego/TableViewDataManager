@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "92E2C81B87A37C58973057F0A652B957A4F6E18C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "92E2C81B87A37C58973057F0A652B957A4F6E18C" : 0,
+    "2EFCB301C5C7352B2318A948816226A06981E201" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B88E3DD7-73F7-46C8-94F8-51BD708B33E4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "92E2C81B87A37C58973057F0A652B957A4F6E18C" : "TableViewManager_swift",
+    "2EFCB301C5C7352B2318A948816226A06981E201" : "RETableViewManager"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Example",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/Example.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:romaonthego\/RETableViewManager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2EFCB301C5C7352B2318A948816226A06981E201"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:romaonthego\/tableviewmanager.swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "92E2C81B87A37C58973057F0A652B957A4F6E18C"
+    }
+  ]
+}
