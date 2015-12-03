@@ -432,13 +432,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Allows customization of the target row for a particular row as it is being moved/reordered
     //
     func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
-        if let sourceSection = self.sectionAtIndexPath(sourceIndexPath), let item = self.itemAtIndexPath(sourceIndexPath), let moveHandler = item.moveHandler {
-            let allowed = moveHandler(section: sourceSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: proposedDestinationIndexPath)
-            if !allowed {
-                return sourceIndexPath
-            }
+        guard let sourceSection = self.sectionAtIndexPath(sourceIndexPath), let item = self.itemAtIndexPath(sourceIndexPath), let moveHandler = item.moveHandler else {
+            return proposedDestinationIndexPath
         }
-        return proposedDestinationIndexPath
+        return moveHandler(section: sourceSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: proposedDestinationIndexPath) ? proposedDestinationIndexPath : sourceIndexPath
     }
     
     // Indentation
