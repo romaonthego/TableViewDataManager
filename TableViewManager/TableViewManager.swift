@@ -453,25 +453,17 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Cut / Copy / Paste.  All three methods must be implemented by the delegate.
     
     func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return item.copyHandler != nil || item.pasteHandler != nil || item.cutHandler != nil
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return false
         }
-        return false
+        return item.copyHandler != nil || item.pasteHandler != nil || item.cutHandler != nil
     }
     
     func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        if let item = self.itemAtIndexPath(indexPath) {
-            if item.copyHandler != nil && action == Selector("copy:") {
-                return true
-            }
-            if item.pasteHandler != nil && action == Selector("paste:") {
-                return true
-            }
-            if item.cutHandler != nil && action == Selector("cut:") {
-                return true
-            }
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return false
         }
-        return false
+        return (item.copyHandler != nil && action == Selector("copy:")) || (item.pasteHandler != nil && action == Selector("paste:")) || (item.cutHandler != nil && action == Selector("cut:"))
     }
     
     func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
