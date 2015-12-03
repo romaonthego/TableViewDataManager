@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    // MARK: Variables
+    // MARK: Public variables
     //
     var dataSource: TableViewDataSource?
     var style: TableViewCellStyle?
@@ -22,7 +22,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    // MARK: Lifecycle
+    // MARK: Instance Lifecycle
     //
     init(tableView: UITableView, dataSource: TableViewDataSource) {
         super.init();
@@ -57,28 +57,30 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func indexPathForPreviousResponderInSectionIndex(sectionIndex: Int, currentSection: TableViewSection, currentItem: TableViewItem) -> NSIndexPath? {
-        if let _ = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
-            let items = section.items as NSArray
-            let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : section.items.count
-            for (var i = indexInSection - 1; i >= 0; i--) {
-                let item = section.items[i]
-                if item.dynamicType.focusable() {
-                    return NSIndexPath(forRow: i, inSection: sectionIndex)
-                }
+        guard let _ = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) else {
+            return nil
+        }
+        let items = section.items as NSArray
+        let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : section.items.count
+        for (var i = indexInSection - 1; i >= 0; i--) {
+            let item = section.items[i]
+            if item.dynamicType.focusable() {
+                return NSIndexPath(forRow: i, inSection: sectionIndex)
             }
         }
         return nil
     }
     
     func indexPathForNextResponderInSectionIndex(sectionIndex: Int, currentSection: TableViewSection, currentItem: TableViewItem) -> NSIndexPath? {
-        if let _ = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) {
-            let items = section.items as NSArray
-            let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : -1
-            for (var i = indexInSection + 1; i < section.items.count; i++) {
-                let item = section.items[i]
-                if item.dynamicType.focusable() {
-                    return NSIndexPath(forRow: i, inSection: sectionIndex)
-                }
+        guard let _ = self.dataSource, let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndex)) else {
+            return nil
+        }
+        let items = section.items as NSArray
+        let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : -1
+        for (var i = indexInSection + 1; i < section.items.count; i++) {
+            let item = section.items[i]
+            if item.dynamicType.focusable() {
+                return NSIndexPath(forRow: i, inSection: sectionIndex)
             }
         }
         return nil
@@ -87,21 +89,17 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // MARK: Private methods
     //
     private func sectionAtIndexPath(indexPath: NSIndexPath) -> TableViewSection? {
-        if let dataSource = self.dataSource {
-            if indexPath.section < dataSource.sections.count {
-                return dataSource.sections[indexPath.section]
-            }
+        guard let dataSource = self.dataSource where indexPath.section < dataSource.sections.count else {
+            return nil
         }
-        return nil
+        return dataSource.sections[indexPath.section]
     }
     
     private func itemAtIndexPath(indexPath: NSIndexPath) -> TableViewItem? {
-        if let section = self.sectionAtIndexPath(indexPath) {
-            if (indexPath.row < section.items.count) {
-                return section.items[indexPath.row]
-            }
+        guard let section = self.sectionAtIndexPath(indexPath) where indexPath.row < section.items.count else {
+            return nil
         }
-        return nil
+        return section.items[indexPath.row]
     }
     
     // MARK: <UITableViewDataSource> methods
@@ -116,59 +114,59 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath) {
-            let identifier = NSStringFromClass(item.dynamicType)
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TableViewCell
-            
-            cell.style = self.style
-            if let sectionStyle = section.style {
-                cell.style = sectionStyle
-            }
-            cell.item = item
-            cell.section = section
-            cell.indexPath = indexPath
-            cell.separatorInset = tableView.separatorInset
-            cell.accessibilityIdentifier = item.accessibilityIdentifier
-            cell.tableViewManager = self
-            if !cell.cellLoaded {
-                cell.cellDidLoad()
-                cell.cellLoaded = true
-            }
-            cell.cellWillAppear()
-            
-            if let configurationHandler = section.configurationHandler {
-                configurationHandler(tableViewCell: cell)
-            }
-            
-            if let configurationHandler = item.configurationHandler {
-                configurationHandler(tableViewCell: cell)
-            }
-            
-            return cell
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath) else {
+            return TableViewCell()
         }
-        return TableViewCell()
+        let identifier = NSStringFromClass(item.dynamicType)
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TableViewCell
+        
+        cell.style = self.style
+        if let sectionStyle = section.style {
+            cell.style = sectionStyle
+        }
+        cell.item = item
+        cell.section = section
+        cell.indexPath = indexPath
+        cell.separatorInset = tableView.separatorInset
+        cell.accessibilityIdentifier = item.accessibilityIdentifier
+        cell.tableViewManager = self
+        if !cell.cellLoaded {
+            cell.cellDidLoad()
+            cell.cellLoaded = true
+        }
+        cell.cellWillAppear()
+        
+        if let configurationHandler = section.configurationHandler {
+            configurationHandler(tableViewCell: cell)
+        }
+        
+        if let configurationHandler = item.configurationHandler {
+            configurationHandler(tableViewCell: cell)
+        }
+        
+        return cell
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if let dataSource = self.dataSource {
-            return dataSource.sections.count
+        guard let dataSource = self.dataSource else {
+            return 0
         }
-        return 0
+        return dataSource.sections.count
     }
     
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)) {
-            return section.headerTitle
+        guard let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)) else {
+            return nil
         }
-        return nil
+        return section.headerTitle
     }
     
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)) {
-            return section.footerTitle
+        guard let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: section)) else {
+            return nil
         }
-        return nil
+        return section.footerTitle
     }
     
     // Editing
@@ -176,10 +174,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Individual rows can opt out of having the -editing property set for them.
     //
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return item.editingStyle != .None || item.moveHandler != nil
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return false
         }
-        return false
+        return item.editingStyle != .None || item.moveHandler != nil
     }
     
     // Moving/reordering
@@ -187,10 +185,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
     //
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return item.moveHandler != nil
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return false
         }
-        return false
+        return item.moveHandler != nil
     }
     
     // Index
@@ -199,15 +197,15 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         if !self.showsIndexList {
             return nil
         }
-        
         var indexTitles: [String] = []
-        if let dataSource = self.dataSource {
-            for section in dataSource.sections {
-                if let indexTitle = section.indexTitle {
-                    indexTitles.append(indexTitle)
-                } else {
-                    indexTitles.append("")
-                }
+        guard let dataSource = self.dataSource else {
+            return indexTitles
+        }
+        for section in dataSource.sections {
+            if let indexTitle = section.indexTitle {
+                indexTitles.append(indexTitle)
+            } else {
+                indexTitles.append("")
             }
         }
         return indexTitles
@@ -219,26 +217,27 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
     //
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath) {
-            if editingStyle == .Delete {
-                if let deletionHandlerWithCompletion = item.deletionHandlerWithCompletion {
-                    deletionHandlerWithCompletion(section: section, item: item, tableView: tableView, indexPath: indexPath, completionHandler: { (Void) -> (Void) in
-                        section.items.removeAtIndex(indexPath.row)
-                        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                    })
-                } else {
-                    if let deletionHandler = item.deletionHandler {
-                        deletionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
-                    }
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath) else {
+            return
+        }
+        if editingStyle == .Delete {
+            if let deletionHandlerWithCompletion = item.deletionHandlerWithCompletion {
+                deletionHandlerWithCompletion(section: section, item: item, tableView: tableView, indexPath: indexPath, completionHandler: { (Void) -> (Void) in
                     section.items.removeAtIndex(indexPath.row)
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                })
+            } else {
+                if let deletionHandler = item.deletionHandler {
+                    deletionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
                 }
+                section.items.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             }
-            
-            if editingStyle == .Insert {
-                if let insertionHandler = item.insertionHandler {
-                    insertionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
-                }
+        }
+        
+        if editingStyle == .Insert {
+            if let insertionHandler = item.insertionHandler {
+                insertionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
             }
         }
     }
@@ -246,13 +245,14 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Data manipulation - reorder / moving support
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        if let sourceSection = self.sectionAtIndexPath(sourceIndexPath), let item = self.itemAtIndexPath(sourceIndexPath), let destinationSection = self.sectionAtIndexPath(destinationIndexPath) {
-            sourceSection.items.removeAtIndex(sourceIndexPath.row)
-            destinationSection.items.insert(item, atIndex: destinationIndexPath.row)
-            
-            if let moveCompletionHandler = item.moveCompletionHandler {
-                moveCompletionHandler(section: destinationSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
-            }
+        guard let sourceSection = self.sectionAtIndexPath(sourceIndexPath), let item = self.itemAtIndexPath(sourceIndexPath), let destinationSection = self.sectionAtIndexPath(destinationIndexPath) else {
+            return
+        }
+        sourceSection.items.removeAtIndex(sourceIndexPath.row)
+        destinationSection.items.insert(item, atIndex: destinationIndexPath.row)
+        
+        if let moveCompletionHandler = item.moveCompletionHandler {
+            moveCompletionHandler(section: destinationSection, item: item, tableView: tableView, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
         }
     }
 
@@ -262,9 +262,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Display customization
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler {
-            displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .WillDisplay)
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler else {
+            return
         }
+        displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .WillDisplay)
     }
     
     
