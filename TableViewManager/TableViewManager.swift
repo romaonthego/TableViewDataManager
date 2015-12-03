@@ -271,69 +271,74 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection index: Int) {
         let indexPath = NSIndexPath(forRow: 0, inSection: index)
-        if let section = self.sectionAtIndexPath(indexPath), let headerDisplayHandler = section.headerDisplayHandler {
-            headerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .WillDisplay)
+        guard let section = self.sectionAtIndexPath(indexPath), let headerDisplayHandler = section.headerDisplayHandler else {
+            return
         }
+        headerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .WillDisplay)
     }
     
     func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection index: Int) {
         let indexPath = NSIndexPath(forRow: 0, inSection: index)
-        if let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler {
-            footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .WillDisplay)
+        guard let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler else {
+            return
         }
+        footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .WillDisplay)
     }
     
     func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler {
-            displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .DidEndDisplaying)
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let displayHandler = item.displayHandler else {
+            return
         }
+        displayHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, tableViewCell: cell as! TableViewCell, status: .DidEndDisplaying)
     }
     
     func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection index: Int) {
         let indexPath = NSIndexPath(forRow: 0, inSection: index)
-        if let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler {
-            footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .DidEndDisplaying)
+        guard let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler else {
+            return
         }
+        footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .DidEndDisplaying)
     }
     
     func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection index: Int) {
         let indexPath = NSIndexPath(forRow: 0, inSection: index)
-        if let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler {
-            footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .DidEndDisplaying)
+        guard let section = self.sectionAtIndexPath(indexPath), let footerDisplayHandler = section.footerDisplayHandler else {
+            return
         }
+        footerDisplayHandler(section: section, tableView: tableView, indexPath: indexPath, view: view, status: .DidEndDisplaying)
     }
     
     // Variable height support
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return CGFloat(TableViewCell.heightWithItem(item, tableView: tableView, indexPath: indexPath))
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return UITableViewAutomaticDimension
         }
-        return UITableViewAutomaticDimension
+        return CGFloat(TableViewCell.heightWithItem(item, tableView: tableView, indexPath: indexPath))
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection index: Int) -> CGFloat {
-        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: index)), let headerView = section.headerView {
-            return headerView.frame.height
+        guard let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: index)), let headerView = section.headerView else {
+            return UITableViewAutomaticDimension
         }
-        return UITableViewAutomaticDimension
+        return headerView.frame.height
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection index: Int) -> CGFloat {
-        if let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: index)), let footerView = section.footerView {
-            return footerView.frame.height
+        guard let section = self.sectionAtIndexPath(NSIndexPath(forRow: 0, inSection: index)), let footerView = section.footerView else {
+            return UITableViewAutomaticDimension
         }
-        return UITableViewAutomaticDimension
+        return footerView.frame.height
     }
     
     // Use the estimatedHeight methods to quickly calcuate guessed values which will allow for fast load times of the table.
     // If these methods are implemented, the above -tableView:heightForXXX calls will be deferred until views are ready to be displayed, so more expensive logic can be placed there.
     //
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return UITableViewAutomaticDimension
         }
-        return UITableViewAutomaticDimension
+        return CGFloat(TableViewCell.estimatedHeightWithItem(item, tableView: tableView, indexPath: indexPath))
     }
     
     // Section header & footer information. Views are preferred over title should you decide to provide both
@@ -349,9 +354,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Accessories (disclosures).
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), accessoryButtonTapHandler = item.accessoryButtonTapHandler {
-            accessoryButtonTapHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), accessoryButtonTapHandler = item.accessoryButtonTapHandler else {
+           return
         }
+        accessoryButtonTapHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
     }
     
     // Selection
@@ -360,10 +366,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Returning NO to that message halts the selection process and does not cause the currently selected row to lose its selected look while the touch is down.
     //
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return item.selectable
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return true
         }
-        return true
+        return item.selectable
     }
     
     // Called after the user changes the selection.
@@ -375,9 +381,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let deselectionHandler = item.deselectionHandler {
-            deselectionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let deselectionHandler = item.deselectionHandler else {
+            return
         }
+        deselectionHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
     }
     
     // Editing
@@ -385,10 +392,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Allows customization of the editingStyle for a particular cell located at 'indexPath'. If not implemented, all editable cells will have UITableViewCellEditingStyleDelete set for them when the table has editing property set to YES.
     //
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return item.editingStyle
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return .None
         }
-        return .None
+        return item.editingStyle
     }
     
     /*
@@ -398,24 +405,26 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Controls whether the background is indented while editing.  If not implemented, the default is YES.  This is unrelated to the indentation level below.  This method only applies to grouped style table views.
     //
     func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return item.shouldIndentWhileEditing
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return true
         }
-        return true
+        return item.shouldIndentWhileEditing
     }
     
     // The willBegin/didEnd methods are called whenever the 'editing' property is automatically changed by the table (allowing insert/delete/move). This is done by a swipe activating a single row
     //
     func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let editingHandler = item.editingHandler {
-            return editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .WillBeginEditing)
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let editingHandler = item.editingHandler else {
+            return
         }
+        editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .WillBeginEditing)
     }
     
     func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
-        if let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let editingHandler = item.editingHandler {
-            return editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .DidEndEditing)
+        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let editingHandler = item.editingHandler else {
+            return
         }
+        return editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .DidEndEditing)
     }
 
     // Moving/reordering
@@ -435,10 +444,10 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     // Indentation
 
     func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
-        if let item = self.itemAtIndexPath(indexPath) {
-            return item.indentationLevel
+        guard let item = self.itemAtIndexPath(indexPath) else {
+            return 0
         }
-        return 0
+        return item.indentationLevel
     }
     
     // Cut / Copy / Paste.  All three methods must be implemented by the delegate.
@@ -466,16 +475,17 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-        if let item = self.itemAtIndexPath(indexPath), let section = self.sectionAtIndexPath(indexPath) {
-            if let copyHandler = item.copyHandler where action == Selector("copy:") {
-                copyHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
-            }
-            if let pasteHandler = item.pasteHandler where action == Selector("paste:") {
-                pasteHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
-            }
-            if let cutHandler = item.cutHandler where action == Selector("cut:") {
-                cutHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
-            }
+        guard let item = self.itemAtIndexPath(indexPath), let section = self.sectionAtIndexPath(indexPath) else {
+            return
+        }
+        if let copyHandler = item.copyHandler where action == Selector("copy:") {
+            copyHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+        if let pasteHandler = item.pasteHandler where action == Selector("paste:") {
+            pasteHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
+        }
+        if let cutHandler = item.cutHandler where action == Selector("cut:") {
+            cutHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
         }
     }
 }
