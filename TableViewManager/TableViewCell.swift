@@ -146,32 +146,34 @@ class TableViewCell: UITableViewCell {
             }
         }
         
-        if let style = self.style {
-            if style.hasCustomBackgroundColor() || style.hasCustomBackgroundImage() {
-                self.backgroundColor = UIColor.clearColor()
-                if self.backgroundImageView == nil {
-                    self.addBackgroundImage()
-                }
+        guard let style = self.style else {
+            return
+        }
+        
+        if style.hasCustomBackgroundColor() || style.hasCustomBackgroundImage() {
+            self.backgroundColor = UIColor.clearColor()
+            if self.backgroundImageView == nil {
+                self.addBackgroundImage()
             }
-            
-            if style.hasCustomSelectedBackgroundColor() || style.hasCustomSelectedBackgroundImage() {
-                if self.selectedBackgroundImageView == nil {
-                    self.addSelectedBackgroundImage()
-                }
+        }
+        
+        if style.hasCustomSelectedBackgroundColor() || style.hasCustomSelectedBackgroundImage() {
+            if self.selectedBackgroundImageView == nil {
+                self.addSelectedBackgroundImage()
             }
-            
-            if let backgroundImageView = self.backgroundImageView where style.hasCustomBackgroundColor()  {
-                backgroundImageView.backgroundColor = style.backgroundColorForCellType(self.type)
-            }
-            if let backgroundImageView = self.backgroundImageView where style.hasCustomBackgroundImage()  {
-                backgroundImageView.image = style.backgroundImageForCellType(self.type)
-            }
-            if let selectedBackgroundImageView = self.selectedBackgroundImageView where style.hasCustomSelectedBackgroundColor()  {
-                selectedBackgroundImageView.backgroundColor = style.selectedBackgroundColorForCellType(self.type)
-            }
-            if let selectedBackgroundImageView = self.selectedBackgroundImageView where style.hasCustomSelectedBackgroundImage()  {
-                selectedBackgroundImageView.image = style.selectedBackgroundImageForCellType(self.type)
-            }
+        }
+        
+        if let backgroundImageView = self.backgroundImageView where style.hasCustomBackgroundColor()  {
+            backgroundImageView.backgroundColor = style.backgroundColorForCellType(self.type)
+        }
+        if let backgroundImageView = self.backgroundImageView where style.hasCustomBackgroundImage()  {
+            backgroundImageView.image = style.backgroundImageForCellType(self.type)
+        }
+        if let selectedBackgroundImageView = self.selectedBackgroundImageView where style.hasCustomSelectedBackgroundColor()  {
+            selectedBackgroundImageView.backgroundColor = style.selectedBackgroundColorForCellType(self.type)
+        }
+        if let selectedBackgroundImageView = self.selectedBackgroundImageView where style.hasCustomSelectedBackgroundImage()  {
+            selectedBackgroundImageView.image = style.selectedBackgroundImageForCellType(self.type)
         }
     }
     
