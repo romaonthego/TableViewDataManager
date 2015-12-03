@@ -31,9 +31,9 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.tableView?.dataSource = self
         self.dataSource = dataSource
         self.registerCellClass(TableViewCell.self, forItemClass: TableViewItem.self)
-        self.registerNib(UINib(nibName: "TableViewTextCell", bundle: nil), forItemClass: TableViewTextItem.self)
-        self.registerNib(UINib(nibName: "TableViewSwitchCell", bundle: nil), forItemClass: TableViewSwitchItem.self)
-        self.registerNib(UINib(nibName: "TableViewSliderCell", bundle: nil), forItemClass: TableViewSliderItem.self)
+        [ "TableViewTextCell": TableViewTextItem.self,
+          "TableViewSwitchCell": TableViewSwitchItem.self,
+          "TableViewSliderCell": TableViewSliderItem.self ].forEach { self.registerNib(UINib(nibName: $0, bundle: nil), forItemClass: $1) }
     }
     
     deinit {
