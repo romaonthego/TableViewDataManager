@@ -25,21 +25,21 @@ class TableViewCell: UITableViewCell {
     var tableViewManager: TableViewManager!
     var type: TableViewCellType {
         get {
-            if let indexPath = self.indexPath, section = self.section {
-                if indexPath.row == 0 && section.items.count == 1 {
-                    return .Single
-                }
-                if indexPath.row == 0 && section.items.count > 1 {
-                    return .First
-                }
-                if indexPath.row > 0 && indexPath.row < section.items.count - 1 && section.items.count > 2 {
-                    return .Middle
-                }
-                if indexPath.row == section.items.count - 1 && section.items.count > 1 {
-                    return .Last
-                }
+            guard let indexPath = self.indexPath, section = self.section else {
+                return .Any
             }
-            return .Any
+            switch (indexPath.row, section.items.count) {
+            case let (row, count) where row == 0 && count == 1:
+                return .Single
+            case let (row, count) where row == 0 && count > 1:
+                return .First
+            case let (row, count) where row > 0 && row < count - 1 && count > 2:
+                return .Middle
+            case let (row, count) where row == count - 1 && count > 1:
+                return .Last
+            default:
+                return .Any
+            }
         }
     }
 
