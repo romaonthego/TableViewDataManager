@@ -22,7 +22,7 @@ class EditingViewController: UITableViewController {
         self.manager.dataSource!.sections.append({
             let section = TableViewSection(headerTitle: "Deletable")
             
-            for (var i = 1; i <= 5; i++) {
+            for i in 1...5 {
                 let item = TableViewItem(text: "Section 1, Item \(i)")
                 item.editingStyle = .Delete
                 item.deletionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
@@ -38,7 +38,7 @@ class EditingViewController: UITableViewController {
         self.manager.dataSource!.sections.append({
             let section = TableViewSection(headerTitle: "Deletable with confirmation")
             
-            for (var i = 1; i <= 5; i++) {
+            for i in 1...5 {
                 let item = TableViewItem(text: "Section 2, Item \(i)")
                 item.editingStyle = .Delete
                 item.deletionHandlerWithCompletion = { [unowned self] (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, completionHandler: ((Void) -> (Void))) in
@@ -60,7 +60,7 @@ class EditingViewController: UITableViewController {
         self.manager.dataSource!.sections.append({
             let section = TableViewSection(headerTitle: "Movable")
             
-            for (var i = 1; i <= 5; i++) {
+            for i in 1...5 {
                 let item = TableViewItem(text: "Section 3, Item \(i)")
                 item.editingStyle = .None
                 item.moveHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Bool) in
@@ -79,7 +79,7 @@ class EditingViewController: UITableViewController {
         self.manager.dataSource!.sections.append({
             let section = TableViewSection(headerTitle: "Deletable & Movable")
             
-            for (var i = 1; i <= 5; i++) {
+            for i in 1...5 {
                 let item = TableViewItem(text: "Section 4, Item \(i)")
                 item.editingStyle = .Delete
                 item.moveHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Bool) in
@@ -98,7 +98,7 @@ class EditingViewController: UITableViewController {
         self.manager.dataSource!.sections.append({
             let section = TableViewSection(headerTitle: "Can move only within this section")
             
-            for (var i = 1; i <= 5; i++) {
+            for i in 1...5 {
                 let item = TableViewItem(text: "Section 5, Item \(i)")
                 item.moveHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> (Bool) in
                     return destinationIndexPath.section == sourceIndexPath.section;

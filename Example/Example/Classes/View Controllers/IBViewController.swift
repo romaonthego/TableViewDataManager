@@ -26,7 +26,7 @@ class IBViewController: UITableViewController {
 
         self.manager.dataSource!.sections.append({
             let section = TableViewSection()
-            for (var i = 1; i <= 10; i++) {
+            for i in 1...10 {
                 var lines : [String] = []
                 for index in 1...i {
                     lines.append("Line \(index)")

@@ -30,7 +30,7 @@ class StyleViewController: UITableViewController {
         
         self.manager.dataSource!.sections.append({
             let section = TableViewSection()
-            for (var i = 1; i <= 10; i++) {
+            for i in 1...10 {
                 section.items.append(TableViewItem(text: "\(i)", selectionHandler: { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) in
                     tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 }))

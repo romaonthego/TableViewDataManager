@@ -31,7 +31,7 @@ class IndexedListViewController: UITableViewController {
                 
                 // Add 5 items with name `section title + item index`
                 //
-                for (var i = 1; i <= 5; i++) {
+                for i in 1...5 {
                     section.items.append(TableViewItem(text: "\(indexTitle)-\(i)"))
                 }
                 return section

@@ -112,9 +112,8 @@ class TableViewCell: UITableViewCell {
     
     func indexPathForPreviousResponder() -> NSIndexPath? {
         if let indexPath = self.indexPath {
-            for (var i = indexPath.section; i >= 0; i--) {
-                let indexPath = self.tableViewManager.indexPathForPreviousResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
-                if (indexPath != nil) {
+            for (var itemIndex = indexPath.section; itemIndex >= 0; itemIndex--) {
+                if let indexPath = self.tableViewManager.indexPathForPreviousResponderInSectionIndex(itemIndex, currentSection: self.section, currentItem: self.item) {
                     return indexPath;
                 }
             }
@@ -124,9 +123,8 @@ class TableViewCell: UITableViewCell {
     
     func indexPathForNextResponder() -> NSIndexPath? {
         if let indexPath = self.indexPath, let datasource = self.tableViewManager.dataSource {
-            for (var i = indexPath.section; i < datasource.sections.count; i++) {
-                let indexPath = self.tableViewManager.indexPathForNextResponderInSectionIndex(i, currentSection: self.section, currentItem: self.item)
-                if (indexPath != nil) {
+            for var itemIndex = indexPath.section; itemIndex < datasource.sections.count; itemIndex++ {
+                if let indexPath = self.tableViewManager.indexPathForNextResponderInSectionIndex(itemIndex, currentSection: self.section, currentItem: self.item) {
                     return indexPath;
                 }
             }
