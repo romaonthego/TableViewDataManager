@@ -57,13 +57,13 @@ class TableViewActionBar: UIToolbar {
     
     // MARK: Action handlers
     //
-    private func previousNextPressed(segmentedControl: UISegmentedControl) {
+    func previousNextPressed(segmentedControl: UISegmentedControl) {
         if let navigationHandler = self.navigationHandler {
             navigationHandler(index: segmentedControl.selectedSegmentIndex)
         }
     }
     
-    private func doneButtonPressed(sender: AnyObject) {
+    func doneButtonPressed(sender: AnyObject) {
         if let doneHandler = self.doneHandler {
             doneHandler()
         }
