@@ -82,8 +82,7 @@ class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
         if let editingHandler = self.textItem.editingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
             editingHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath, status: .DidEndEditing)
         }
-        let indexPath = self.indexPathForNextResponder()
-        if indexPath != nil {
+        if let _ = self.indexPathForNextResponder() {
             self.endEditing(true)
             return true
         }
