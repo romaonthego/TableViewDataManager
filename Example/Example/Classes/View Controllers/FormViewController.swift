@@ -43,10 +43,14 @@ class FormViewController: UITableViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        guard let dataSource = self.manager.dataSource else {
+            return
+        }
+        
         // Form items section
         //
-        self.manager.dataSource?.sections.append({
+        dataSource.sections.append({
             let section = TableViewSection(headerTitle: "Form items")
             section.items = [
                 self.fullLengthTextField,
@@ -61,7 +65,7 @@ class FormViewController: UITableViewController {
         
         // Accessories section
         //
-        self.manager.dataSource?.sections.append({
+        dataSource.sections.append({
             let section = TableViewSection(headerTitle: "Accessories", footerTitle: "This section holds cells with accessories.")
             section.items = [
                 TableViewItem(text: "Accessory 1", configurationHandler: { (tableViewCell: TableViewCell) -> (Void) in
@@ -85,7 +89,7 @@ class FormViewController: UITableViewController {
         
         // Copy / Cut / Paste section
         //
-        self.manager.dataSource?.sections.append({
+        dataSource.sections.append({
             let section = TableViewSection(headerTitle: "Copy / Cut / Paste", footerTitle: "his section holds items that support copy and pasting. You can tap on an item to copy it, while you can tap on another one to paste it.")
             section.items = [
                 {
