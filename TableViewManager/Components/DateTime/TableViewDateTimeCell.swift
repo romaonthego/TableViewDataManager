@@ -18,10 +18,7 @@ class TableViewDateTimeCell: TableViewFormCell {
     //
     private var dateTimeItem: TableViewDateTimeItem!
     
-    private lazy var datePickerItem: TableViewDatePickerItem = {
-        let item = TableViewDatePickerItem()
-        return item
-    }()
+    private lazy var datePickerItem: TableViewDatePickerItem = TableViewDatePickerItem()
     
     // MARK: View lifecycle
     //
@@ -54,6 +51,7 @@ class TableViewDateTimeCell: TableViewFormCell {
         }
         
         self.setSelected(self.dateTimeItem.selected, animated: false)
+        self.datePickerItem.dateTimeItem = self.dateTimeItem
         
         if let value = self.dateTimeItem.value {
             detailTextLabel.text = self.dateTimeItem.dateFormatter.stringFromDate(value)

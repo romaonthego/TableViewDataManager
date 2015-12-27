@@ -10,27 +10,11 @@ import UIKit
 
 class TableViewDatePickerItem: TableViewFormItem {
     
-    var value: NSDate!
+    weak var dateTimeItem: TableViewDateTimeItem?
     
-    var pickerStartDate: NSDate? // date to be used for the picker when the value is not set; defaults to current date when not specified
-    var placeholder: String?
-    var format: String!
-    var datePickerMode: UIDatePickerMode = .DateAndTime
-    
-    var locale: NSLocale? // default is [NSLocale currentLocale]. setting nil returns to default
-    var calendar: NSCalendar? // default is [NSCalendar currentCalendar]. setting nil returns to default
-    var timeZone: NSTimeZone? // default is nil. use current time zone or time zone from calendar
-    
-    var minimumDate: NSDate? // specify min/max date range. default is nil. When min > max, the values are ignored. Ignored in countdown timer mode
-    var maximumDate: NSDate? // default is nil
-    var minuteInterval: NSInteger = 1 // display minutes wheel with interval. interval must be evenly divided into 60. default is 1. min is 1, max is 30
-    
-    // MARK: Instance Lifecycle
+    // MARK: Handlers
     //
-    convenience init(text: String?, value: NSDate!, format: String!, datePickerMode: UIDatePickerMode!) {
-        self.init(text: text)
-        self.value = value
-    }
+    var changeHandler: ((section: TableViewSection, item: TableViewDatePickerItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     
 }
 

@@ -10,15 +10,18 @@ import UIKit
 
 class TableViewDatePickerCell: TableViewFormCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // MARK: Public variables
+    //
+    override var item: TableViewItem! { get { return datePickerItem } set { datePickerItem = newValue as! TableViewDatePickerItem } }
+    
+    // MARK: Private variables
+    //
+    private var datePickerItem: TableViewDatePickerItem!
+    
+    // MARK: View Lifecycle
+    //
+    override func cellDidLoad() {
+        super.cellDidLoad()
     }
     
 }
