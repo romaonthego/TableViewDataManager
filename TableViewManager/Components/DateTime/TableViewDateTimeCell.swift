@@ -10,10 +10,20 @@ import UIKit
 
 class TableViewDateTimeCell: TableViewFormCell {
     
+    lazy var datePickerItem: TableViewDatePickerItem = {
+        let item = TableViewDatePickerItem()
+        return item
+    }()
+    
     override func cellDidLoad() {
         super.cellDidLoad()
         self.item.selectionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            // tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            guard let indexOfItem = section.items.indexOf(item) else {
+                return
+            }
+            section.items.insert(self.datePickerItem, atIndex: indexOfItem + 1)
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: indexOfItem + 1, inSection: indexPath.section)], withRowAnimation: .Automatic)
         }
     }
     

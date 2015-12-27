@@ -13,6 +13,9 @@
 		3014750C1C30692D006975C7 /* TableViewDateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475091C30692D006975C7 /* TableViewDateTimeCell.swift */; };
 		3014750D1C30692D006975C7 /* TableViewDateTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3014750A1C30692D006975C7 /* TableViewDateTimeCell.xib */; };
 		3014750E1C30692D006975C7 /* TableViewDateTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014750B1C30692D006975C7 /* TableViewDateTimeItem.swift */; };
+		301475111C308431006975C7 /* TableViewDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014750F1C308431006975C7 /* TableViewDatePickerCell.swift */; };
+		301475121C308431006975C7 /* TableViewDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301475101C308431006975C7 /* TableViewDatePickerCell.xib */; };
+		301475141C308472006975C7 /* TableViewDatePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475131C308472006975C7 /* TableViewDatePickerItem.swift */; };
 		30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */; };
 		30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */; };
 		30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */; };
@@ -69,6 +72,9 @@
 		301475091C30692D006975C7 /* TableViewDateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDateTimeCell.swift; sourceTree = "<group>"; };
 		3014750A1C30692D006975C7 /* TableViewDateTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewDateTimeCell.xib; sourceTree = "<group>"; };
 		3014750B1C30692D006975C7 /* TableViewDateTimeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDateTimeItem.swift; sourceTree = "<group>"; };
+		3014750F1C308431006975C7 /* TableViewDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDatePickerCell.swift; sourceTree = "<group>"; };
+		301475101C308431006975C7 /* TableViewDatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewDatePickerCell.xib; sourceTree = "<group>"; };
+		301475131C308472006975C7 /* TableViewDatePickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDatePickerItem.swift; sourceTree = "<group>"; };
 		30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchItem.swift; sourceTree = "<group>"; };
 		30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchCell.swift; sourceTree = "<group>"; };
 		30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSwitchCell.xib; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 				301475091C30692D006975C7 /* TableViewDateTimeCell.swift */,
 				3014750A1C30692D006975C7 /* TableViewDateTimeCell.xib */,
 				3014750B1C30692D006975C7 /* TableViewDateTimeItem.swift */,
+				3014750F1C308431006975C7 /* TableViewDatePickerCell.swift */,
+				301475101C308431006975C7 /* TableViewDatePickerCell.xib */,
+				301475131C308472006975C7 /* TableViewDatePickerItem.swift */,
 			);
 			path = DateTime;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 				488C06A21AA65656003000C3 /* LaunchScreen.xib in Resources */,
 				488C06FC1AA920EC003000C3 /* UIButtonBarArrowRight.png in Resources */,
 				488C06FF1AA920FC003000C3 /* Transparent@2x.png in Resources */,
+				301475121C308431006975C7 /* TableViewDatePickerCell.xib in Resources */,
 				301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */,
 				488C06D11AA78AC0003000C3 /* IBTableViewCell.xib in Resources */,
 				488C069F1AA65656003000C3 /* Images.xcassets in Resources */,
@@ -434,6 +444,7 @@
 				488C06BD1AA65D91003000C3 /* TableViewSection.swift in Sources */,
 				48D6799A1AAA5B6500DA3960 /* TableViewFormCell.swift in Sources */,
 				488C06BF1AA65D9D003000C3 /* TableViewItem.swift in Sources */,
+				301475111C308431006975C7 /* TableViewDatePickerCell.swift in Sources */,
 				48A57E9B1AAA77D4005CDD2F /* TableViewFormItem.swift in Sources */,
 				488C06CB1AA78A83003000C3 /* TestViewController.swift in Sources */,
 				30F70E2E1AC5299E00EEF029 /* TableViewSliderCell.swift in Sources */,
@@ -450,6 +461,7 @@
 				3014750C1C30692D006975C7 /* TableViewDateTimeCell.swift in Sources */,
 				488C06C51AA66B3E003000C3 /* TableViewCell.swift in Sources */,
 				488C06D51AA7C0D3003000C3 /* StyleViewController.swift in Sources */,
+				301475141C308472006975C7 /* TableViewDatePickerItem.swift in Sources */,
 				488C06E31AA90DDB003000C3 /* FormViewController.swift in Sources */,
 				488C06981AA65656003000C3 /* AppDelegate.swift in Sources */,
 			);
