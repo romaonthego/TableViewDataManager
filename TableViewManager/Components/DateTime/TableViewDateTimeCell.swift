@@ -34,7 +34,7 @@ class TableViewDateTimeCell: TableViewFormCell {
                 return
             }
             let newItemIndexPath = NSIndexPath(forRow: indexOfItem + 1, inSection: indexPath.section)
-            dateTimeItem.selected = newItemIndexPath.row < section.items.count && section.items[newItemIndexPath.row].isKindOfClass(TableViewDatePickerItem)
+            dateTimeItem.selected = newItemIndexPath.row < section.items.count && section.items[newItemIndexPath.row] is TableViewDatePickerItem
             if dateTimeItem.selected {
                 section.items.removeAtIndex(newItemIndexPath.row)
                 tableView.deleteRowsAtIndexPaths([newItemIndexPath], withRowAnimation: .Automatic)
