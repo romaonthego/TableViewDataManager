@@ -11,6 +11,7 @@ import UIKit
 class TableViewDateTimeItem: TableViewFormItem {
    
     var value: NSDate!
+    var selected: Bool = false
     
     var pickerStartDate: NSDate? // date to be used for the picker when the value is not set; defaults to current date when not specified
     var placeholder: String?
