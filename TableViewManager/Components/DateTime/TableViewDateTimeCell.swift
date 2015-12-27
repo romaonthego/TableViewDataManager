@@ -9,16 +9,18 @@
 import UIKit
 
 class TableViewDateTimeCell: TableViewFormCell {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    override func cellWillAppear() {
+        super.cellWillAppear()
+        guard let detailTextLabel = self.detailTextLabel else {
+            return
+        }
+        
+        detailTextLabel.text = "123"
+    }
 }
