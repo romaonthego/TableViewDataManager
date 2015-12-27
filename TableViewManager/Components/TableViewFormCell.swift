@@ -21,7 +21,7 @@ class TableViewFormCell: TableViewCell {
         self.titleLabel.text = self.item.text
         if let labelRightMarginConstraint = self.labelRightMarginConstraint {
             if let text = self.item.text where text.characters.count > 0 {
-                labelRightMarginConstraint.constant = 5
+                labelRightMarginConstraint.constant = 13
             } else {
                 labelRightMarginConstraint.constant = 0
             }

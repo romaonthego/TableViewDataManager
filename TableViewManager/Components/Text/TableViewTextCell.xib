@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="90t-a1-37e">
-                        <rect key="frame" x="62" y="0.0" width="264" height="44"/>
+                        <rect key="frame" x="67.5" y="0.0" width="258.5" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="44" id="WiY-0Z-vHf"/>
                         </constraints>
@@ -37,7 +37,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="90t-a1-37e" firstAttribute="leading" secondItem="FUJ-43-izZ" secondAttribute="trailing" constant="8" id="C3l-XE-WoX"/>
+                    <constraint firstItem="90t-a1-37e" firstAttribute="leading" secondItem="FUJ-43-izZ" secondAttribute="trailing" constant="13" id="C3l-XE-WoX"/>
                     <constraint firstItem="90t-a1-37e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YVu-eE-Mih"/>
                     <constraint firstItem="FUJ-43-izZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="d9D-C6-krj"/>
                     <constraint firstAttribute="centerY" secondItem="FUJ-43-izZ" secondAttribute="centerY" id="gv2-pG-wWh"/>
