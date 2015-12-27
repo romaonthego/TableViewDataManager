@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475021C306881006975C7 /* TableViewTextFieldCell.swift */; };
+		301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301475031C306881006975C7 /* TableViewTextFieldCell.xib */; };
+		301475071C306881006975C7 /* TableViewTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475041C306881006975C7 /* TableViewTextFieldItem.swift */; };
 		30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */; };
 		30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */; };
 		30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */; };
@@ -39,9 +42,6 @@
 		488C06DD1AA7D22D003000C3 /* IndexedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06DC1AA7D22D003000C3 /* IndexedListViewController.swift */; };
 		488C06DF1AA7D8E6003000C3 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06DE1AA7D8E6003000C3 /* EditingViewController.swift */; };
 		488C06E31AA90DDB003000C3 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06E21AA90DDB003000C3 /* FormViewController.swift */; };
-		488C06F11AA90F73003000C3 /* TableViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06EE1AA90F73003000C3 /* TableViewTextFieldCell.swift */; };
-		488C06F21AA90F73003000C3 /* TableViewTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488C06EF1AA90F73003000C3 /* TableViewTextFieldCell.xib */; };
-		488C06F31AA90F73003000C3 /* TableViewTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06F01AA90F73003000C3 /* TableViewTextFieldItem.swift */; };
 		488C06F51AA91B00003000C3 /* TableViewActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06F41AA91B00003000C3 /* TableViewActionBar.swift */; };
 		488C06FA1AA920EC003000C3 /* UIButtonBarArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F61AA920EC003000C3 /* UIButtonBarArrowLeft.png */; };
 		488C06FB1AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F71AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png */; };
@@ -63,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		301475021C306881006975C7 /* TableViewTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldCell.swift; sourceTree = "<group>"; };
+		301475031C306881006975C7 /* TableViewTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewTextFieldCell.xib; sourceTree = "<group>"; };
+		301475041C306881006975C7 /* TableViewTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldItem.swift; sourceTree = "<group>"; };
 		30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchItem.swift; sourceTree = "<group>"; };
 		30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchCell.swift; sourceTree = "<group>"; };
 		30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSwitchCell.xib; sourceTree = "<group>"; };
@@ -99,9 +102,6 @@
 		488C06DC1AA7D22D003000C3 /* IndexedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexedListViewController.swift; sourceTree = "<group>"; };
 		488C06DE1AA7D8E6003000C3 /* EditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		488C06E21AA90DDB003000C3 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
-		488C06EE1AA90F73003000C3 /* TableViewTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldCell.swift; sourceTree = "<group>"; };
-		488C06EF1AA90F73003000C3 /* TableViewTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewTextFieldCell.xib; sourceTree = "<group>"; };
-		488C06F01AA90F73003000C3 /* TableViewTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldItem.swift; sourceTree = "<group>"; };
 		488C06F41AA91B00003000C3 /* TableViewActionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewActionBar.swift; sourceTree = "<group>"; };
 		488C06F61AA920EC003000C3 /* UIButtonBarArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIButtonBarArrowLeft.png; path = ../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowLeft.png; sourceTree = "<group>"; };
 		488C06F71AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UIButtonBarArrowLeft@2x.png"; path = "../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowLeft@2x.png"; sourceTree = "<group>"; };
@@ -130,6 +130,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301475011C306881006975C7 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				301475021C306881006975C7 /* TableViewTextFieldCell.swift */,
+				301475031C306881006975C7 /* TableViewTextFieldCell.xib */,
+				301475041C306881006975C7 /* TableViewTextFieldItem.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		30CB4CD41AB624C1008F22EF /* Switch */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,21 +305,11 @@
 				30F70E301AC52A4100EEF029 /* Date */,
 				30F70E291AC5292600EEF029 /* Slider */,
 				30CB4CD41AB624C1008F22EF /* Switch */,
-				488C06ED1AA90F73003000C3 /* Text */,
+				301475011C306881006975C7 /* TextField */,
 				48D679991AAA5B6500DA3960 /* TableViewFormCell.swift */,
 				48A57E9A1AAA77D4005CDD2F /* TableViewFormItem.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		488C06ED1AA90F73003000C3 /* Text */ = {
-			isa = PBXGroup;
-			children = (
-				488C06EE1AA90F73003000C3 /* TableViewTextFieldCell.swift */,
-				488C06EF1AA90F73003000C3 /* TableViewTextFieldCell.xib */,
-				488C06F01AA90F73003000C3 /* TableViewTextFieldItem.swift */,
-			);
-			path = Text;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,9 +398,9 @@
 				488C069D1AA65656003000C3 /* Main.storyboard in Resources */,
 				30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */,
 				488C06A21AA65656003000C3 /* LaunchScreen.xib in Resources */,
-				488C06F21AA90F73003000C3 /* TableViewTextFieldCell.xib in Resources */,
 				488C06FC1AA920EC003000C3 /* UIButtonBarArrowRight.png in Resources */,
 				488C06FF1AA920FC003000C3 /* Transparent@2x.png in Resources */,
+				301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */,
 				488C06D11AA78AC0003000C3 /* IBTableViewCell.xib in Resources */,
 				488C069F1AA65656003000C3 /* Images.xcassets in Resources */,
 				488C06FB1AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png in Resources */,
@@ -430,7 +430,6 @@
 				30F70E2B1AC5297D00EEF029 /* TableViewSliderItem.swift in Sources */,
 				30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */,
 				488C06D91AA7CA29003000C3 /* RetractableViewController.swift in Sources */,
-				488C06F11AA90F73003000C3 /* TableViewTextFieldCell.swift in Sources */,
 				488C06DD1AA7D22D003000C3 /* IndexedListViewController.swift in Sources */,
 				488C06BD1AA65D91003000C3 /* TableViewSection.swift in Sources */,
 				48D6799A1AAA5B6500DA3960 /* TableViewFormCell.swift in Sources */,
@@ -439,14 +438,15 @@
 				488C06CB1AA78A83003000C3 /* TestViewController.swift in Sources */,
 				30F70E2E1AC5299E00EEF029 /* TableViewSliderCell.swift in Sources */,
 				488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */,
+				301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */,
 				488C06DF1AA7D8E6003000C3 /* EditingViewController.swift in Sources */,
 				488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */,
 				30F70E3B1AC52AF300EEF029 /* TableViewPickerItem.swift in Sources */,
 				488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */,
 				30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */,
-				488C06F31AA90F73003000C3 /* TableViewTextFieldItem.swift in Sources */,
 				488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */,
 				30F70E321AC52A6800EEF029 /* TableViewDateItem.swift in Sources */,
+				301475071C306881006975C7 /* TableViewTextFieldItem.swift in Sources */,
 				30F70E371AC52A9500EEF029 /* TableViewDateCell.swift in Sources */,
 				488C06C51AA66B3E003000C3 /* TableViewCell.swift in Sources */,
 				488C06D51AA7C0D3003000C3 /* StyleViewController.swift in Sources */,
