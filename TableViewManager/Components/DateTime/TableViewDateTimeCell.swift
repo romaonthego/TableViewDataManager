@@ -28,7 +28,6 @@ class TableViewDateTimeCell: TableViewFormCell {
     override func cellDidLoad() {
         super.cellDidLoad()
         self.item.selectionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
-            // tableView.deselectRowAtIndexPath(indexPath, animated: true)
             let dateTimeItem = item as! TableViewDateTimeItem
             guard let indexOfItem = section.items.indexOf(item) else {
                 return
@@ -56,7 +55,11 @@ class TableViewDateTimeCell: TableViewFormCell {
         
         self.setSelected(self.dateTimeItem.selected, animated: false)
         
-        detailTextLabel.text = "123"
+        if let value = self.dateTimeItem.value {
+            detailTextLabel.text = self.dateTimeItem.dateFormatter.stringFromDate(value)
+        } else {
+            detailTextLabel.text = self.dateTimeItem.placeholder
+        }
     }
     
 }

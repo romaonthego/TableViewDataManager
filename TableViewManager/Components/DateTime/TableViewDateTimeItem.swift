@@ -10,12 +10,20 @@ import UIKit
 
 class TableViewDateTimeItem: TableViewFormItem {
    
-    var value: NSDate!
+    var value: NSDate?
     var selected: Bool = false
+    lazy var dateFormatter: NSDateFormatter = NSDateFormatter()
     
     var pickerStartDate: NSDate? // date to be used for the picker when the value is not set; defaults to current date when not specified
     var placeholder: String?
-    var format: String!
+    var format: String {
+        get {
+            return self.dateFormatter.dateFormat
+        }
+        set {
+            self.dateFormatter.dateFormat = newValue
+        }
+    }
     var datePickerMode: UIDatePickerMode = .DateAndTime
     
     var locale: NSLocale? // default is [NSLocale currentLocale]. setting nil returns to default
