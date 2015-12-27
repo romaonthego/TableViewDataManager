@@ -19,6 +19,9 @@
                         <date key="date" timeIntervalSinceReferenceDate="472941626.39656699">
                             <!--2015-12-27 20:40:26 +0000-->
                         </date>
+                        <connections>
+                            <action selector="datePickerValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="3zY-rj-07K"/>
+                        </connections>
                     </datePicker>
                 </subviews>
                 <constraints>
@@ -28,6 +31,9 @@
                     <constraint firstAttribute="trailing" secondItem="0r0-CZ-pA8" secondAttribute="trailing" id="mMf-q9-JBA"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="datePicker" destination="0r0-CZ-pA8" id="V1q-lP-RNX"/>
+            </connections>
             <point key="canvasLocation" x="281" y="446"/>
         </tableViewCell>
     </objects>

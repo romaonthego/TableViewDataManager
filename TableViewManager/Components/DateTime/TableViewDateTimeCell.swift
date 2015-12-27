@@ -52,6 +52,9 @@ class TableViewDateTimeCell: TableViewFormCell {
         
         self.setSelected(self.dateTimeItem.selected, animated: false)
         self.datePickerItem.dateTimeItem = self.dateTimeItem
+        self.datePickerItem.changeHandler = { (section: TableViewSection, item: TableViewDatePickerItem, tableView: UITableView, indexPath: NSIndexPath) in
+            
+        }
         
         if let value = self.dateTimeItem.value {
             detailTextLabel.text = self.dateTimeItem.dateFormatter.stringFromDate(value)
