@@ -8,6 +8,6 @@
 
 import UIKit
 
-class TableViewDateItem: TableViewFormItem {
+class TableViewDateTimeItem: TableViewFormItem {
    
 }

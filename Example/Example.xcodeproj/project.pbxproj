@@ -10,15 +10,15 @@
 		301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475021C306881006975C7 /* TableViewTextFieldCell.swift */; };
 		301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301475031C306881006975C7 /* TableViewTextFieldCell.xib */; };
 		301475071C306881006975C7 /* TableViewTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475041C306881006975C7 /* TableViewTextFieldItem.swift */; };
+		3014750C1C30692D006975C7 /* TableViewDateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475091C30692D006975C7 /* TableViewDateTimeCell.swift */; };
+		3014750D1C30692D006975C7 /* TableViewDateTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3014750A1C30692D006975C7 /* TableViewDateTimeCell.xib */; };
+		3014750E1C30692D006975C7 /* TableViewDateTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014750B1C30692D006975C7 /* TableViewDateTimeItem.swift */; };
 		30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */; };
 		30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */; };
 		30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */; };
 		30F70E2B1AC5297D00EEF029 /* TableViewSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E2A1AC5297D00EEF029 /* TableViewSliderItem.swift */; };
 		30F70E2E1AC5299E00EEF029 /* TableViewSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E2C1AC5299E00EEF029 /* TableViewSliderCell.swift */; };
 		30F70E2F1AC5299E00EEF029 /* TableViewSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F70E2D1AC5299E00EEF029 /* TableViewSliderCell.xib */; };
-		30F70E321AC52A6800EEF029 /* TableViewDateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E311AC52A6800EEF029 /* TableViewDateItem.swift */; };
-		30F70E371AC52A9500EEF029 /* TableViewDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E351AC52A9500EEF029 /* TableViewDateCell.swift */; };
-		30F70E381AC52A9500EEF029 /* TableViewDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F70E361AC52A9500EEF029 /* TableViewDateCell.xib */; };
 		30F70E3B1AC52AF300EEF029 /* TableViewPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E3A1AC52AF300EEF029 /* TableViewPickerItem.swift */; };
 		488C06981AA65656003000C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06971AA65656003000C3 /* AppDelegate.swift */; };
 		488C069D1AA65656003000C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488C069B1AA65656003000C3 /* Main.storyboard */; };
@@ -66,15 +66,15 @@
 		301475021C306881006975C7 /* TableViewTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldCell.swift; sourceTree = "<group>"; };
 		301475031C306881006975C7 /* TableViewTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewTextFieldCell.xib; sourceTree = "<group>"; };
 		301475041C306881006975C7 /* TableViewTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldItem.swift; sourceTree = "<group>"; };
+		301475091C30692D006975C7 /* TableViewDateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDateTimeCell.swift; sourceTree = "<group>"; };
+		3014750A1C30692D006975C7 /* TableViewDateTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewDateTimeCell.xib; sourceTree = "<group>"; };
+		3014750B1C30692D006975C7 /* TableViewDateTimeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDateTimeItem.swift; sourceTree = "<group>"; };
 		30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchItem.swift; sourceTree = "<group>"; };
 		30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchCell.swift; sourceTree = "<group>"; };
 		30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSwitchCell.xib; sourceTree = "<group>"; };
 		30F70E2A1AC5297D00EEF029 /* TableViewSliderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSliderItem.swift; sourceTree = "<group>"; };
 		30F70E2C1AC5299E00EEF029 /* TableViewSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSliderCell.swift; sourceTree = "<group>"; };
 		30F70E2D1AC5299E00EEF029 /* TableViewSliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSliderCell.xib; sourceTree = "<group>"; };
-		30F70E311AC52A6800EEF029 /* TableViewDateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDateItem.swift; sourceTree = "<group>"; };
-		30F70E351AC52A9500EEF029 /* TableViewDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDateCell.swift; sourceTree = "<group>"; };
-		30F70E361AC52A9500EEF029 /* TableViewDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewDateCell.xib; sourceTree = "<group>"; };
 		30F70E3A1AC52AF300EEF029 /* TableViewPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewPickerItem.swift; sourceTree = "<group>"; };
 		488C06921AA65656003000C3 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488C06961AA65656003000C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +140,16 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		301475081C30692D006975C7 /* DateTime */ = {
+			isa = PBXGroup;
+			children = (
+				301475091C30692D006975C7 /* TableViewDateTimeCell.swift */,
+				3014750A1C30692D006975C7 /* TableViewDateTimeCell.xib */,
+				3014750B1C30692D006975C7 /* TableViewDateTimeItem.swift */,
+			);
+			path = DateTime;
+			sourceTree = "<group>";
+		};
 		30CB4CD41AB624C1008F22EF /* Switch */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,16 +168,6 @@
 				30F70E2D1AC5299E00EEF029 /* TableViewSliderCell.xib */,
 			);
 			path = Slider;
-			sourceTree = "<group>";
-		};
-		30F70E301AC52A4100EEF029 /* Date */ = {
-			isa = PBXGroup;
-			children = (
-				30F70E311AC52A6800EEF029 /* TableViewDateItem.swift */,
-				30F70E351AC52A9500EEF029 /* TableViewDateCell.swift */,
-				30F70E361AC52A9500EEF029 /* TableViewDateCell.xib */,
-			);
-			path = Date;
 			sourceTree = "<group>";
 		};
 		30F70E391AC52AC900EEF029 /* Picker */ = {
@@ -301,8 +301,8 @@
 		488C06E41AA90F12003000C3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				301475081C30692D006975C7 /* DateTime */,
 				30F70E391AC52AC900EEF029 /* Picker */,
-				30F70E301AC52A4100EEF029 /* Date */,
 				30F70E291AC5292600EEF029 /* Slider */,
 				30CB4CD41AB624C1008F22EF /* Switch */,
 				301475011C306881006975C7 /* TextField */,
@@ -393,7 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30F70E381AC52A9500EEF029 /* TableViewDateCell.xib in Resources */,
+				3014750D1C30692D006975C7 /* TableViewDateTimeCell.xib in Resources */,
 				488C06FA1AA920EC003000C3 /* UIButtonBarArrowLeft.png in Resources */,
 				488C069D1AA65656003000C3 /* Main.storyboard in Resources */,
 				30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */,
@@ -438,6 +438,7 @@
 				488C06CB1AA78A83003000C3 /* TestViewController.swift in Sources */,
 				30F70E2E1AC5299E00EEF029 /* TableViewSliderCell.swift in Sources */,
 				488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */,
+				3014750E1C30692D006975C7 /* TableViewDateTimeItem.swift in Sources */,
 				301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */,
 				488C06DF1AA7D8E6003000C3 /* EditingViewController.swift in Sources */,
 				488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */,
@@ -445,9 +446,8 @@
 				488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */,
 				30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */,
 				488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */,
-				30F70E321AC52A6800EEF029 /* TableViewDateItem.swift in Sources */,
 				301475071C306881006975C7 /* TableViewTextFieldItem.swift in Sources */,
-				30F70E371AC52A9500EEF029 /* TableViewDateCell.swift in Sources */,
+				3014750C1C30692D006975C7 /* TableViewDateTimeCell.swift in Sources */,
 				488C06C51AA66B3E003000C3 /* TableViewCell.swift in Sources */,
 				488C06D51AA7C0D3003000C3 /* StyleViewController.swift in Sources */,
 				488C06E31AA90DDB003000C3 /* FormViewController.swift in Sources */,

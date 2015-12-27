@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewDateCell: TableViewFormCell {
+class TableViewDateTimeCell: TableViewFormCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
