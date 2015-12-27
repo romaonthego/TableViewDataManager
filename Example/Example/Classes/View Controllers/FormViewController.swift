@@ -39,7 +39,7 @@ class FormViewController: UITableViewController {
         return item
     }()
     lazy var dateTimeItem: TableViewDateTimeItem = {
-        let item = TableViewDateTimeItem(text: "Date/time", placeholder: nil, value: NSDate(), format: "MM/dd/yyyy hh:mm a", datePickerMode: .DateAndTime)
+        let item = TableViewDateTimeItem(text: "Date / Time", placeholder: nil, value: NSDate(), format: "MM/dd/yyyy hh:mm a", datePickerMode: .DateAndTime)
         return item
     }()
     
