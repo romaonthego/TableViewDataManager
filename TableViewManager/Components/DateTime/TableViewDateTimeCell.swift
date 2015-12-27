@@ -10,13 +10,17 @@ import UIKit
 
 class TableViewDateTimeCell: TableViewFormCell {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override func cellDidLoad() {
+        super.cellDidLoad()
+        self.item.selectionHandler = { (section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void) in
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
     
     override func cellWillAppear() {
         super.cellWillAppear()
+        self.selectionStyle = .Default
+        
         guard let detailTextLabel = self.detailTextLabel else {
             return
         }
