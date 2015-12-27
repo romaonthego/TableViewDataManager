@@ -46,14 +46,20 @@ class TableViewDateTimeCell: TableViewFormCell {
         super.cellWillAppear()
         self.selectionStyle = .Default
         
-        guard let detailTextLabel = self.detailTextLabel else {
-            return
-        }
+
         
         self.setSelected(self.dateTimeItem.selected, animated: false)
         self.datePickerItem.dateTimeItem = self.dateTimeItem
-        self.datePickerItem.changeHandler = { (section: TableViewSection, item: TableViewDatePickerItem, tableView: UITableView, indexPath: NSIndexPath) in
-            
+        self.datePickerItem.changeHandler = { [weak self] (section: TableViewSection, item: TableViewDatePickerItem, tableView: UITableView, indexPath: NSIndexPath) in
+            self.updateDetailLabelText()
+        }
+        
+        updateDetailLabelText()
+    }
+    
+    private func updateDetailLabelText() {
+        guard let detailTextLabel = self.detailTextLabel else {
+            return
         }
         
         if let value = self.dateTimeItem.value {
