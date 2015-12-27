@@ -8,15 +8,15 @@
 
 import UIKit
 
-class TableViewTextCell: TableViewFormCell, UITextFieldDelegate {
+class TableViewTextFieldCell: TableViewFormCell, UITextFieldDelegate {
 
     // Public variables
     //
-    override var item: TableViewItem! { get { return textItem } set { textItem = newValue as! TableViewTextItem } }
+    override var item: TableViewItem! { get { return textItem } set { textItem = newValue as! TableViewTextFieldItem } }
     
     // Private variables
     //
-    private var textItem: TableViewTextItem!
+    private var textItem: TableViewTextFieldItem!
     
     // Interface builder outlets
     //

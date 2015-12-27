@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewTextItem: TableViewFormItem {
+class TableViewTextFieldItem: TableViewFormItem {
    
     var value: String?
     var placeholder: String?
@@ -27,9 +27,9 @@ class TableViewTextItem: TableViewFormItem {
 
     // MARK: Handlers
     //
-    var changeHandler: ((section: TableViewSection, item: TableViewTextItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
-    var changeCharacterInRangeHandler: ((section: TableViewSection, item: TableViewTextItem, tableView: UITableView, indexPath: NSIndexPath, range: NSRange, replacementString: String) -> (Bool))?
-    var returnKeyHandler: ((section: TableViewSection, item: TableViewTextItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var changeHandler: ((section: TableViewSection, item: TableViewTextFieldItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var changeCharacterInRangeHandler: ((section: TableViewSection, item: TableViewTextFieldItem, tableView: UITableView, indexPath: NSIndexPath, range: NSRange, replacementString: String) -> (Bool))?
+    var returnKeyHandler: ((section: TableViewSection, item: TableViewTextFieldItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
 
     // MARK: Instance Lifecycle
     //
