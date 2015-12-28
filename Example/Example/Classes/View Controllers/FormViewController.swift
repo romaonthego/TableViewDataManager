@@ -42,6 +42,11 @@ class FormViewController: UITableViewController {
         let item = TableViewDateTimeItem(text: "Date / Time", placeholder: nil, value: NSDate(), format: "MM/dd/yyyy hh:mm a", datePickerMode: .DateAndTime)
         return item
     }()
+    lazy var segmentedControlItem: TableViewSegmentedControlItem = {
+        let item = TableViewSegmentedControlItem(text: "Segmented Control")
+        item.selectable = false
+        return item
+    }()
     lazy var textViewItem: TableViewTextViewItem = {
         let item = TableViewTextViewItem(text: nil, value: "Text View\nMulti line")
         item.height = 100
@@ -82,6 +87,7 @@ class FormViewController: UITableViewController {
                 self.switchItem,
                 self.sliderItem,
                 self.dateTimeItem,
+                self.segmentedControlItem,
                 self.textViewItem,
                 self.multiLineTextItem,
                 self.imageAndTextItem
