@@ -12,8 +12,6 @@ class TableViewDateTimeItem: TableViewFormItem {
    
     var value: NSDate?
     var selected: Bool = false
-    lazy var dateFormatter: NSDateFormatter = NSDateFormatter()
-    
     var pickerStartDate: NSDate? // date to be used for the picker when the value is not set; defaults to current date when not specified
     var placeholder: String?
     var format: String {
@@ -33,6 +31,8 @@ class TableViewDateTimeItem: TableViewFormItem {
     var minimumDate: NSDate? // specify min/max date range. default is nil. When min > max, the values are ignored. Ignored in countdown timer mode
     var maximumDate: NSDate? // default is nil
     var minuteInterval: NSInteger = 1 // display minutes wheel with interval. interval must be evenly divided into 60. default is 1. min is 1, max is 30
+    
+    lazy var dateFormatter: NSDateFormatter = NSDateFormatter()
     
     override class func focusable() -> Bool {
         return false

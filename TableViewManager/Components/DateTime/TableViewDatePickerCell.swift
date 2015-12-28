@@ -24,16 +24,20 @@ class TableViewDatePickerCell: TableViewFormCell {
     
     // MARK: View Lifecycle
     //
-    override func cellDidLoad() {
-        super.cellDidLoad()
-    }
-    
     override func cellWillAppear() {
         super.cellWillAppear()
         guard let dateTimeItem = self.datePickerItem.dateTimeItem, let value = dateTimeItem.value else {
             return
         }
         self.datePicker.date = value
+        
+        self.datePicker.datePickerMode = dateTimeItem.datePickerMode
+        self.datePicker.locale = dateTimeItem.locale
+        self.datePicker.calendar = dateTimeItem.calendar
+        self.datePicker.timeZone = dateTimeItem.timeZone
+        self.datePicker.minimumDate = dateTimeItem.minimumDate
+        self.datePicker.maximumDate = dateTimeItem.maximumDate
+        self.datePicker.minuteInterval = dateTimeItem.minuteInterval        
     }
     
     // MARK: Actions
