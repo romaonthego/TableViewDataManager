@@ -50,8 +50,9 @@ class FormViewController: UITableViewController {
         }
         return item
     }()
-    lazy var multiLineTextItem: TableViewBasicItem = {
-        let item = TableViewBasicItem(text: "Custom item / cell example. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem leo, malesuada tempor metus et, elementum pulvinar nibh.")
+    lazy var multiLineTextItem: TableViewItem = {
+        let item = TableViewItem(text: "Custom item / cell example. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem leo, malesuada tempor metus et, elementum pulvinar nibh.")
+        item.selectable = false
         return item
     }()
     
