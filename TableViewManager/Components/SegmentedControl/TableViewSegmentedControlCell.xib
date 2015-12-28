@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8fM-mv-Dkw">
-                        <rect key="frame" x="205" y="8" width="121" height="29"/>
+                        <rect key="frame" x="67.5" y="8" width="258.5" height="29"/>
                         <segments>
                             <segment title="First"/>
                             <segment title="Second"/>
@@ -37,6 +37,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="8fM-mv-Dkw" secondAttribute="trailing" id="aWw-sE-06Z"/>
                     <constraint firstItem="FUJ-43-izZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="d9D-C6-krj"/>
                     <constraint firstAttribute="centerY" secondItem="FUJ-43-izZ" secondAttribute="centerY" id="gv2-pG-wWh"/>
+                    <constraint firstItem="8fM-mv-Dkw" firstAttribute="leading" secondItem="FUJ-43-izZ" secondAttribute="trailing" constant="13" id="l4v-VN-JdW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
