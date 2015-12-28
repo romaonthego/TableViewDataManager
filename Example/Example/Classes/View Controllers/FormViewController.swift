@@ -55,6 +55,11 @@ class FormViewController: UITableViewController {
         item.selectable = false
         return item
     }()
+    lazy var imageAndTextItem: TableViewItem = {
+        let item = TableViewItem(text: "Image and text", image: UIImage(named: "Heart")!)
+        item.selectable = false
+        return item
+    }()
     
     // MARK: View Lifecycle
     //
@@ -78,7 +83,8 @@ class FormViewController: UITableViewController {
                 self.sliderItem,
                 self.dateTimeItem,
                 self.textViewItem,
-                self.multiLineTextItem
+                self.multiLineTextItem,
+                self.imageAndTextItem
             ]
             return section
         }())
