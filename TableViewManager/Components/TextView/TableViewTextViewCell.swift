@@ -22,4 +22,24 @@ class TableViewTextViewCell: TableViewFormCell {
     //
     @IBOutlet weak var textView: UITextView!
     
+    // MARK: View Lifecycle
+    //
+    override func cellDidLoad() {
+        super.cellDidLoad()
+        self.textView.textContainer.lineFragmentPadding = 0
+        self.textView.textContainerInset = UIEdgeInsetsZero
+    }
+    
+    override func cellWillAppear() {
+        super.cellWillAppear()
+        self.textView.editable = textViewItem.editable
+        self.textView.text = textViewItem.value
+        self.textView.autocapitalizationType = self.textViewItem.autocapitalizationType
+        self.textView.autocorrectionType = self.textViewItem.autocorrectionType
+        self.textView.spellCheckingType = self.textViewItem.spellCheckingType
+        self.textView.keyboardType = self.textViewItem.keyboardType
+        self.textView.keyboardAppearance = self.textViewItem.keyboardAppearance
+        self.textView.returnKeyType = self.textViewItem.returnKeyType
+        self.textView.enablesReturnKeyAutomatically = self.textViewItem.enablesReturnKeyAutomatically
+    }
 }

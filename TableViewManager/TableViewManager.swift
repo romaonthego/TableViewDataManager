@@ -35,7 +35,8 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
           "TableViewSwitchCell": TableViewSwitchItem.self,
           "TableViewSliderCell": TableViewSliderItem.self,
           "TableViewDateTimeCell": TableViewDateTimeItem.self,
-          "TableViewDatePickerCell": TableViewDatePickerItem.self ].forEach { self.registerNib(UINib(nibName: $0, bundle: nil), forItemClass: $1) }
+          "TableViewDatePickerCell": TableViewDatePickerItem.self,
+          "TableViewTextViewCell": TableViewTextViewItem.self].forEach { self.registerNib(UINib(nibName: $0, bundle: nil), forItemClass: $1) }
     }
     
     deinit {

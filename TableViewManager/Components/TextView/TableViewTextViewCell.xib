@@ -30,6 +30,9 @@
                     <constraint firstItem="k23-fx-lEO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="tNf-Xs-qqb"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="textView" destination="k23-fx-lEO" id="saW-ne-Ihl"/>
+            </connections>
             <point key="canvasLocation" x="330" y="399.5"/>
         </tableViewCell>
     </objects>

@@ -42,6 +42,11 @@ class FormViewController: UITableViewController {
         let item = TableViewDateTimeItem(text: "Date / Time", placeholder: nil, value: NSDate(), format: "MM/dd/yyyy hh:mm a", datePickerMode: .DateAndTime)
         return item
     }()
+    lazy var textViewItem: TableViewTextViewItem = {
+        let item = TableViewTextViewItem(text: nil, value: "Text View")
+        item.height = 100
+        return item
+    }()
     
     // MARK: View Lifecycle
     //
@@ -63,7 +68,8 @@ class FormViewController: UITableViewController {
                 self.passwordItem,
                 self.switchItem,
                 self.sliderItem,
-                self.dateTimeItem
+                self.dateTimeItem,
+                self.textViewItem
             ]
             return section
         }())
