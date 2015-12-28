@@ -34,7 +34,7 @@ class TableViewSliderCell: TableViewFormCell {
     }
     
     // MARK: Actions
-    
+    //
     @IBAction func sliderValueChanged(sender: UISlider!) {
         self.sliderItem.value = sender.value
         guard let changeHandler = self.sliderItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath else {

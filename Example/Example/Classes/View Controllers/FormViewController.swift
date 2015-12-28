@@ -43,8 +43,11 @@ class FormViewController: UITableViewController {
         return item
     }()
     lazy var segmentedControlItem: TableViewSegmentedControlItem = {
-        let item = TableViewSegmentedControlItem(text: "Segmented Control")
+        let item = TableViewSegmentedControlItem(text: "Segmented Control", items: ["One", "Two"], value: 1)
         item.selectable = false
+        item.changeHandler = { (section: TableViewSection, item: TableViewSegmentedControlItem, tableView: UITableView, indexPath: NSIndexPath) in
+            print("Segmented Control value: \(item.value)")
+        }
         return item
     }()
     lazy var textViewItem: TableViewTextViewItem = {

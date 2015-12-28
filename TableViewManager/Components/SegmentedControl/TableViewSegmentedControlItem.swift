@@ -11,11 +11,17 @@ import UIKit
 class TableViewSegmentedControlItem: TableViewFormItem {
    
     var value: Int?
+    var items: [AnyObject]?
+    
+    // MARK: Handlers
+    //
+    var changeHandler: ((section: TableViewSection, item: TableViewSegmentedControlItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
 
     // MARK: Instance Lifecycle
     //
-    convenience init(text: String?, value: Int?) {
+    convenience init(text: String?, items: [AnyObject], value: Int) {
         self.init(text: text)
+        self.items = items
         self.value = value
     }
 }
