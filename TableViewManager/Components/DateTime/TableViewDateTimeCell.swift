@@ -45,15 +45,11 @@ class TableViewDateTimeCell: TableViewFormCell {
     override func cellWillAppear() {
         super.cellWillAppear()
         self.selectionStyle = .Default
-        
-
-        
         self.setSelected(self.dateTimeItem.selected, animated: false)
         self.datePickerItem.dateTimeItem = self.dateTimeItem
-        self.datePickerItem.changeHandler = { [weak self] (section: TableViewSection, item: TableViewDatePickerItem, tableView: UITableView, indexPath: NSIndexPath) in
+        self.datePickerItem.changeHandler = { [unowned self] (section: TableViewSection, item: TableViewDatePickerItem, tableView: UITableView, indexPath: NSIndexPath) in
             self.updateDetailLabelText()
         }
-        
         updateDetailLabelText()
     }
     

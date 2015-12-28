@@ -34,6 +34,10 @@ class TableViewDateTimeItem: TableViewFormItem {
     var maximumDate: NSDate? // default is nil
     var minuteInterval: NSInteger = 1 // display minutes wheel with interval. interval must be evenly divided into 60. default is 1. min is 1, max is 30
     
+    override class func focusable() -> Bool {
+        return false
+    }
+    
     // MARK: Instance Lifecycle
     //
     convenience init(text: String?, placeholder: String?, value: NSDate!, format: String!, datePickerMode: UIDatePickerMode!) {
