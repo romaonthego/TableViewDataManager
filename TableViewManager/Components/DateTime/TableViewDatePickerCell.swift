@@ -28,6 +28,14 @@ class TableViewDatePickerCell: TableViewFormCell {
         super.cellDidLoad()
     }
     
+    override func cellWillAppear() {
+        super.cellWillAppear()
+        guard let dateTimeItem = self.datePickerItem.dateTimeItem, let value = dateTimeItem.value else {
+            return
+        }
+        self.datePicker.date = value
+    }
+    
     // MARK: Actions
     
     @IBAction func datePickerValueChanged(sender: UIDatePicker!) {
