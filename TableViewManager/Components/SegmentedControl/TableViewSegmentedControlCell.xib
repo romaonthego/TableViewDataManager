@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8fM-mv-Dkw">
-                        <rect key="frame" x="67.5" y="8" width="258.5" height="29"/>
+                        <rect key="frame" x="67" y="10" width="259" height="25.5"/>
                         <segments>
                             <segment title="First"/>
                             <segment title="Second"/>
@@ -33,7 +33,9 @@
                     </segmentedControl>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="8fM-mv-Dkw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="CJK-b2-UYf"/>
                     <constraint firstItem="8fM-mv-Dkw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YlV-0z-35U"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="8fM-mv-Dkw" secondAttribute="bottom" id="ZoU-81-PV9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="8fM-mv-Dkw" secondAttribute="trailing" id="aWw-sE-06Z"/>
                     <constraint firstItem="FUJ-43-izZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="d9D-C6-krj"/>
                     <constraint firstAttribute="centerY" secondItem="FUJ-43-izZ" secondAttribute="centerY" id="gv2-pG-wWh"/>
