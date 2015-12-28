@@ -43,7 +43,7 @@ class FormViewController: UITableViewController {
         return item
     }()
     lazy var textViewItem: TableViewTextViewItem = {
-        let item = TableViewTextViewItem(text: nil, value: "Text View")
+        let item = TableViewTextViewItem(text: nil, value: "Text View\nMulti line")
         item.height = 100
         item.returnKeyHandler = { (section: TableViewSection, item: TableViewTextViewItem, tableView: UITableView, indexPath: NSIndexPath) in
             print("Value: \(item.value)")
