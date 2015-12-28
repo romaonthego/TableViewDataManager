@@ -26,7 +26,8 @@ class TableViewTextViewItem: TableViewFormItem {
     // MARK: Handlers
     //
     var changeHandler: ((section: TableViewSection, item: TableViewTextViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
-    var changeCharacterInRangeHandler: ((section: TableViewSection, item: TableViewTextViewItem, tableView: UITableView, indexPath: NSIndexPath, range: NSRange, replacementString: String) -> (Bool))?
+    var beginEditingHandler: ((section: TableViewSection, item: TableViewTextViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
+    var endEditingHandler: ((section: TableViewSection, item: TableViewTextViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var returnKeyHandler: ((section: TableViewSection, item: TableViewTextViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     
     // MARK: Instance Lifecycle
