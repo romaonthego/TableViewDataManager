@@ -47,6 +47,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="labelCenterYConstraint" destination="gv2-pG-wWh" id="YLP-DY-OzO"/>
+                <outlet property="labelRightMarginConstraint" destination="l4v-VN-JdW" id="qkV-bQ-TLh"/>
                 <outlet property="labelWidthConstraint" destination="40J-aE-L2E" id="ovm-GC-f9q"/>
                 <outlet property="segmentedControl" destination="8fM-mv-Dkw" id="ETX-Gx-xoJ"/>
                 <outlet property="titleLabel" destination="FUJ-43-izZ" id="hpm-EN-KVh"/>
