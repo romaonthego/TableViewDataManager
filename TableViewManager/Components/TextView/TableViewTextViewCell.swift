@@ -26,6 +26,7 @@ class TableViewTextViewCell: TableViewFormCell, UITextViewDelegate {
     //
     override func cellDidLoad() {
         super.cellDidLoad()
+        self.textView.inputAccessoryView = self.actionBar
         self.textView.textContainer.lineFragmentPadding = 0
         self.textView.textContainerInset = UIEdgeInsetsZero
     }
@@ -43,12 +44,17 @@ class TableViewTextViewCell: TableViewFormCell, UITextViewDelegate {
         self.textView.enablesReturnKeyAutomatically = self.textViewItem.enablesReturnKeyAutomatically
     }
     
+    override func responder() -> UIResponder? {
+        return self.textView
+    }
+    
     // MARK: <UITextViewDelegate> methods
     //
     func textViewDidBeginEditing(textView: UITextView) {
         if let beginEditingHandler = self.textViewItem.beginEditingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
             beginEditingHandler(section: self.section, item: self.textViewItem, tableView: tableView, indexPath: indexPath)
         }
+        self.updateActionBarNavigationControl()
     }
     
     func textViewDidEndEditing(textView: UITextView) {
