@@ -19,6 +19,9 @@
 		306CE3DE1C30F550001129B0 /* TableViewTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306CE3DC1C30F550001129B0 /* TableViewTextViewCell.swift */; };
 		306CE3DF1C30F550001129B0 /* TableViewTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 306CE3DD1C30F550001129B0 /* TableViewTextViewCell.xib */; };
 		306CE3E11C30F562001129B0 /* TableViewTextViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306CE3E01C30F562001129B0 /* TableViewTextViewItem.swift */; };
+		306CE3E61C310063001129B0 /* TableViewBasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 306CE3E51C310063001129B0 /* TableViewBasicCell.xib */; };
+		306CE3E81C310073001129B0 /* TableViewBasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306CE3E71C310073001129B0 /* TableViewBasicCell.swift */; };
+		306CE3EA1C31007B001129B0 /* TableViewBasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306CE3E91C31007B001129B0 /* TableViewBasicItem.swift */; };
 		30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */; };
 		30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */; };
 		30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */; };
@@ -81,6 +84,9 @@
 		306CE3DC1C30F550001129B0 /* TableViewTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextViewCell.swift; sourceTree = "<group>"; };
 		306CE3DD1C30F550001129B0 /* TableViewTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewTextViewCell.xib; sourceTree = "<group>"; };
 		306CE3E01C30F562001129B0 /* TableViewTextViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextViewItem.swift; sourceTree = "<group>"; };
+		306CE3E51C310063001129B0 /* TableViewBasicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewBasicCell.xib; sourceTree = "<group>"; };
+		306CE3E71C310073001129B0 /* TableViewBasicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBasicCell.swift; sourceTree = "<group>"; };
+		306CE3E91C31007B001129B0 /* TableViewBasicItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBasicItem.swift; sourceTree = "<group>"; };
 		30CB4CD51AB624F4008F22EF /* TableViewSwitchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchItem.swift; sourceTree = "<group>"; };
 		30CB4CD71AB6254E008F22EF /* TableViewSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSwitchCell.swift; sourceTree = "<group>"; };
 		30CB4CD81AB6254E008F22EF /* TableViewSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSwitchCell.xib; sourceTree = "<group>"; };
@@ -173,6 +179,16 @@
 				306CE3E01C30F562001129B0 /* TableViewTextViewItem.swift */,
 			);
 			path = TextView;
+			sourceTree = "<group>";
+		};
+		306CE3E41C310063001129B0 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				306CE3E51C310063001129B0 /* TableViewBasicCell.xib */,
+				306CE3E71C310073001129B0 /* TableViewBasicCell.swift */,
+				306CE3E91C31007B001129B0 /* TableViewBasicItem.swift */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		30CB4CD41AB624C1008F22EF /* Switch */ = {
@@ -326,6 +342,7 @@
 		488C06E41AA90F12003000C3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				306CE3E41C310063001129B0 /* Basic */,
 				301475081C30692D006975C7 /* DateTime */,
 				30F70E391AC52AC900EEF029 /* Picker */,
 				30F70E291AC5292600EEF029 /* Slider */,
@@ -424,6 +441,7 @@
 				488C069D1AA65656003000C3 /* Main.storyboard in Resources */,
 				30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */,
 				306CE3DF1C30F550001129B0 /* TableViewTextViewCell.xib in Resources */,
+				306CE3E61C310063001129B0 /* TableViewBasicCell.xib in Resources */,
 				488C06A21AA65656003000C3 /* LaunchScreen.xib in Resources */,
 				488C06FC1AA920EC003000C3 /* UIButtonBarArrowRight.png in Resources */,
 				488C06FF1AA920FC003000C3 /* Transparent@2x.png in Resources */,
@@ -455,6 +473,7 @@
 				488C06F51AA91B00003000C3 /* TableViewActionBar.swift in Sources */,
 				488C06BB1AA65D04003000C3 /* TableViewDataSource.swift in Sources */,
 				488C06D71AA7C4F5003000C3 /* RootViewController.swift in Sources */,
+				306CE3EA1C31007B001129B0 /* TableViewBasicItem.swift in Sources */,
 				30F70E2B1AC5297D00EEF029 /* TableViewSliderItem.swift in Sources */,
 				30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */,
 				488C06D91AA7CA29003000C3 /* RetractableViewController.swift in Sources */,
@@ -467,6 +486,7 @@
 				306CE3E11C30F562001129B0 /* TableViewTextViewItem.swift in Sources */,
 				488C06CB1AA78A83003000C3 /* TestViewController.swift in Sources */,
 				30F70E2E1AC5299E00EEF029 /* TableViewSliderCell.swift in Sources */,
+				306CE3E81C310073001129B0 /* TableViewBasicCell.swift in Sources */,
 				488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */,
 				3014750E1C30692D006975C7 /* TableViewDateTimeItem.swift in Sources */,
 				301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */,

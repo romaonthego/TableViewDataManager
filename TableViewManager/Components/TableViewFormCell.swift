@@ -51,10 +51,10 @@ class TableViewFormCell: TableViewCell {
     
     private func updateTitleLabelConstraints(titleLabel: UILabel) {
         if let labelWidthConstraint = self.labelWidthConstraint {
-            if self.item.text != nil {
+            if self.item.text != nil && self.item is TableViewFormItem {
                 var minWidth: Float = 0
                 for item in self.section.items {
-                    if let text = item.text {
+                    if let text = item.text where item is TableViewFormItem {
                         let width = Float(NSString(string: text).boundingRectWithSize(CGSize(width: self.frame.size.width, height: CGFloat(DBL_MAX)),
                             options: NSStringDrawingOptions.UsesLineFragmentOrigin,
                             attributes: [NSFontAttributeName: titleLabel.font],

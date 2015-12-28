@@ -31,7 +31,8 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.tableView?.dataSource = self
         self.dataSource = dataSource
         self.registerCellClass(TableViewCell.self, forItemClass: TableViewItem.self)
-        [ "TableViewTextFieldCell": TableViewTextFieldItem.self,
+        [ "TableViewBasicCell": TableViewBasicItem.self,
+          "TableViewTextFieldCell": TableViewTextFieldItem.self,
           "TableViewSwitchCell": TableViewSwitchItem.self,
           "TableViewSliderCell": TableViewSliderItem.self,
           "TableViewDateTimeCell": TableViewDateTimeItem.self,

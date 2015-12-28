@@ -50,6 +50,10 @@ class FormViewController: UITableViewController {
         }
         return item
     }()
+    lazy var multiLineTextItem: TableViewBasicItem = {
+        let item = TableViewBasicItem(text: "Custom item / cell example. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem leo, malesuada tempor metus et, elementum pulvinar nibh.")
+        return item
+    }()
     
     // MARK: View Lifecycle
     //
@@ -72,7 +76,8 @@ class FormViewController: UITableViewController {
                 self.switchItem,
                 self.sliderItem,
                 self.dateTimeItem,
-                self.textViewItem
+                self.textViewItem,
+                self.multiLineTextItem
             ]
             return section
         }())
