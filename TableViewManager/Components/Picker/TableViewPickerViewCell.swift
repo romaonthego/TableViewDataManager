@@ -45,18 +45,28 @@ class TableViewPickerViewCell: TableViewFormCell, UIPickerViewDelegate, UIPicker
     }
     
     // MARK: <UIPickerViewDelegate> methods
+    //
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "Test"
+        guard let pickerItem = self.pickerViewItem.pickerItem, options = pickerItem.options else {
+            return nil
+        }
+        return options[component][row]
     }
     
     // MARK: <UIPickerViewDataSource> methods
     //
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 2
+        guard let pickerItem = self.pickerViewItem.pickerItem, options = pickerItem.options else {
+            return 0
+        }
+        return options.count
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        guard let pickerItem = self.pickerViewItem.pickerItem, options = pickerItem.options else {
+            return 0
+        }
+        return options[component].count
     }
     
 }
