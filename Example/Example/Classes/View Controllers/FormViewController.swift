@@ -178,6 +178,15 @@ class FormViewController: UITableViewController {
     // MARK: Read values
     //
     @IBAction func valuesButtonPressed(sender: AnyObject) {
-        print("Full length text field value: \(self.fullLengthTextField.value)")
+        print("fullLengthTextField.value = \(self.fullLengthTextField.value)")
+        print("textItem.value = \(self.textItem.value)")
+        print("numberItem.value = \(self.numberItem.value)")
+        print("passwordItem.value = \(self.passwordItem.value)")
+        print("switchItem.value = \(self.switchItem.value)")
+        print("sliderItem.value = \(self.sliderItem.value)")
+        print("dateTimeItem.value = \(self.dateTimeItem.value)")
+        print("pickerItem.value = \(self.pickerItem.value)")
+        print("segmentedControlItem.value = \(self.segmentedControlItem.value)")
+        print("textViewItem.value = \(self.textViewItem.value)")
     }
 }
