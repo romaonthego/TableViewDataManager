@@ -37,18 +37,6 @@ class TableViewPickerViewCell: TableViewFormCell, UIPickerViewDelegate, UIPicker
         
     }
     
-    // MARK: Actions
-    
-    @IBAction func datePickerValueChanged(sender: UIDatePicker!) {
-//        if let dateTimeItem = self.datePickerItem.dateTimeItem {
-//            dateTimeItem.value = sender.date
-//        }
-//        guard let changeHandler = self.datePickerItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath else {
-//            return
-//        }
-//        changeHandler(section: self.section, item: self.datePickerItem, tableView: tableView, indexPath: indexPath)
-    }
-    
     // MARK: <UIPickerViewDelegate> methods
     //
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
