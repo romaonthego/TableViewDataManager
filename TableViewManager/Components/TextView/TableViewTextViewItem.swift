@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewTextViewItem: TableViewFormItem {
+class TableViewTextViewItem: TableViewFormItem, TableViewItemFocusable {
     
     var value: String?
     var editable: Bool = true

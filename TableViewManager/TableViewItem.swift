@@ -26,6 +26,10 @@ enum TableViewActionBarButton {
     case Done
 }
 
+protocol TableViewItemFocusable {
+    
+}
+
 class TableViewItem: NSObject, UIAccessibilityIdentification {
     
     // MARK: Variables
@@ -56,10 +60,6 @@ class TableViewItem: NSObject, UIAccessibilityIdentification {
     var pasteHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
     var editingHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, status: TableViewEditingStatus) -> (Void))?
     var actionBarButtonTapHandler: ((section: TableViewSection, item: TableViewItem, tableView: UITableView, indexPath: NSIndexPath, button: TableViewActionBarButton) -> (Void))?
-    
-    class func focusable() -> Bool {
-        return false
-    }
     
     // MARK: Lifecycle
     //

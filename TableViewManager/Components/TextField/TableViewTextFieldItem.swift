@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewTextFieldItem: TableViewFormItem {
+class TableViewTextFieldItem: TableViewFormItem, TableViewItemFocusable {
    
     var value: String?
     var placeholder: String?

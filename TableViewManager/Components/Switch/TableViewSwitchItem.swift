@@ -12,10 +12,6 @@ class TableViewSwitchItem: TableViewFormItem {
     
     var value: Bool = true
     
-    override class func focusable() -> Bool {
-        return false
-    }
-    
     // MARK: Handlers
     //
     var changeHandler: ((section: TableViewSection, item: TableViewSwitchItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?

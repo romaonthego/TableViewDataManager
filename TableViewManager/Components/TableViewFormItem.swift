@@ -10,8 +10,4 @@ import UIKit
 
 class TableViewFormItem: TableViewItem {
     
-    override class func focusable() -> Bool {
-        return true
-    }
-    
 }

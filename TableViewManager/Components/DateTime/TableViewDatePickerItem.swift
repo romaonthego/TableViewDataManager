@@ -15,9 +15,5 @@ class TableViewDatePickerItem: TableViewFormItem {
     // MARK: Handlers
     //
     var changeHandler: ((section: TableViewSection, item: TableViewDatePickerItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
-    
-    override class func focusable() -> Bool {
-        return false
-    }
 }
 

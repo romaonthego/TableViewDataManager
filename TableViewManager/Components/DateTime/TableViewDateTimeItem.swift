@@ -34,10 +34,6 @@ class TableViewDateTimeItem: TableViewFormItem {
     
     lazy var dateFormatter: NSDateFormatter = NSDateFormatter()
     
-    override class func focusable() -> Bool {
-        return false
-    }
-    
     // MARK: Instance Lifecycle
     //
     convenience init(text: String?, placeholder: String?, value: NSDate!, format: String!, datePickerMode: UIDatePickerMode!) {

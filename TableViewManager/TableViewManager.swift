@@ -69,7 +69,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : section.items.count
         for itemIndex in (0..<indexInSection).reverse() {
             let item = section.items[itemIndex]
-            if item.dynamicType.focusable() {
+            if item is TableViewItemFocusable {
                 return NSIndexPath(forRow: itemIndex, inSection: sectionIndex)
             }
         }
@@ -84,7 +84,7 @@ class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         let indexInSection = section === currentSection ? items.indexOfObject(currentItem) : -1
         for itemIndex in (indexInSection+1)..<section.items.count {
             let item = section.items[itemIndex]
-            if item.dynamicType.focusable() {
+            if item is TableViewItemFocusable {
                 return NSIndexPath(forRow: itemIndex, inSection: sectionIndex)
             }
         }

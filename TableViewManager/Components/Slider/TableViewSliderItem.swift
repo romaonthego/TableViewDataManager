@@ -12,10 +12,6 @@ class TableViewSliderItem: TableViewFormItem {
    
     var value: Float = 0
     
-    override class func focusable() -> Bool {
-        return false
-    }
-    
     // MARK: Handlers
     //
     var changeHandler: ((section: TableViewSection, item: TableViewSliderItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
