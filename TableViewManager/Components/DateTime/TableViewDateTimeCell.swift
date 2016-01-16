@@ -33,11 +33,11 @@ class TableViewDateTimeCell: TableViewFormCell {
             dateTimeItem.selected = newItemIndexPath.row < section.items.count && section.items[newItemIndexPath.row] is TableViewDatePickerItem
             if dateTimeItem.selected {
                 section.items.removeAtIndex(newItemIndexPath.row)
-                tableView.deleteRowsAtIndexPaths([newItemIndexPath], withRowAnimation: .Automatic)
+                tableView.deleteRowsAtIndexPaths([newItemIndexPath], withRowAnimation: .Top)
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
             } else {
                 section.items.insert(self.datePickerItem, atIndex: newItemIndexPath.row)
-                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newItemIndexPath.row, inSection: indexPath.section)], withRowAnimation: .Automatic)
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newItemIndexPath.row, inSection: indexPath.section)], withRowAnimation: .Fade)
             }
         }
     }
