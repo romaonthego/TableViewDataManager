@@ -58,11 +58,11 @@ class TableViewPickerCell: TableViewFormCell {
             return
         }
         
-//        if let value = self.dateTimeItem.value {
-//            detailTextLabel.text = self.dateTimeItem.dateFormatter.stringFromDate(value)
-//        } else {
-//            detailTextLabel.text = self.dateTimeItem.placeholder
-//        }
+        if let value = self.pickerItem.value {
+            detailTextLabel.text = value.joinWithSeparator(", ")
+        } else {
+            detailTextLabel.text = self.pickerItem.placeholder
+        }
     }
     
 }

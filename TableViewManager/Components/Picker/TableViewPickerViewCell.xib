@@ -16,6 +16,10 @@
                 <subviews>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7Z-9A-Adn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="213.5"/>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="gnB-sr-LWY"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="Epe-UL-31g"/>
+                        </connections>
                     </pickerView>
                 </subviews>
                 <constraints>

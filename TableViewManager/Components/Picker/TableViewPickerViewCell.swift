@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewPickerViewCell: TableViewFormCell {
+class TableViewPickerViewCell: TableViewFormCell, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: Public variables
     //
@@ -42,6 +42,21 @@ class TableViewPickerViewCell: TableViewFormCell {
 //            return
 //        }
 //        changeHandler(section: self.section, item: self.datePickerItem, tableView: tableView, indexPath: indexPath)
+    }
+    
+    // MARK: <UIPickerViewDelegate> methods
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "Test"
+    }
+    
+    // MARK: <UIPickerViewDataSource> methods
+    //
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
     }
     
 }

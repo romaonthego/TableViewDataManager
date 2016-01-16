@@ -10,7 +10,19 @@ import UIKit
 
 class TableViewPickerItem: TableViewFormItem {
    
-    var value: AnyObject?
+    var value: [String]?
     var selected: Bool = false
+    var placeholder: String?
+    var options: [[String]]?
+    
+    // MARK: Instance Lifecycle
+    //
+    convenience init(text: String?, placeholder: String?, value: [String]?, options: [[String]]?) {
+        self.init(text: text)
+        self.value = value
+        self.placeholder = placeholder
+        self.value = value
+        self.options = options
+    }
     
 }

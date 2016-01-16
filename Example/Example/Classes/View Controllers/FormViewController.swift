@@ -43,7 +43,15 @@ class FormViewController: UITableViewController {
         return item
     }()
     lazy var pickerItem: TableViewPickerItem = {
-        let item = TableViewPickerItem(text: "Picker")
+        let item = TableViewPickerItem(
+            text: "Picker",
+            placeholder: "Test",
+            value: ["Item 12", "Item 23"],
+            options: [
+                ["Item 11", "Item 12", "Item 13"],
+                ["Item 21", "Item 22", "Item 23", "Item 24"]
+            ]
+        )
         return item
     }()
     lazy var segmentedControlItem: TableViewSegmentedControlItem = {
