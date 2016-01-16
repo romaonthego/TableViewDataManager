@@ -13,6 +13,10 @@ class TableViewSegmentedControlItem: TableViewFormItem {
     var value: Int?
     var items: [AnyObject]?
     
+    override class func focusable() -> Bool {
+        return false
+    }
+    
     // MARK: Handlers
     //
     var changeHandler: ((section: TableViewSection, item: TableViewSegmentedControlItem, tableView: UITableView, indexPath: NSIndexPath) -> (Void))?
