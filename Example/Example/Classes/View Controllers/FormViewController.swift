@@ -42,6 +42,10 @@ class FormViewController: UITableViewController {
         let item = TableViewDateTimeItem(text: "Date / Time", placeholder: nil, value: NSDate(), format: "MM/dd/yyyy hh:mm a", datePickerMode: .DateAndTime)
         return item
     }()
+    lazy var pickerItem: TableViewPickerItem = {
+        let item = TableViewPickerItem(text: "Picker")
+        return item
+    }()
     lazy var segmentedControlItem: TableViewSegmentedControlItem = {
         let item = TableViewSegmentedControlItem(text: "Segmented Control", items: ["One", "Two", UIImage(named: "Heart")!], value: 1)
         item.selectable = false
@@ -90,6 +94,7 @@ class FormViewController: UITableViewController {
                 self.switchItem,
                 self.sliderItem,
                 self.dateTimeItem,
+                self.pickerItem,
                 self.segmentedControlItem,
                 self.textViewItem,
                 self.multiLineTextItem,

@@ -10,4 +10,7 @@ import UIKit
 
 class TableViewPickerItem: TableViewFormItem {
    
+    var value: AnyObject?
+    var selected: Bool = false
+    
 }

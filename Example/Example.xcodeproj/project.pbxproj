@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		30113D4C1C4AC6EF009448E8 /* TableViewManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30113D4B1C4AC6EF009448E8 /* TableViewManager.bundle */; };
+		30113D531C4AC911009448E8 /* TableViewPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113D4D1C4AC911009448E8 /* TableViewPickerCell.swift */; };
+		30113D541C4AC911009448E8 /* TableViewPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30113D4E1C4AC911009448E8 /* TableViewPickerCell.xib */; };
+		30113D551C4AC911009448E8 /* TableViewPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113D4F1C4AC911009448E8 /* TableViewPickerItem.swift */; };
+		30113D561C4AC911009448E8 /* TableViewPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113D501C4AC911009448E8 /* TableViewPickerViewCell.swift */; };
+		30113D571C4AC911009448E8 /* TableViewPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30113D511C4AC911009448E8 /* TableViewPickerViewCell.xib */; };
+		30113D581C4AC911009448E8 /* TableViewPickerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113D521C4AC911009448E8 /* TableViewPickerViewItem.swift */; };
 		301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475021C306881006975C7 /* TableViewTextFieldCell.swift */; };
 		301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301475031C306881006975C7 /* TableViewTextFieldCell.xib */; };
 		301475071C306881006975C7 /* TableViewTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475041C306881006975C7 /* TableViewTextFieldItem.swift */; };
@@ -30,7 +36,6 @@
 		30F70E2B1AC5297D00EEF029 /* TableViewSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E2A1AC5297D00EEF029 /* TableViewSliderItem.swift */; };
 		30F70E2E1AC5299E00EEF029 /* TableViewSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E2C1AC5299E00EEF029 /* TableViewSliderCell.swift */; };
 		30F70E2F1AC5299E00EEF029 /* TableViewSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F70E2D1AC5299E00EEF029 /* TableViewSliderCell.xib */; };
-		30F70E3B1AC52AF300EEF029 /* TableViewPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F70E3A1AC52AF300EEF029 /* TableViewPickerItem.swift */; };
 		488C06981AA65656003000C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06971AA65656003000C3 /* AppDelegate.swift */; };
 		488C069D1AA65656003000C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488C069B1AA65656003000C3 /* Main.storyboard */; };
 		488C069F1AA65656003000C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488C069E1AA65656003000C3 /* Images.xcassets */; };
@@ -70,6 +75,12 @@
 
 /* Begin PBXFileReference section */
 		30113D4B1C4AC6EF009448E8 /* TableViewManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TableViewManager.bundle; sourceTree = "<group>"; };
+		30113D4D1C4AC911009448E8 /* TableViewPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewPickerCell.swift; sourceTree = "<group>"; };
+		30113D4E1C4AC911009448E8 /* TableViewPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewPickerCell.xib; sourceTree = "<group>"; };
+		30113D4F1C4AC911009448E8 /* TableViewPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewPickerItem.swift; sourceTree = "<group>"; };
+		30113D501C4AC911009448E8 /* TableViewPickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewPickerViewCell.swift; sourceTree = "<group>"; };
+		30113D511C4AC911009448E8 /* TableViewPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewPickerViewCell.xib; sourceTree = "<group>"; };
+		30113D521C4AC911009448E8 /* TableViewPickerViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewPickerViewItem.swift; sourceTree = "<group>"; };
 		301475021C306881006975C7 /* TableViewTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldCell.swift; sourceTree = "<group>"; };
 		301475031C306881006975C7 /* TableViewTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewTextFieldCell.xib; sourceTree = "<group>"; };
 		301475041C306881006975C7 /* TableViewTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldItem.swift; sourceTree = "<group>"; };
@@ -92,7 +103,6 @@
 		30F70E2A1AC5297D00EEF029 /* TableViewSliderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSliderItem.swift; sourceTree = "<group>"; };
 		30F70E2C1AC5299E00EEF029 /* TableViewSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSliderCell.swift; sourceTree = "<group>"; };
 		30F70E2D1AC5299E00EEF029 /* TableViewSliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSliderCell.xib; sourceTree = "<group>"; };
-		30F70E3A1AC52AF300EEF029 /* TableViewPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewPickerItem.swift; sourceTree = "<group>"; };
 		488C06921AA65656003000C3 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488C06961AA65656003000C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488C06971AA65656003000C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,7 +226,12 @@
 		30F70E391AC52AC900EEF029 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
-				30F70E3A1AC52AF300EEF029 /* TableViewPickerItem.swift */,
+				30113D4D1C4AC911009448E8 /* TableViewPickerCell.swift */,
+				30113D4E1C4AC911009448E8 /* TableViewPickerCell.xib */,
+				30113D4F1C4AC911009448E8 /* TableViewPickerItem.swift */,
+				30113D501C4AC911009448E8 /* TableViewPickerViewCell.swift */,
+				30113D511C4AC911009448E8 /* TableViewPickerViewCell.xib */,
+				30113D521C4AC911009448E8 /* TableViewPickerViewItem.swift */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -440,6 +455,7 @@
 				30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */,
 				306CE3DF1C30F550001129B0 /* TableViewTextViewCell.xib in Resources */,
 				306CE3EC1C3101CA001129B0 /* TableViewCell.xib in Resources */,
+				30113D541C4AC911009448E8 /* TableViewPickerCell.xib in Resources */,
 				488C06A21AA65656003000C3 /* LaunchScreen.xib in Resources */,
 				301475121C308431006975C7 /* TableViewDatePickerCell.xib in Resources */,
 				301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */,
@@ -448,6 +464,7 @@
 				488C069F1AA65656003000C3 /* Images.xcassets in Resources */,
 				306CE3F31C310615001129B0 /* TableViewSegmentedControlCell.xib in Resources */,
 				30F70E2F1AC5299E00EEF029 /* TableViewSliderCell.xib in Resources */,
+				30113D571C4AC911009448E8 /* TableViewPickerViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,12 +486,14 @@
 				488C06F51AA91B00003000C3 /* TableViewActionBar.swift in Sources */,
 				306CE3F21C310615001129B0 /* TableViewSegmentedControlCell.swift in Sources */,
 				488C06BB1AA65D04003000C3 /* TableViewDataSource.swift in Sources */,
+				30113D551C4AC911009448E8 /* TableViewPickerItem.swift in Sources */,
 				488C06D71AA7C4F5003000C3 /* RootViewController.swift in Sources */,
 				30F70E2B1AC5297D00EEF029 /* TableViewSliderItem.swift in Sources */,
 				30CB4CD61AB624F4008F22EF /* TableViewSwitchItem.swift in Sources */,
 				488C06D91AA7CA29003000C3 /* RetractableViewController.swift in Sources */,
 				488C06DD1AA7D22D003000C3 /* IndexedListViewController.swift in Sources */,
 				488C06BD1AA65D91003000C3 /* TableViewSection.swift in Sources */,
+				30113D531C4AC911009448E8 /* TableViewPickerCell.swift in Sources */,
 				48D6799A1AAA5B6500DA3960 /* TableViewFormCell.swift in Sources */,
 				488C06BF1AA65D9D003000C3 /* TableViewItem.swift in Sources */,
 				301475111C308431006975C7 /* TableViewDatePickerCell.swift in Sources */,
@@ -486,10 +505,11 @@
 				488C06DB1AA7D082003000C3 /* IBViewController.swift in Sources */,
 				3014750E1C30692D006975C7 /* TableViewDateTimeItem.swift in Sources */,
 				301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */,
+				30113D581C4AC911009448E8 /* TableViewPickerViewItem.swift in Sources */,
 				488C06DF1AA7D8E6003000C3 /* EditingViewController.swift in Sources */,
 				488C06D31AA7A2F9003000C3 /* TableViewCellStyle.swift in Sources */,
-				30F70E3B1AC52AF300EEF029 /* TableViewPickerItem.swift in Sources */,
 				488C06D01AA78AC0003000C3 /* IBTableViewCell.swift in Sources */,
+				30113D561C4AC911009448E8 /* TableViewPickerViewCell.swift in Sources */,
 				30CB4CD91AB6254E008F22EF /* TableViewSwitchCell.swift in Sources */,
 				488C06CD1AA78AAC003000C3 /* IBTableViewItem.swift in Sources */,
 				301475071C306881006975C7 /* TableViewTextFieldItem.swift in Sources */,
