@@ -29,6 +29,9 @@
                     <constraint firstAttribute="bottom" secondItem="M7Z-9A-Adn" secondAttribute="bottom" id="sV5-fn-GZO"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="pickerView" destination="M7Z-9A-Adn" id="ozd-3S-hZ6"/>
+            </connections>
             <point key="canvasLocation" x="281" y="446"/>
         </tableViewCell>
     </objects>

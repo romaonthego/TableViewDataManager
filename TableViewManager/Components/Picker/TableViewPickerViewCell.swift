@@ -26,10 +26,15 @@ class TableViewPickerViewCell: TableViewFormCell, UIPickerViewDelegate, UIPicker
     //
     override func cellWillAppear() {
         super.cellWillAppear()
-//        guard let pickerItem = self.pickerViewItem.pickerItem, let value = pickerViewItem.value else {
-//            return
-//        }
-//        
+        guard let pickerItem = self.pickerViewItem.pickerItem, let value = pickerItem.value, let options = pickerItem.options else {
+            return
+        }
+        for (component, item) in options.enumerate() {
+            if let index = item.indexOf(value[component]) {
+                self.pickerView.selectRow(index, inComponent: component, animated: false)
+            }
+        }
+        
     }
     
     // MARK: Actions
