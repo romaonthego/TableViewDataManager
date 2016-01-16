@@ -58,6 +58,22 @@ class TableViewPickerViewCell: TableViewFormCell, UIPickerViewDelegate, UIPicker
         return options[component][row]
     }
     
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if let pickerItem = self.pickerViewItem.pickerItem, options = pickerItem.options {
+            pickerItem.value = {
+                var value : [String] = []
+                for (component, item) in options.enumerate() {
+                    value.append(item[pickerView.selectedRowInComponent(component)])
+                }
+                return value
+            }()
+        }
+        guard let changeHandler = self.pickerViewItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath else {
+            return
+        }
+        changeHandler(section: self.section, item: self.pickerViewItem, tableView: tableView, indexPath: indexPath)
+    }
+    
     // MARK: <UIPickerViewDataSource> methods
     //
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
