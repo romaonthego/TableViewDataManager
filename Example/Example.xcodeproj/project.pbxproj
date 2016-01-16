@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30113D4C1C4AC6EF009448E8 /* TableViewManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30113D4B1C4AC6EF009448E8 /* TableViewManager.bundle */; };
 		301475051C306881006975C7 /* TableViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475021C306881006975C7 /* TableViewTextFieldCell.swift */; };
 		301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301475031C306881006975C7 /* TableViewTextFieldCell.xib */; };
 		301475071C306881006975C7 /* TableViewTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301475041C306881006975C7 /* TableViewTextFieldItem.swift */; };
@@ -53,11 +54,6 @@
 		488C06DF1AA7D8E6003000C3 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06DE1AA7D8E6003000C3 /* EditingViewController.swift */; };
 		488C06E31AA90DDB003000C3 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06E21AA90DDB003000C3 /* FormViewController.swift */; };
 		488C06F51AA91B00003000C3 /* TableViewActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C06F41AA91B00003000C3 /* TableViewActionBar.swift */; };
-		488C06FA1AA920EC003000C3 /* UIButtonBarArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F61AA920EC003000C3 /* UIButtonBarArrowLeft.png */; };
-		488C06FB1AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F71AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png */; };
-		488C06FC1AA920EC003000C3 /* UIButtonBarArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F81AA920EC003000C3 /* UIButtonBarArrowRight.png */; };
-		488C06FD1AA920EC003000C3 /* UIButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06F91AA920EC003000C3 /* UIButtonBarArrowRight@2x.png */; };
-		488C06FF1AA920FC003000C3 /* Transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488C06FE1AA920FC003000C3 /* Transparent@2x.png */; };
 		48A57E9B1AAA77D4005CDD2F /* TableViewFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A57E9A1AAA77D4005CDD2F /* TableViewFormItem.swift */; };
 		48D6799A1AAA5B6500DA3960 /* TableViewFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D679991AAA5B6500DA3960 /* TableViewFormCell.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30113D4B1C4AC6EF009448E8 /* TableViewManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TableViewManager.bundle; sourceTree = "<group>"; };
 		301475021C306881006975C7 /* TableViewTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldCell.swift; sourceTree = "<group>"; };
 		301475031C306881006975C7 /* TableViewTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewTextFieldCell.xib; sourceTree = "<group>"; };
 		301475041C306881006975C7 /* TableViewTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldItem.swift; sourceTree = "<group>"; };
@@ -123,11 +120,6 @@
 		488C06DE1AA7D8E6003000C3 /* EditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		488C06E21AA90DDB003000C3 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		488C06F41AA91B00003000C3 /* TableViewActionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewActionBar.swift; sourceTree = "<group>"; };
-		488C06F61AA920EC003000C3 /* UIButtonBarArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIButtonBarArrowLeft.png; path = ../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowLeft.png; sourceTree = "<group>"; };
-		488C06F71AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UIButtonBarArrowLeft@2x.png"; path = "../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowLeft@2x.png"; sourceTree = "<group>"; };
-		488C06F81AA920EC003000C3 /* UIButtonBarArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIButtonBarArrowRight.png; path = ../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowRight.png; sourceTree = "<group>"; };
-		488C06F91AA920EC003000C3 /* UIButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UIButtonBarArrowRight@2x.png"; path = "../../../RETableViewManager/RETableViewManager/Resources/UIButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
-		488C06FE1AA920FC003000C3 /* Transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Transparent@2x.png"; path = "../../../RETableViewManager/RETableViewManager/Resources/Transparent@2x.png"; sourceTree = "<group>"; };
 		48A57E9A1AAA77D4005CDD2F /* TableViewFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewFormItem.swift; sourceTree = "<group>"; };
 		48D679991AAA5B6500DA3960 /* TableViewFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewFormCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30113D4A1C4AC6EF009448E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				30113D4B1C4AC6EF009448E8 /* TableViewManager.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		301475011C306881006975C7 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,11 +248,6 @@
 				488C069B1AA65656003000C3 /* Main.storyboard */,
 				488C069E1AA65656003000C3 /* Images.xcassets */,
 				488C06A01AA65656003000C3 /* LaunchScreen.xib */,
-				488C06FE1AA920FC003000C3 /* Transparent@2x.png */,
-				488C06F61AA920EC003000C3 /* UIButtonBarArrowLeft.png */,
-				488C06F71AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png */,
-				488C06F81AA920EC003000C3 /* UIButtonBarArrowRight.png */,
-				488C06F91AA920EC003000C3 /* UIButtonBarArrowRight@2x.png */,
 				488C06951AA65656003000C3 /* Supporting Files */,
 			);
 			path = Example;
@@ -287,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				488C06E41AA90F12003000C3 /* Components */,
+				30113D4A1C4AC6EF009448E8 /* Resources */,
 				488C06F41AA91B00003000C3 /* TableViewActionBar.swift */,
 				488C06C41AA66B3E003000C3 /* TableViewCell.swift */,
 				306CE3EB1C3101CA001129B0 /* TableViewCell.xib */,
@@ -440,22 +436,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3014750D1C30692D006975C7 /* TableViewDateTimeCell.xib in Resources */,
-				488C06FA1AA920EC003000C3 /* UIButtonBarArrowLeft.png in Resources */,
 				488C069D1AA65656003000C3 /* Main.storyboard in Resources */,
 				30CB4CDA1AB6254E008F22EF /* TableViewSwitchCell.xib in Resources */,
 				306CE3DF1C30F550001129B0 /* TableViewTextViewCell.xib in Resources */,
 				306CE3EC1C3101CA001129B0 /* TableViewCell.xib in Resources */,
 				488C06A21AA65656003000C3 /* LaunchScreen.xib in Resources */,
-				488C06FC1AA920EC003000C3 /* UIButtonBarArrowRight.png in Resources */,
-				488C06FF1AA920FC003000C3 /* Transparent@2x.png in Resources */,
 				301475121C308431006975C7 /* TableViewDatePickerCell.xib in Resources */,
 				301475061C306881006975C7 /* TableViewTextFieldCell.xib in Resources */,
 				488C06D11AA78AC0003000C3 /* IBTableViewCell.xib in Resources */,
+				30113D4C1C4AC6EF009448E8 /* TableViewManager.bundle in Resources */,
 				488C069F1AA65656003000C3 /* Images.xcassets in Resources */,
 				306CE3F31C310615001129B0 /* TableViewSegmentedControlCell.xib in Resources */,
-				488C06FB1AA920EC003000C3 /* UIButtonBarArrowLeft@2x.png in Resources */,
 				30F70E2F1AC5299E00EEF029 /* TableViewSliderCell.xib in Resources */,
-				488C06FD1AA920EC003000C3 /* UIButtonBarArrowRight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

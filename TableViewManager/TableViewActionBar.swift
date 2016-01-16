@@ -43,9 +43,9 @@ class TableViewActionBar: UIToolbar {
             control.setWidth(40, forSegmentAtIndex: 0)
             control.setWidth(40, forSegmentAtIndex: 1)
             control.setContentOffset(CGSize(width: -4, height: 0), forSegmentAtIndex: 0)
-            control.setImage(UIImage(named: "UIButtonBarArrowLeft"), forSegmentAtIndex: 0)
-            control.setImage(UIImage(named: "UIButtonBarArrowRight"), forSegmentAtIndex: 1)
-            control.setBackgroundImage(UIImage(named: "Transparent"), forState: .Normal, barMetrics: .Default)
+            control.setImage(UIImage(named: "TableViewManager.bundle/UIButtonBarArrowLeft", inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil), forSegmentAtIndex: 0)
+            control.setImage(UIImage(named: "TableViewManager.bundle/UIButtonBarArrowRight", inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil), forSegmentAtIndex: 1)
+            control.setBackgroundImage(UIImage(named: "TableViewManager.bundle/Transparent", inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil), forState: .Normal, barMetrics: .Default)
             return control
         }()
         self.items = [
