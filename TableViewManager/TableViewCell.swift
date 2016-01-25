@@ -24,22 +24,20 @@ class TableViewCell: UITableViewCell {
     var actionBar: TableViewActionBar?
     var tableViewManager: TableViewManager!
     var type: TableViewCellType {
-        get {
-            guard let indexPath = self.indexPath, section = self.section else {
-                return .Any
-            }
-            switch (indexPath.row, section.items.count) {
-            case let (row, count) where row == 0 && count == 1:
-                return .Single
-            case let (row, count) where row == 0 && count > 1:
-                return .First
-            case let (row, count) where row > 0 && row < count - 1 && count > 2:
-                return .Middle
-            case let (row, count) where row == count - 1 && count > 1:
-                return .Last
-            default:
-                return .Any
-            }
+        guard let indexPath = self.indexPath, section = self.section else {
+            return .Any
+        }
+        switch (indexPath.row, section.items.count) {
+        case let (row, count) where row == 0 && count == 1:
+            return .Single
+        case let (row, count) where row == 0 && count > 1:
+            return .First
+        case let (row, count) where row > 0 && row < count - 1 && count > 2:
+            return .Middle
+        case let (row, count) where row == count - 1 && count > 1:
+            return .Last
+        default:
+            return .Any
         }
     }
 
