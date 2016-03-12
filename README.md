@@ -61,7 +61,7 @@ $ brew install carthage
 To integrate TableViewDataManager into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "TableViewDataManager/TableViewDataManager" ~> 1.0
+github "TableViewDataManager/TableViewDataManager" ~> 0.1
 ```
 
 Run `carthage update` to build the framework and drag the built `TableViewDataManager.framework` into your Xcode project.
