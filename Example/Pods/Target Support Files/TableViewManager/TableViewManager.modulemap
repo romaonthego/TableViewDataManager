@@ -1,0 +1,6 @@
+framework module TableViewManager {
+  umbrella header "TableViewManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
