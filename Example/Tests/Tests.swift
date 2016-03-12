@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import TableViewManager
+import TableViewDataManager
 
 class Tests: XCTestCase {
     

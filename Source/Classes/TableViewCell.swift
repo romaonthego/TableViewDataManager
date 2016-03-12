@@ -1,6 +1,6 @@
 //
 // TableViewCell.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //
@@ -39,7 +39,7 @@ public class TableViewCell: UITableViewCell {
     public var backgroundImageView: UIImageView?
     public var selectedBackgroundImageView: UIImageView?
     public var actionBar: TableViewActionBar?
-    public var tableViewManager: TableViewManager!
+    public var tableViewDataManager: TableViewDataManager!
     public var type: TableViewCellType {
         guard let indexPath = self.indexPath, section = self.section else {
             return .Any
@@ -70,7 +70,7 @@ public class TableViewCell: UITableViewCell {
         }
         
         self.actionBar = TableViewActionBar(navigationHandler: { [weak self] (index: Int) -> (Void) in
-            if let strongSelf = self, let tableView = strongSelf.tableViewManager.tableView, let indexPath = strongSelf.indexPath {
+            if let strongSelf = self, let tableView = strongSelf.tableViewDataManager.tableView, let indexPath = strongSelf.indexPath {
                 if let indexPath = index == 0 ? strongSelf.indexPathForPreviousResponder() : strongSelf.indexPathForNextResponder() {
                     var cell = tableView.cellForRowAtIndexPath(indexPath) as? TableViewCell
                     if cell == nil {
@@ -87,7 +87,7 @@ public class TableViewCell: UITableViewCell {
                 }
             }
         }, doneHandler: { [weak self] in
-            if let strongSelf = self, let tableView = strongSelf.tableViewManager.tableView, let indexPath = strongSelf.indexPath {
+            if let strongSelf = self, let tableView = strongSelf.tableViewDataManager.tableView, let indexPath = strongSelf.indexPath {
                 strongSelf.endEditing(true)
                 if let actionBarButtonTapHandler = strongSelf.item.actionBarButtonTapHandler {
                     actionBarButtonTapHandler(section: strongSelf.section, item: strongSelf.item, tableView: tableView, indexPath: indexPath, button: .Done)
@@ -128,7 +128,7 @@ public class TableViewCell: UITableViewCell {
     public func indexPathForPreviousResponder() -> NSIndexPath? {
         if let indexPath = self.indexPath {
             for itemIndex in (0...indexPath.section).reverse() {
-                if let indexPath = self.tableViewManager.indexPathForPreviousResponderInSectionIndex(itemIndex, currentSection: self.section, currentItem: self.item) {
+                if let indexPath = self.tableViewDataManager.indexPathForPreviousResponderInSectionIndex(itemIndex, currentSection: self.section, currentItem: self.item) {
                     return indexPath;
                 }
             }
@@ -137,9 +137,9 @@ public class TableViewCell: UITableViewCell {
     }
     
     public func indexPathForNextResponder() -> NSIndexPath? {
-        if let indexPath = self.indexPath, let datasource = self.tableViewManager.dataSource {
+        if let indexPath = self.indexPath, let datasource = self.tableViewDataManager.dataSource {
             for itemIndex in indexPath.section..<datasource.sections.count {
-                if let indexPath = self.tableViewManager.indexPathForNextResponderInSectionIndex(itemIndex, currentSection: self.section, currentItem: self.item) {
+                if let indexPath = self.tableViewDataManager.indexPathForNextResponderInSectionIndex(itemIndex, currentSection: self.section, currentItem: self.item) {
                     return indexPath;
                 }
             }

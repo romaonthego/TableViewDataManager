@@ -1,6 +1,6 @@
 //
 // TableViewTextCell.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //
@@ -67,7 +67,7 @@ public class TableViewTextFieldCell: TableViewFormCell, UITextFieldDelegate {
     //
     public func textFieldDidChange(textField: UITextField) {
         self.textItem.value = textField.text
-        if let changeHandler = self.textItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let changeHandler = self.textItem.changeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             changeHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath)
         }
     }
@@ -79,31 +79,31 @@ public class TableViewTextFieldCell: TableViewFormCell, UITextFieldDelegate {
             textField.returnKeyType = self.textItem.returnKeyType
         }
         self.updateActionBarNavigationControl()
-        if let editingHandler = self.textItem.editingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let editingHandler = self.textItem.editingHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             editingHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath, status: .WillBeginEditing)
         }
         return true
     }
     
     public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        if let editingHandler = self.textItem.editingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let editingHandler = self.textItem.editingHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             editingHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath, status: .DidEndEditing)
         }
         return true
     }
     
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if let returnKeyHandler = self.textItem.returnKeyHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let returnKeyHandler = self.textItem.returnKeyHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             returnKeyHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath)
         }
-        if let editingHandler = self.textItem.editingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let editingHandler = self.textItem.editingHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             editingHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath, status: .DidEndEditing)
         }
         if let _ = self.indexPathForNextResponder() {
             self.endEditing(true)
             return true
         }
-        if let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath, let cell = tableView.cellForRowAtIndexPath(indexPath) {
+        if let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath, let cell = tableView.cellForRowAtIndexPath(indexPath) {
             cell.becomeFirstResponder()
         }
         return true
@@ -115,7 +115,7 @@ public class TableViewTextFieldCell: TableViewFormCell, UITextFieldDelegate {
             let newLength = textField.text!.characters.count + string.characters.count - range.length
             shouldChange = newLength <= charactersLimit
         }
-        if let changeCharacterInRangeHandler = self.textItem.changeCharacterInRangeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let changeCharacterInRangeHandler = self.textItem.changeCharacterInRangeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             shouldChange = changeCharacterInRangeHandler(section: self.section, item: self.textItem, tableView: tableView, indexPath: indexPath, range: range, replacementString: string)
         }
         return shouldChange

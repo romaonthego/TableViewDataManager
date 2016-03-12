@@ -1,0 +1,22 @@
+{
+  "name": "TableViewDataManager",
+  "version": "0.1.0",
+  "summary": "A short description of TableViewDataManager.",
+  "description": "",
+  "homepage": "https://github.com/romanthego/TableViewDataManager",
+  "license": "MIT",
+  "authors": {
+    "Roman Efimov": "romefimov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/romaonthego/TableViewDataManager.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/romaonthego",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Source/Classes/**/*",
+  "resources": "Source/Assets/TableViewDataManager.bundle"
+}

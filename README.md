@@ -1,12 +1,12 @@
-# TableViewManager
+# TableViewDataManager
 
-[![Version](https://img.shields.io/cocoapods/v/TableViewManager.svg?style=flat)](http://cocoapods.org/pods/TableViewManager)
-[![License](https://img.shields.io/cocoapods/l/TableViewManager.svg?style=flat)](http://cocoapods.org/pods/TableViewManager)
-[![Platform](https://img.shields.io/cocoapods/p/TableViewManager.svg?style=flat)](http://cocoapods.org/pods/TableViewManager)
+[![Version](https://img.shields.io/cocoapods/v/TableViewDataManager.svg?style=flat)](http://cocoapods.org/pods/TableViewDataManager)
+[![License](https://img.shields.io/cocoapods/l/TableViewDataManager.svg?style=flat)](http://cocoapods.org/pods/TableViewDataManager)
+[![Platform](https://img.shields.io/cocoapods/p/TableViewDataManager.svg?style=flat)](http://cocoapods.org/pods/TableViewDataManager)
 
 __Powerful data driven content manager for UITableView written in Swift.__
 
-`TableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `TableViewManager` is built on top of reusable cells technique and provides APIs for mapping any object class to any custom cell subclass.
+`TableViewDataManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `TableViewDataManager` is built on top of reusable cells technique and provides APIs for mapping any object class to any custom cell subclass.
 
 The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances (and even subclasses), providing a layer that synchronizes data with the cell appereance.
 It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
@@ -29,16 +29,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 $ gem install cocoapods
 ```
 
-> CocoaPods 0.39.0+ is required to build TableViewManager.
+> CocoaPods 0.39.0+ is required to build TableViewDataManager.
 
-To integrate TableViewManager into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate TableViewDataManager into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'TableViewManager'
+pod 'TableViewDataManager'
 ```
 
 Then, run the following command:
@@ -58,17 +58,17 @@ $ brew update
 $ brew install carthage
 ```
 
-To integrate TableViewManager into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate TableViewDataManager into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "TableViewManager/TableViewManager" ~> 1.0
+github "TableViewDataManager/TableViewDataManager" ~> 1.0
 ```
 
-Run `carthage update` to build the framework and drag the built `TableViewManager.framework` into your Xcode project.
+Run `carthage update` to build the framework and drag the built `TableViewDataManager.framework` into your Xcode project.
 
 ### Manually
 
-If you prefer not to use either of the aforementioned dependency managers, you can integrate TableViewManager into your project manually.
+If you prefer not to use either of the aforementioned dependency managers, you can integrate TableViewDataManager into your project manually.
 
 ## Author
 
@@ -80,4 +80,4 @@ Roman Efimov
 
 ## License
 
-TableViewManager is available under the MIT license. See the LICENSE file for more info.
+TableViewDataManager is available under the MIT license. See the LICENSE file for more info.

@@ -1,6 +1,6 @@
 //
 // TableViewSliderCell.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //
@@ -54,7 +54,7 @@ public class TableViewSliderCell: TableViewFormCell {
     //
     @IBAction func sliderValueChanged(sender: UISlider!) {
         self.sliderItem.value = sender.value
-        guard let changeHandler = self.sliderItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath else {
+        guard let changeHandler = self.sliderItem.changeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath else {
             return
         }
         changeHandler(section: self.section, item: self.sliderItem, tableView: tableView, indexPath: indexPath)

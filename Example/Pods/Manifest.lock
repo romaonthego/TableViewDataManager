@@ -1,14 +1,14 @@
 PODS:
-  - TableViewManager (1.0.0)
+  - TableViewDataManager (0.1.0)
 
 DEPENDENCIES:
-  - TableViewManager (from `../`)
+  - TableViewDataManager (from `../`)
 
 EXTERNAL SOURCES:
-  TableViewManager:
+  TableViewDataManager:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TableViewManager: 24a0ad47f7a59f35d8c77a35422c5274fa26359b
+  TableViewDataManager: 74e9552932431c4fa6e37360fc35dbd23a9623dc
 
 COCOAPODS: 0.39.0

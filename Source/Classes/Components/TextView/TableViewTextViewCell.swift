@@ -1,6 +1,6 @@
 //
 // TableViewTextViewCell.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //
@@ -68,20 +68,20 @@ public class TableViewTextViewCell: TableViewFormCell, UITextViewDelegate {
     // MARK: <UITextViewDelegate> methods
     //
     public func textViewDidBeginEditing(textView: UITextView) {
-        if let beginEditingHandler = self.textViewItem.beginEditingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let beginEditingHandler = self.textViewItem.beginEditingHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             beginEditingHandler(section: self.section, item: self.textViewItem, tableView: tableView, indexPath: indexPath)
         }
         self.updateActionBarNavigationControl()
     }
     
     public func textViewDidEndEditing(textView: UITextView) {
-        if let endEditingHandler = self.textViewItem.endEditingHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let endEditingHandler = self.textViewItem.endEditingHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             endEditingHandler(section: self.section, item: self.textViewItem, tableView: tableView, indexPath: indexPath)
         }
     }
     
     public func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if let returnKeyHandler = self.textViewItem.returnKeyHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath where text == "\n" {
+        if let returnKeyHandler = self.textViewItem.returnKeyHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath where text == "\n" {
             textView.resignFirstResponder()
             returnKeyHandler(section: self.section, item: self.textViewItem, tableView: tableView, indexPath: indexPath)
             return false
@@ -91,7 +91,7 @@ public class TableViewTextViewCell: TableViewFormCell, UITextViewDelegate {
     
     public func textViewDidChange(textView: UITextView) {
         self.textViewItem.value = textView.text
-        if let changeHandler = self.textViewItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath {
+        if let changeHandler = self.textViewItem.changeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath {
             changeHandler(section: self.section, item: self.textViewItem, tableView: tableView, indexPath: indexPath)
         }
     }

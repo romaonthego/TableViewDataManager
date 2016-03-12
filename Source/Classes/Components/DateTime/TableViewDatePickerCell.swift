@@ -1,6 +1,6 @@
 //
 // TableViewDatePickerCell.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //
@@ -63,7 +63,7 @@ public class TableViewDatePickerCell: TableViewFormCell {
         if let dateTimeItem = self.datePickerItem.dateTimeItem {
             dateTimeItem.value = sender.date
         }
-        guard let changeHandler = self.datePickerItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath else {
+        guard let changeHandler = self.datePickerItem.changeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath else {
             return
         }
         changeHandler(section: self.section, item: self.datePickerItem, tableView: tableView, indexPath: indexPath)

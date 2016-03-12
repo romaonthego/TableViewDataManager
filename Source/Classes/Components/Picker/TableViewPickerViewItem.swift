@@ -1,6 +1,6 @@
 //
 // TableViewPickerViewItem.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //

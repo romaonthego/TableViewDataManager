@@ -1,6 +1,6 @@
 //
 // TableViewPickerViewCell.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //
@@ -73,7 +73,7 @@ public class TableViewPickerViewCell: TableViewFormCell, UIPickerViewDelegate, U
                 return value
             }()
         }
-        guard let changeHandler = self.pickerViewItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath else {
+        guard let changeHandler = self.pickerViewItem.changeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath else {
             return
         }
         changeHandler(section: self.section, item: self.pickerViewItem, tableView: tableView, indexPath: indexPath)

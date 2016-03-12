@@ -1,12 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'TableViewManager_Example', :exclusive => true do
-  pod 'TableViewManager', :path => '../'
+target 'TableViewDataManager_Example', :exclusive => true do
+  pod 'TableViewDataManager', :path => '../'
 end
 
-target 'TableViewManager_Tests', :exclusive => true do
-  pod 'TableViewManager', :path => '../'
+target 'TableViewDataManager_Tests', :exclusive => true do
+  pod 'TableViewDataManager', :path => '../'
 
   
 end

@@ -1,6 +1,6 @@
 //
 // TableViewSegmentedControlCell.swift
-// TableViewManager
+// TableViewDataManager
 //
 // Copyright (c) 2016 Roman Efimov (https://github.com/romaonthego)
 //
@@ -61,7 +61,7 @@ public class TableViewSegmentedControlCell: TableViewFormCell {
     //
     @IBAction func segmentedControlValueChanged(sender: UISegmentedControl!) {
         self.segmentedControlItem.value = sender.selectedSegmentIndex
-        guard let changeHandler = self.segmentedControlItem.changeHandler, let tableView = self.tableViewManager.tableView, let indexPath = self.indexPath else {
+        guard let changeHandler = self.segmentedControlItem.changeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath else {
             return
         }
         changeHandler(section: self.section, item: self.segmentedControlItem, tableView: tableView, indexPath: indexPath)
