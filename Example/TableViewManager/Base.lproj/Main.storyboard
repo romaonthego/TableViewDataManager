@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ess-nd-OT5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ess-nd-OT5">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="Bve-Vx-HPw">
             <objects>
-                <tableViewController id="8Ub-si-CPm" customClass="RootViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="8Ub-si-CPm" customClass="RootViewController" customModule="TableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="XTw-fj-ZIa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +36,7 @@
         <!--Interface Builder Support-->
         <scene sceneID="V9F-y7-4E0">
             <objects>
-                <tableViewController id="9J9-Br-ZfV" customClass="IBViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="9J9-Br-ZfV" customClass="IBViewController" customModule="TableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="qiN-Pr-c7V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +56,7 @@
         <!--Retractable-->
         <scene sceneID="OS7-hD-BHu">
             <objects>
-                <tableViewController id="esr-IR-zXK" customClass="RetractableViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="esr-IR-zXK" customClass="RetractableViewController" customModule="TableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Nc1-bN-CM1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +76,7 @@
         <!--Editing-->
         <scene sceneID="hs9-ui-tuc">
             <objects>
-                <tableViewController id="uYK-cU-yJf" customClass="EditingViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="uYK-cU-yJf" customClass="EditingViewController" customModule="TableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HmW-LT-OGN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +96,7 @@
         <!--Indexed List-->
         <scene sceneID="jsr-dT-wsb">
             <objects>
-                <tableViewController id="Ke6-YT-zFS" customClass="IndexedListViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ke6-YT-zFS" customClass="IndexedListViewController" customModule="TableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wPJ-kh-fMY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,7 +116,7 @@
         <!--Styling-->
         <scene sceneID="Ze4-TA-OqD">
             <objects>
-                <tableViewController id="Mvr-Yv-qhB" customClass="StyleViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Mvr-Yv-qhB" customClass="StyleViewController" customModule="TableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yMZ-F4-QMR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +135,7 @@
         <!--Forms-->
         <scene sceneID="Yon-OZ-LIz">
             <objects>
-                <tableViewController id="eCC-LB-wdr" customClass="FormViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eCC-LB-wdr" customClass="FormViewController" customModule="TableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Wib-9H-3oZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

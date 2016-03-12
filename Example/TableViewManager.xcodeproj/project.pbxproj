@@ -19,7 +19,6 @@
 		3034A6691C93D66500BAC68B /* RetractableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3034A65E1C93D66500BAC68B /* RetractableViewController.swift */; };
 		3034A66A1C93D66500BAC68B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3034A65F1C93D66500BAC68B /* RootViewController.swift */; };
 		3034A66B1C93D66500BAC68B /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3034A6601C93D66500BAC68B /* StyleViewController.swift */; };
-		3034A66C1C93D66500BAC68B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3034A6611C93D66500BAC68B /* TestViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -48,7 +47,6 @@
 		3034A65E1C93D66500BAC68B /* RetractableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetractableViewController.swift; sourceTree = "<group>"; };
 		3034A65F1C93D66500BAC68B /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		3034A6601C93D66500BAC68B /* StyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
-		3034A6611C93D66500BAC68B /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		3034A66D1C93D89B00BAC68B /* TableViewManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TableViewManager.framework; path = "Pods/../build/Debug-iphoneos/TableViewManager.framework"; sourceTree = "<group>"; };
 		391B6458C4F059F881DC6D53 /* Pods-TableViewManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewManager_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewManager_Example/Pods-TableViewManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4770BC97AE61A84D305EF154 /* Pods_TableViewManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +125,6 @@
 				3034A65E1C93D66500BAC68B /* RetractableViewController.swift */,
 				3034A65F1C93D66500BAC68B /* RootViewController.swift */,
 				3034A6601C93D66500BAC68B /* StyleViewController.swift */,
-				3034A6611C93D66500BAC68B /* TestViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -433,7 +430,6 @@
 				3034A6651C93D66500BAC68B /* EditingViewController.swift in Sources */,
 				3034A6681C93D66500BAC68B /* IndexedListViewController.swift in Sources */,
 				3034A66B1C93D66500BAC68B /* StyleViewController.swift in Sources */,
-				3034A66C1C93D66500BAC68B /* TestViewController.swift in Sources */,
 				3034A6621C93D66500BAC68B /* IBTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
