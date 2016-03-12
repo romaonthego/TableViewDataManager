@@ -37,7 +37,7 @@ public class TableViewDatePickerCell: TableViewFormCell {
     
     // MARK: Interface builder outlets
     //
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet var datePicker: UIDatePicker!
     
     // MARK: View Lifecycle
     //

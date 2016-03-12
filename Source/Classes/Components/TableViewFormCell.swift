@@ -27,10 +27,10 @@ import UIKit
 
 public class TableViewFormCell: TableViewCell {
 
-    @IBOutlet weak var labelCenterYConstraint: NSLayoutConstraint?
-    @IBOutlet weak var labelRightMarginConstraint: NSLayoutConstraint?
-    @IBOutlet weak var labelWidthConstraint: NSLayoutConstraint?
-    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet var labelCenterYConstraint: NSLayoutConstraint?
+    @IBOutlet var labelRightMarginConstraint: NSLayoutConstraint?
+    @IBOutlet var labelWidthConstraint: NSLayoutConstraint?
+    @IBOutlet var titleLabel: UILabel?
     
     public override func cellWillAppear() {
         updateActionBarNavigationControl()

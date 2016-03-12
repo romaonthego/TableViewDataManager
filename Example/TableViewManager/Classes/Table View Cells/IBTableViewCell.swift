@@ -28,7 +28,7 @@ import TableViewManager
 
 class IBTableViewCell: TableViewCell {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet var label: UILabel!
     
     override func cellWillAppear() {
         label.text = self.item.text

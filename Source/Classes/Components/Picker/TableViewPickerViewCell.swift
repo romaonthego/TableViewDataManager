@@ -37,7 +37,7 @@ public class TableViewPickerViewCell: TableViewFormCell, UIPickerViewDelegate, U
     
     // MARK: Interface builder outlets
     //
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet var pickerView: UIPickerView!
     
     // MARK: View Lifecycle
     //

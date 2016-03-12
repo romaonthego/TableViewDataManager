@@ -37,7 +37,7 @@ public class TableViewSegmentedControlCell: TableViewFormCell {
     
     // Interface builder outlets
     //
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet var segmentedControl: UISegmentedControl!
 
     public override func cellWillAppear() {
         super.cellWillAppear()
