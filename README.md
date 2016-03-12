@@ -22,7 +22,7 @@ pod "TableViewManager"
 
 ## Author
 
-Roman Efimov, romaonthego@gmail.com
+Roman Efimov, romefimov@gmail.com
 
 ## License
 
