@@ -10,19 +10,44 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+* iOS 8.0+
+* Swift 2.0+
 
 ## Installation
 
-TableViewManager is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+> CocoaPods 0.39.0+ is required to build TableViewManager.
+
+To integrate TableViewManager into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod "TableViewManager"
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'TableViewManager'
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
 ```
 
 ## Author
 
-Roman Efimov, romefimov@gmail.com
+Roman Efimov
+
+- https://github.com/romaonthego
+- https://twitter.com/romaonthego
+- romefimov@gmail.com
 
 ## License
 
