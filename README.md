@@ -58,6 +58,8 @@ To integrate TableViewManager into your Xcode project using Carthage, specify it
 github "TableViewManager/TableViewManager" ~> 1.0
 ```
 
+Run `carthage update` to build the framework and drag the built `TableViewManager.framework` into your Xcode project.
+
 ## Author
 
 Roman Efimov
