@@ -5,6 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/TableViewManager.svg?style=flat)](http://cocoapods.org/pods/TableViewManager)
 [![Platform](https://img.shields.io/cocoapods/p/TableViewManager.svg?style=flat)](http://cocoapods.org/pods/TableViewManager)
 
+__Powerful data driven content manager for UITableView written in Swift.__
+
+`TableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `TableViewManager` is built on top of reusable cells technique and provides APIs for mapping any object class to any custom cell subclass.
+
+The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances (and even subclasses), providing a layer that synchronizes data with the cell appereance.
+It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -59,6 +66,10 @@ github "TableViewManager/TableViewManager" ~> 1.0
 ```
 
 Run `carthage update` to build the framework and drag the built `TableViewManager.framework` into your Xcode project.
+
+### Manually
+
+If you prefer not to use either of the aforementioned dependency managers, you can integrate TableViewManager into your project manually.
 
 ## Author
 
