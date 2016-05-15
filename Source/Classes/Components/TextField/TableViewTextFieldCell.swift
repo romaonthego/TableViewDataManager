@@ -41,12 +41,12 @@ public class TableViewTextFieldCell: TableViewFormCell, UITextFieldDelegate {
 
     public override func cellDidLoad() {
         super.cellDidLoad()
-        self.textField.inputAccessoryView = self.actionBar
         self.textField.addTarget(self, action: Selector("textFieldDidChange:"), forControlEvents: .EditingChanged)
     }
     
     public override func cellWillAppear() {
         super.cellWillAppear()
+        self.textField.inputAccessoryView = self.textItem.showsActionBar ? self.actionBar : nil
         self.textField.text = self.textItem.value
         self.textField.placeholder = self.textItem.placeholder
         self.textField.secureTextEntry = self.textItem.secureTextEntry

@@ -43,13 +43,13 @@ public class TableViewTextViewCell: TableViewFormCell, UITextViewDelegate {
     //
     public override func cellDidLoad() {
         super.cellDidLoad()
-        self.textView.inputAccessoryView = self.actionBar
         self.textView.textContainer.lineFragmentPadding = 0
         self.textView.textContainerInset = UIEdgeInsetsZero
     }
     
     public override func cellWillAppear() {
         super.cellWillAppear()
+        self.textView.inputAccessoryView = self.textViewItem.showsActionBar ? self.actionBar : nil
         self.textView.editable = textViewItem.editable
         self.textView.text = textViewItem.value
         self.textView.autocapitalizationType = self.textViewItem.autocapitalizationType

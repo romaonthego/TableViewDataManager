@@ -29,6 +29,7 @@ public class TableViewTextViewItem: TableViewFormItem, TableViewItemFocusable {
     
     public var value: String?
     public var editable: Bool = true
+    public var showsActionBar = true
     
     // MARK: Keyboard
     //

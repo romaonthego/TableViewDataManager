@@ -31,6 +31,7 @@ public class TableViewTextFieldItem: TableViewFormItem, TableViewItemFocusable {
     public var placeholder: String?
     public var charactersLimit: Int?
     public var secureTextEntry = false
+    public var showsActionBar = true
     
     // MARK: Keyboard
     //
