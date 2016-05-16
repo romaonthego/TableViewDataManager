@@ -37,7 +37,7 @@ public class TableViewTextViewCell: TableViewFormCell, UITextViewDelegate {
     
     // MARK: Interface builder outlets
     //
-    @IBOutlet var textView: UITextView!
+    @IBOutlet public private(set) var textView: UITextView!
     
     // MARK: View Lifecycle
     //

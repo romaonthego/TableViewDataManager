@@ -37,7 +37,7 @@ public class TableViewSwitchCell: TableViewFormCell {
     
     // Interface builder outlets
     //
-    @IBOutlet var switchControl: UISwitch!
+    @IBOutlet public private(set) var switchControl: UISwitch!
     
     public override func cellDidLoad() {
         super.cellDidLoad()

@@ -30,7 +30,7 @@ public class TableViewFormCell: TableViewCell {
     @IBOutlet var labelCenterYConstraint: NSLayoutConstraint?
     @IBOutlet var labelRightMarginConstraint: NSLayoutConstraint?
     @IBOutlet var labelWidthConstraint: NSLayoutConstraint?
-    @IBOutlet var titleLabel: UILabel?
+    @IBOutlet public private(set) var titleLabel: UILabel?
     
     public override func cellWillAppear() {
         updateActionBarNavigationControl()

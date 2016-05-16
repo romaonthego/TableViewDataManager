@@ -37,7 +37,7 @@ public class TableViewTextFieldCell: TableViewFormCell, UITextFieldDelegate {
     
     // Interface builder outlets
     //
-    @IBOutlet var textField: UITextField!
+    @IBOutlet public private(set) var textField: UITextField!
 
     public override func cellDidLoad() {
         super.cellDidLoad()

@@ -37,7 +37,7 @@ public class TableViewSliderCell: TableViewFormCell {
     
     // MARK: Interface builder outlets
     //
-    @IBOutlet var slider: UISlider!
+    @IBOutlet public private(set) var slider: UISlider!
     
     // MARK: View Lifecycle
     //
