@@ -56,7 +56,7 @@ public class TableViewActionBar: UIToolbar {
             let control = UISegmentedControl(items: ["Previous", "Next"])
             control.momentary = true
             control.setDividerImage(UIImage(), forLeftSegmentState: .Normal, rightSegmentState: .Normal, barMetrics: .Default)
-            control.addTarget(self, action: Selector("previousNextPressed:"), forControlEvents: .ValueChanged)
+            control.addTarget(self, action: #selector(TableViewActionBar.previousNextPressed(_:)), forControlEvents: .ValueChanged)
             control.setWidth(40, forSegmentAtIndex: 0)
             control.setWidth(40, forSegmentAtIndex: 1)
             control.setContentOffset(CGSize(width: -4, height: 0), forSegmentAtIndex: 0)
@@ -68,7 +68,7 @@ public class TableViewActionBar: UIToolbar {
         self.items = [
             UIBarButtonItem(customView: self.navigationControl),
             UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("doneButtonPressed:"))
+            UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(TableViewActionBar.doneButtonPressed(_:)))
         ]
     }
     

@@ -444,11 +444,11 @@ public class TableViewDataManager: NSObject, UITableViewDelegate, UITableViewDat
         editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .WillBeginEditing)
     }
     
-    public func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
-        guard let section = self.sectionAtIndexPath(indexPath), let item = self.itemAtIndexPath(indexPath), let editingHandler = item.editingHandler else {
+    public func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath?) {
+        guard let section = self.sectionAtIndexPath(indexPath!), let item = self.itemAtIndexPath(indexPath!), let editingHandler = item.editingHandler else {
             return
         }
-        return editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath, status: .DidEndEditing)
+        return editingHandler(section: section, item: item, tableView: tableView, indexPath: indexPath!, status: .DidEndEditing)
     }
 
     // Moving/reordering
@@ -484,20 +484,20 @@ public class TableViewDataManager: NSObject, UITableViewDelegate, UITableViewDat
         guard let item = self.itemAtIndexPath(indexPath) else {
             return false
         }
-        return (item.copyHandler != nil && action == Selector("copy:")) || (item.pasteHandler != nil && action == Selector("paste:")) || (item.cutHandler != nil && action == Selector("cut:"))
+        return (item.copyHandler != nil && action == #selector(UIResponderStandardEditActions.copy(_:))) || (item.pasteHandler != nil && action == #selector(UIResponderStandardEditActions.paste(_:))) || (item.cutHandler != nil && action == #selector(UIResponderStandardEditActions.cut(_:)))
     }
     
     public func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
         guard let item = self.itemAtIndexPath(indexPath), let section = self.sectionAtIndexPath(indexPath) else {
             return
         }
-        if let copyHandler = item.copyHandler where action == Selector("copy:") {
+        if let copyHandler = item.copyHandler where action == #selector(UIResponderStandardEditActions.copy(_:)) {
             copyHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
         }
-        if let pasteHandler = item.pasteHandler where action == Selector("paste:") {
+        if let pasteHandler = item.pasteHandler where action == #selector(UIResponderStandardEditActions.paste(_:)) {
             pasteHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
         }
-        if let cutHandler = item.cutHandler where action == Selector("cut:") {
+        if let cutHandler = item.cutHandler where action == #selector(UIResponderStandardEditActions.cut(_:)) {
             cutHandler(section: section, item: item, tableView: tableView, indexPath: indexPath)
         }
     }

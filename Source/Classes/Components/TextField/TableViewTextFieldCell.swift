@@ -41,7 +41,7 @@ public class TableViewTextFieldCell: TableViewFormCell, UITextFieldDelegate {
 
     public override func cellDidLoad() {
         super.cellDidLoad()
-        self.textField.addTarget(self, action: Selector("textFieldDidChange:"), forControlEvents: .EditingChanged)
+        self.textField.addTarget(self, action: #selector(TableViewTextFieldCell.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
     }
     
     public override func cellWillAppear() {
